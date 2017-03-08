@@ -1,0 +1,381 @@
+
+End of 1st Quarter
+00:00.0
+CHI
+22-25
+[CHI] Team Rebound
+00:00.1
+CHI
+22-25
+[CHI] Butler 3pt Shot: Missed
+00:08.5
+CHI
+22-25
+[CHI] Butler Rebound (Off:0 Def:1)
+00:09.9
+BOS
+22-25
+[BOS] Young Jump Shot: Missed
+00:30.9
+BOS
+22-25
+[BOS] Olynyk Rebound (Off:0 Def:2)
+00:31.9
+CHI
+22-25
+[CHI] McDermott 3pt Shot: Missed
+00:43.4
+CHI
+22-25
+[CHI] Rondo Rebound (Off:0 Def:3)
+00:44.9
+BOS
+22-25
+[BOS] Green 3pt Shot: Missed
+01:01
+BOS
+22-25
+[BOS] Olynyk Rebound (Off:0 Def:1)
+01:02
+CHI
+22-25
+[CHI] Rondo 3pt Shot: Missed
+01:17
+CHI
+22-25
+[CHI] Lopez Substitution replaced by Felicio
+01:17
+BOS
+22-25
+[BOS] Green Turnover : Backcourt Turnover (1 TO)
+01:30
+CHI
+22-25
+[CHI 22-25] Portis Layup Shot: Made (2 PTS) Assist: Rondo (2 AST)
+WATCH
+01:35
+CHI
+20-25
+[CHI] Portis Rebound (Off:0 Def:1)
+01:36
+BOS
+20-25
+[BOS] Olynyk Layup Shot: Missed
+01:54
+BOS
+20-25
+[BOS] Smart Rebound (Off:0 Def:1)
+01:55
+CHI
+20-25
+[CHI] Portis Jump Shot: Missed
+02:13
+BOS
+20-25
+[BOS] Crowder Substitution replaced by Young
+02:13
+BOS
+20-25
+[BOS] Thomas Substitution replaced by Smart
+02:13
+BOS
+20-25
+[BOS] Thomas Turnover : Out of Bounds Lost Ball Turnover (1 TO)
+02:28
+BOS
+20-25
+[BOS] Team Rebound
+02:28
+CHI
+20-25
+[CHI] Butler Layup Shot: Missed
+02:32
+CHI
+20-25
+[CHI] Rondo Rebound (Off:0 Def:2)
+02:33
+BOS
+20-25
+[BOS] Green Jump Shot: Missed
+02:36
+BOS
+20-25
+[BOS] Green Rebound (Off:1 Def:1)
+02:42
+BOS
+20-25
+[BOS] Thomas 3pt Shot: Missed
+02:48
+CHI
+20-25
+[CHI] Carter-Williams Substitution replaced by McDermott
+02:48
+BOS
+20-25
+[BOS] Horford Substitution replaced by Zeller
+03:05
+CHI
+20-25
+[CHI 20-25] Lopez Dunk Shot: Made (9 PTS)
+WATCH
+03:07
+CHI
+18-25
+[CHI] Lopez Rebound (Off:2 Def:1)
+03:08
+BOS
+18-25
+[BOS] Horford 3pt Shot: Missed
+03:20
+BOS
+18-25
+[BOS] Green Rebound (Off:0 Def:1)
+03:22
+CHI
+18-25
+[CHI] Butler Jump Shot: Missed
+03:38
+BOS
+18-25
+[BOS 25-18] Green 3pt Shot: Made (6 PTS) Assist: Olynyk (1 AST)
+03:51
+CHI
+18-22
+[CHI] Gibson Substitution replaced by Portis
+03:51
+BOS
+18-22
+[BOS] Team Timeout : Regular
+03:51
+CHI
+18-22
+[CHI 18-22] Butler Dunk Shot: Made (5 PTS) Assist: Rondo (1 AST)
+WATCH
+03:53
+CHI
+16-22
+[CHI] Rondo Rebound (Off:0 Def:1)
+03:54
+BOS
+16-22
+[BOS] Crowder 3pt Shot: Missed
+03:58
+BOS
+16-22
+[BOS] Johnson Substitution replaced by Olynyk
+04:16
+CHI
+16-22
+[CHI 16-22] Lopez Jump Shot: Made (7 PTS) Assist: Carter-Williams (1 AST)
+04:35
+BOS
+14-22
+[BOS 22-14] Green 3pt Shot: Made (3 PTS) Assist: Thomas (5 AST)
+WATCH
+04:56
+CHI
+14-19
+[CHI 14-19] Lopez Free Throw 1 of 1 (5 PTS)
+04:56
+CHI
+13-19
+[CHI] Grant Substitution replaced by Rondo
+04:56
+BOS
+13-19
+[BOS] Smart Substitution replaced by Green
+04:56
+BOS
+13-19
+[BOS] Johnson Foul: Shooting (1 PF) (1 FTA) (J Williams)
+04:56
+CHI
+13-19
+[CHI 13-19] Lopez Putback Layup Shot: Made (4 PTS)
+04:56
+CHI
+11-19
+[CHI] Lopez Rebound (Off:2 Def:0)
+04:56
+CHI
+11-19
+[CHI] Carter-Williams 3pt Shot: Missed
+05:19
+BOS
+11-19
+[BOS 19-11] Johnson Hook Shot: Made (10 PTS)
+05:38
+CHI
+11-17
+[CHI 11-17] Butler Jump Shot: Made (3 PTS) Assist: Lopez (1 AST)
+WATCH
+05:59
+BOS
+9-17
+[BOS 17-9] Johnson Alley Oop Layup shot: Made (8 PTS) Assist: Thomas (4 AST)
+06:11
+CHI
+9-15
+[CHI 9-15] Lopez Tip Layup Shot: Made (2 PTS)
+06:11
+CHI
+7-15
+[CHI] Lopez Rebound (Off:1 Def:0)
+06:12
+CHI
+7-15
+[CHI] Carter-Williams Driving Layup Shot: Missed
+06:25
+BOS
+7-15
+[BOS 15-7] Thomas Fadeaway Jump Shot: Made (2 PTS)
+WATCH
+06:36
+CHI
+7-13
+[CHI] Gibson Turnover : Lost Ball (1 TO) Steal:Johnson (1 ST)
+06:58
+BOS
+7-13
+[BOS] Crowder Turnover : Out of Bounds Lost Ball Turnover (1 TO)
+07:02
+BOS
+7-13
+[BOS] Horford Rebound (Off:0 Def:1)
+07:03
+CHI
+7-13
+[CHI] Carter-Williams Floating Jump shot: Missed
+07:16
+BOS
+7-13
+[BOS] Smart Foul: Personal (1 PF) (Z Zarba)
+07:25
+BOS
+7-13
+[BOS 13-7] Horford 3pt Shot: Made (7 PTS)
+07:41
+BOS
+7-10
+[BOS] Thomas Rebound (Off:0 Def:1)
+07:42
+CHI
+7-10
+[CHI] Butler Fadeaway Jump Shot: Missed
+08:05
+BOS
+7-10
+[BOS 10-7] Johnson Dunk Shot: Made (6 PTS) Assist: Thomas (3 AST)
+WATCH
+08:26
+CHI
+7-8
+[CHI 7-8] Gibson Turnaround Jump Shot: Made (4 PTS) Assist: Butler (3 AST)
+08:39
+CHI
+5-8
+[CHI 5-8] Butler Free Throw Technical (1 PTS)
+08:39
+BOS
+4-8
+[BOS] Horford Foul: Defense 3 Second (0 PF) (Z Zarba)
+08:56
+CHI
+4-8
+[CHI] Team Timeout : Regular
+08:56
+BOS
+4-8
+[BOS 8-4] Johnson Driving Dunk Shot: Made (4 PTS) Assist: Smart (1 AST)
+08:59
+CHI
+4-6
+[CHI] Lopez Turnover : Out of Bounds Lost Ball Turnover (1 TO)
+09:16
+BOS
+4-6
+[BOS 6-4] Horford Jump Shot: Made (4 PTS) Assist: Thomas (2 AST)
+09:29
+CHI
+4-4
+[CHI 4-4] Gibson Floating Jump shot: Made (2 PTS) Assist: Butler (2 AST)
+WATCH
+09:33
+CHI
+2-4
+[CHI] Team Rebound
+09:33
+CHI
+2-4
+[CHI] Butler Layup Shot: Missed Block: Johnson (2 BLK)
+09:52
+BOS
+2-4
+[BOS 4-2] Johnson Layup Shot: Made (2 PTS) Assist: Thomas (1 AST)
+10:03
+BOS
+2-2
+[BOS] Johnson Rebound (Off:0 Def:1)
+10:05
+CHI
+2-2
+[CHI] Carter-Williams Layup Shot: Missed Block: Johnson (1 BLK)
+10:12
+CHI
+2-2
+[CHI] Carter-Williams Rebound (Off:0 Def:2)
+10:13
+BOS
+2-2
+[BOS] Smart Jump Shot: Missed
+10:27
+CHI
+2-2
+[CHI] Lopez Foul: Loose Ball (1 PF) (J Williams)
+10:27
+BOS
+2-2
+[BOS] Team Rebound
+10:28
+CHI
+2-2
+[CHI] Grant 3pt Shot: Missed
+10:52
+BOS
+2-2
+[BOS 2-2] Horford Reverse Layup Shot: Made (2 PTS)
+WATCH
+11:10
+CHI
+2-0
+[CHI 2-0] Carter-Williams Jump Shot: Made (2 PTS) Assist: Butler (1 AST)
+WATCH
+11:16
+CHI
+0-0
+[CHI] Carter-Williams Rebound (Off:0 Def:1)
+11:17
+BOS
+0-0
+[BOS] Thomas 3pt Shot: Missed
+11:29
+BOS
+0-0
+[BOS] Crowder Rebound (Off:0 Def:1)
+11:30
+CHI
+0-0
+[CHI] Lopez Layup Shot: Missed
+11:43
+CHI
+0-0
+[CHI] Gibson Rebound (Off:0 Def:1)
+11:45
+BOS
+0-0
+[BOS] Crowder 3pt Shot: Missed
+12:00
+CHI
+0-0
+Jump Ball Lopez vs Johnson (Horford gains possession)
+Start of 1st Quarter
