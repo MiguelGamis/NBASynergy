@@ -39,3 +39,11 @@ function getPlayer($namestring, $players)
         }
     }
 }
+
+function timeformat($milliseconds)
+{
+    $minutes = floor($milliseconds/ 60000);
+    $leftoverseconds = ($milliseconds - $minutes*60000)/1000;
+    if($leftoverseconds < 10) $leftoverseconds = "0".$leftoverseconds;
+    return "$minutes:$leftoverseconds";
+}

@@ -31,6 +31,14 @@ CREATE TABLE IF NOT EXISTS `shot` (
   UNIQUE KEY `playershot` (`playerID`, `gameID`, `time`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `assist` (
+  `assistID` int(11) NOT NULL AUTO_INCREMENT,
+  `playerID` int(11) NOT NULL,
+  `shotID` int(11) NOT NULL,
+  PRIMARY KEY (`assistID`),
+  UNIQUE KEY `shotassisted` (`shotID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `game` (
   `gameID` int(11) NOT NULL AUTO_INCREMENT,
   `date` datetime NOT NULL,
@@ -90,6 +98,15 @@ ALTER TABLE `game`
 
 INSERT INTO `team` (shortName, city, teamName) VALUES
   ('BOS', 'Boston', 'Celtics' ),
+  ('PHX', 'Phoenix', 'Suns'),
+  ('DEN', 'Denver', 'Nuggets'),
+  ('CHA', 'Charlotte', 'Hornets'),
+  ('MEM', 'Memphis', 'Grizzlies'),
+  ('LAL', 'Los Angeles', 'Lakers'),
+  ('LAC', 'Los Angeles', 'Clippers'),
+  ('OKC', 'Oklahoma City', 'Thunder'),
+  ('MIA', 'Miami', 'Heat'),
   ('CHI', 'Chicago', 'Bulls' ),
-  ('TOR', 'Toronto', 'Raptors' );
+  ('TOR', 'Toronto', 'Raptors' ),
+  ('WAS', 'Washington', 'Wizards');
 

@@ -92,12 +92,24 @@ class DataManager
         }
     }
 
+    function getPlayerByID($id)
+    {
+        global $db;
+        if($db)
+        {
+            $query = "SELECT * FROM player WHERE playerID = ?;";
+            $sh = $db->prepare($query);
+            $sh->execute(array($id));
+            $row = $sh->fetch();
+            $player = new player($row['firstName'], $row['lastName']);
+            $player->playerID = $id;
+            return $player;
+        }
+    }
+    
     function getShiftsFromGame($date, $hometeam, $awayteam, $home)
     {
         global $db;
-//        $query = "SELECT * FROM shift JOIN (SELECT gameID FROM game WHERE date = FROM_UNIXTIME(:date) AND hometeam = ':hometeam' AND awayteam = ':awayteam') specificgame ON specificgame.gameID = shift.gameID;";
-//        $sh = $db->prepare($query);
-//        $blah = array("date" => $date, "hometeam" => $hometeam, "awayteam" => $awayteam );
         $query = "SELECT * FROM shift JOIN (SELECT gameID FROM game WHERE date = FROM_UNIXTIME($date) AND hometeam = '$hometeam' AND awayteam = '$awayteam') specificgame ON specificgame.gameID = shift.gameID WHERE home = $home";
         $sh = $db->query($query);
         $shifts = array();
@@ -109,10 +121,17 @@ class DataManager
             $shift->gameID = $res['gameID'];
             $shift->starttime = $res['starttime'];
             $shift->endtime = $res['endtime'];
-            $shift->home = $res['home'];
-            $shifts[$shift->playerID][] = $shift;
+            $shift->isHome = $res['home'];
+            if(!array_key_exists($res['playerID'], $shifts))
+            {
+                $playershifts = new stdClass();
+                $playershifts->player = self::getPlayerByID($res['playerID']);
+                $playershifts->shifts = array();
+                $shifts[$res['playerID']] = $playershifts;
+            }
+            $shifts[$res['playerID']]->shifts[] = $shift; 
         }
-        return $shifts;
+        return array_values($shifts);
     }
     
     function getPlayersFromTeam($team)
@@ -130,6 +149,17 @@ class DataManager
             $players[] = $player;
         }
         return $players;
+    }
+    
+    function insertShot($shot)
+    {
+        global $db;
+        if($db)
+        {
+            $query = "INSERT INTO shot (playerID, type, made, gameID, time, home) VALUES (?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE playerID = playerID;";
+            $sh = $db->prepare($query);
+            $sh->execute(array($shot->playerID, $shot->type, $shot->success, $shot->gameID, $shot->time, $shot->isHome));
+        }
     }
     
     function getPlayerData($playerID)

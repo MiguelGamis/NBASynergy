@@ -176,18 +176,22 @@
                         $shifts[$team][$shift->playerID] = $shift;
                     }
                     
-                    if(strpos($line, "Shot") !== false)
+                    $shotpos = strpos($playdetails, "Shot");
+                    if($shotpos !== false)
                     {
                         $shot = new shot();
                         $shot->time = $time;
                         $shot->playerID = $player->playerID;
+                        $shot->gameID = $game->gameID;
+                        $shot->isHome = $team == $home ? 1 : 0;
+                        $typestartpos = strlen($lastname) + 1;
+                        $shot->type = substr($playdetails, $typestartpos, ($shotpos-1)-$typestartpos);
                         if(strpos($playdetails, "Missed") !== false)
                         {
                             $shot->success = false;
                             if(strpos($playdetails, "Blocked") !== false)
                             {
                                 $block = new block;
-
                             }
                         }
                         else if(strpos($line, "Made") !== false)
@@ -207,6 +211,7 @@
                                 $assists[] = $assist;
                             }
                         }
+                        DataManager::insertShot($shot);
                     }
                     else if(strpos($line, "Rebound") !== false)
                     {

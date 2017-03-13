@@ -7,10 +7,12 @@ function isInt(n) {
    return n % 1 === 0;
 }
 
-function onPlayerChange(selection) {
-    var playerID = selection.value
+function onPlayerChange() {
+    var playerselection = document.getElementById("playerSelect");
+    var playerID = playerselection.value;
+    
     if (!isInt(playerID)) {
-        document.getElementById("txtHint").innerHTML = "";
+        document.getElementById("playerData").innerHTML = "error";
         return;
     } else { 
         if (window.XMLHttpRequest) {
@@ -22,7 +24,7 @@ function onPlayerChange(selection) {
         }
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
+                document.getElementById("playerData").innerHTML = this.responseText;
             }
         };
         xmlhttp.open("GET","getdata.php?playerID="+playerID,true);
@@ -31,24 +33,56 @@ function onPlayerChange(selection) {
 }
 
 function addOptions(players) {
-    var myTable = document.getElementById('myTable')
-
-    var selection = document.createElement("select")
-
-    var mySelect = document.getElementById('mySelect') 
+    var playerSelect = document.getElementById('playerSelect') 
 
     for (i=0; i<players.length; i++) {
         var option = document.createElement("option")
         option.text = players[i].firstname + ' ' + players[i].lastname
         option.value = players[i].playerID
-        selection.add(option, selection[i])
-        mySelect.add(option)
+        playerSelect.add(option)
     }
+}
+
+function onChange(){
+    onPlayerChange();
+    onOpponentChange();
+}
+
+function onOpponentChange() {
+    var opponentselection = document.getElementById("opponentSelect1");
+    var opponentID = opponentselection.value;
     
-    var option = document.createElement("option")
-    option.text = 'Get a rope'
-    mySelect.options[0] = option
+    var playerselection = document.getElementById("playerSelect");
+    var playerID = playerselection.value;
     
-    selection.onchange = onPlayerChange();
-    myTable.appendChild(selection);
+    if (!isInt(opponentID) || !isInt(playerID)) {
+        document.getElementById("matchupData").innerHTML = "error";
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("matchupData").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","getmatchupdata.php?playerID="+playerID+"&opponentID="+opponentID,true);
+        xmlhttp.send();
+    }
+}
+
+function addOtherOptions(players) {
+    var opponentSelect1 = document.getElementById('opponentSelect1') 
+
+    for (i=0; i<players.length; i++) {
+        var option = document.createElement("option")
+        option.text = players[i].firstname + ' ' + players[i].lastname
+        option.value = players[i].playerID
+        opponentSelect1.add(option)
+    }
 }
