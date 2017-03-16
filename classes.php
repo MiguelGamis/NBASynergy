@@ -26,6 +26,8 @@
             public $type;
             public $success;
             public $isHome;
+            public $distance;
+            public $shotclock;
         }
         
         class Assist

@@ -32,6 +32,7 @@ class DataManager
         if($db)
         {
             $query = "SELECT gameID FROM game WHERE date = FROM_UNIXTIME($date) AND hometeam = '$hometeam' AND awayteam = '$awayteam';";
+            var_dump($query);
             $result = $db->query($query);
             $row = $result->fetch();
             if($row)
@@ -156,7 +157,7 @@ class DataManager
         global $db;
         if($db)
         {
-            $query = "INSERT INTO shot (playerID, type, made, gameID, time, home) VALUES (?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE playerID = playerID;";
+            $query = "INSERT INTO shot (playerID, type, made, gameID, time, home, distance, shotclock) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE playerID = playerID;";
             $sh = $db->prepare($query);
             $sh->execute(array($shot->playerID, $shot->type, $shot->success, $shot->gameID, $shot->time, $shot->isHome));
         }
