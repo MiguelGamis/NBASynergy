@@ -5,219 +5,128 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-        require("classes.php");
-        require("queries.php");
-        require("basic.php");
+    require("classes.php");
+    require("queries.php");
+    require("basic.php");
+
+    $filename = "21600001-20161025-NYKCLE.csv";
+    $fcontents = file_get_contents("scraper/games/".$filename);
+    $date = substr($filename, 0, 8);
+    $date = substr($date, 0, 4)."-".substr($date, 4, 2)."-".substr($date, 6, 2);
+    $dashpos = strpos($filename, "-");
+    $away = substr($filename, $dashpos+1, 3);
+    $home = substr($filename, $dashpos+4, 3);
+    $game = DataManager::insertGame(strtotime($date), $home, $away);
+
+    $players = array($home=>array(), $away=>array());
+    $shifts = array($home=>array(), $away=>array());
+
+    $lines = explode("\n",$fcontents);
+    $awayline = $lines[0];
+    $awayRoster = explode(",", $awayline);
+    $homeline = $lines[1];
+    $homeRoster = explode(",", $homeline);
+    unset($lines[0]); unset($lines[1]);
+    
+    initiateRosters($homeRoster, $players, $shifts, $game, $home);
+    initiateRosters($awayRoster, $players, $shifts, $game, $away);
+    
+    $shots = array();
+    $assists = array();
+
+    $quarter = 1;
+    
+    $lastesttotalms = 0;
+    
+    $previousfoul = null;
+    
+    foreach($lines as $line){
         
-        $filename = "20170313-CHICHA.csv";
-        $fcontents = file_get_contents("games/".$filename);
-        $date = substr($filename, 8);
-        $date = substr($date, 0, 4)."-".substr($date, 4, 2)."-".substr($date, 6, 2);
-        $dashpos = strpos($filename, "-");
-        $away = substr($filename, $dashpos+1, 3);
-        $home = substr($filename, $dashpos+4, 3);
-        $game = DataManager::insertGame(strtotime($date), $home, $away);
-                
-        $players = array('CHI'=>array(), 'BOS'=>array());
-        $shifts = array('CHI'=>array(), 'BOS'=>array());
-        
-        function initiateRosters($roster, &$players, &$shifts, $game, $team)
+        #SPECIAL CASE: LINE IS FOR START OF A PERIOD
+        if(strpos($line, 'Start of ') === 0)
         {
-            global $home, $away;
-            
-            $playersstring = preg_split('/\s+/', $roster);
-            $playersstring = array_chunk($playersstring , 2);
-            $i=0;
-            foreach($playersstring as $p)
+            $isOT = strpos($line, 'OT');
+            $isReg = strpos($line, 'Q');
+            if($isReg)
             {
+                $quarter = intval($line[$isReg+1]);
+                var_dump("It is period $quarter");
+            }
+            else if($isOT)
+            {
+                //Assuming OT10 or higher wont be reached
+                $quarter = intval($line[$isOT+1]);
+            }
+            continue;
+        }
+        
+        $lineparts = explode(',', $line); 
+        
+        $timescore = $lineparts[0];
+        $awayPlay = $lineparts[1];
+        $homePlay = $lineparts[2];
+        
+        #TIME AND SCORE
+        $clockstring = substr($timescore, 0, strpos($timescore, ":") + 3);
+        var_dump($clockstring);
+        $totalms = timeintotalms($quarter, $clockstring);
+        
+        #AWAY TEAM
+        if(strpos($awayPlay, "MISS") !== false)
+        {
+            $player = findPlayerInPlay($awayplay, $players[$away]);
+            
+            if(strpos($awayPlay, "Free Throw") !== false)
+            {
+                $freethrow = new FreeThrow();
+                $freethrow->playerID = $player->playerID;
+                $freethrow->foulID = $previousfoul;
+                $freethrow->made = false;
+            }
+            
+            $shot_distance_pattern = "/ [0-9]+\'/";
+            preg_match($shot_distance_pattern, $awayPlay, $matches, PREG_OFFSET_CAPTURE);
+            if(sizeof($matches) > 0)
+            {
+                echo "Shot missed at ".$matches[0][0];
+            }
+        }
+        
+        
+        
+        $latesttotalms = $totalms;
+    }
+    
+    function initiateRosters($roster, &$players, &$shifts, $game, $team)
+    {
+        $playernames = array_chunk($roster , 2);
+        $i=0;
+        foreach($playernames as $p)
+        {
+            $player = DataManager::getPlayer($p[0], $p[1]);
+            if(!$player)
+            {
+                echo "inserting ".$p[0]." ".$p[1]."<br/>";
+                DataManager::insertPlayer($p[0], $p[1], $team);
                 $player = DataManager::getPlayer($p[0], $p[1]);
-                if(!$player)
-                {
-                    echo "inserting ".$p[0]." ".$p[1]."<br/>";
-                    DataManager::insertPlayer($p[0], $p[1], $team);
-                    $player = DataManager::getPlayer($p[0], $p[1]);
-                }
-                if($player)
-                {
-                    $players[$player->lastname] = $player;
-                    if($i < 5)
-                    {
-                        $shift = new shift;
-                        $shift->playerID = $player->playerID;
-                        $shift->starttime = 0;
-                        $shift->gameID = $game->gameID;
-                        $shift->isHome = $team == $home ? 1 : 0;
-                        $shifts[$player->playerID] = $shift;
-                    }
-                }
-                else
-                {
-                    echo "alert: couldn't get player";
-                }
-                $i++;
             }
+            if($player)
+            {
+                $players[$team][$player->playerID] = $player;
+                if($i < 5)
+                {
+                    $shift = new shift;
+                    $shift->playerID = $player->playerID;
+                    $shift->starttime = 0;
+                    $shift->gameID = $game->gameID;
+                    $shift->isHome = $team == $game->home ? 1 : 0;
+                    $shifts[$team][$player->playerID] = $shift;
+                }
+            }
+            else
+            {
+                echo "alert: couldn't get player";
+            }
+            $i++;
         }
-        
-        $lines = explode("\r\n",$fcontents);
-        $awayline = $lines[0];
-        $awayRoster = explode(",", $awayline);
-        $homeline = $lines[1];
-        $homeRoster = explode(",", $homeline);
-        
-        initiateRosters($homeRoster, $players[$home], $shifts[$home], $game, 'CHI');
-        initiateRosters($awayRoster, $players[$away], $shifts[$away], $game, 'BOS');
-        
-        $lines = explode("\r\n",$fcontents);
-        $lines = array_reverse($lines);
-        
-        $shots = array();
-        $assists = array();
-        $keywords = ['Rebound', '3pt Shot', 'Shot', 'Layup Shot', 'Reverse Layup Shot', 'Assist'];
-        
-        $line = current($lines);
-        $linenum = 0;
-        $quarter = 1;
-        while($line !== false)
-        {
-            if(preg_match("/^Start of [1234]/", $line))
-            {
-                $quarter = intval($line[9]);
-            }
-            if(preg_match("/^End of [1234]/", $line))
-            {
-                foreach($shifts as $team => &$teamshifts)
-                {
-                    $numteamshifts = sizeof($teamshifts);
-                    if($numteamshifts != 5)
-                    {
-                        echo "$team only has $numteamshifts shifts";
-                    }
-                    foreach($teamshifts as &$playershift)
-                    {
-                        $playershift->endtime = $quarter * 720000;
-                        DataManager::insertShift($playershift);
-                        unset($teamshifts[$playershift->playerID]);
-                    }
-                }
-            }
-            //PLAY
-            if(preg_match("/^\[([A-Z]{3})\]/", $line) || preg_match("/^\[([A-Z]{3})/", $line) )
-            {
-                if(preg_match("/(1[012]|0[0-9]):([0-5][0-9])/", $lines[$linenum+3]))
-                {
-                    //get time in milliseconds
-                    $timestring = trim($lines[$linenum+3]);
-                    $timecomponents = explode(":", $timestring);
-                    $time = ($quarter - 1) * 720000 + (720000 - (floatval($timecomponents[0]) * 60000 + floatval($timecomponents[1]) * 1000));
-
-                    //get team
-                    $team = substr($line, 1, 3);
-
-                    //cutoff team from string
-//                    $playdetails = preg_replace("/^\[([A-Z]{3})\]\\s/", "", $line);
-//                    var_dump("$playdetails");
-                    $pos = strpos($line, "] ");
-                    $playdetails = substr($line, $pos+2);
-                    
-                    $spacepos = strpos($playdetails, " ");
-                    $lastname = substr($playdetails, 0, $spacepos);
-                    $player = getPlayer($lastname, $players[$team]);
-                    
-                    if(!$player)
-                    {
-                        echo "could not find $lastname";
-                    }
-                    else
-                    {
-                        
-                    if(!array_key_exists($player->playerID, $shifts[$team]))
-                    {
-                        $shift = new shift;
-                        $shift->starttime = ($quarter - 1) * 720000;
-                        $shift->playerID = $player->playerID;
-                        $shift->gameID = $game->gameID;
-                        $shift->isHome = $team == $home ? 1 : 0;
-                        $shifts[$team][$shift->playerID] = $shift;
-                    }
-                    
-                    $shotpos = strpos($playdetails, "Shot");
-                    if($shotpos !== false)
-                    {
-                        $shot = new shot();
-                        $shot->time = $time;
-                        $shot->playerID = $player->playerID;
-                        $shot->gameID = $game->gameID;
-                        $shot->isHome = $team == $home ? 1 : 0;
-                        $typestartpos = strlen($lastname) + 1;
-                        $shot->type = substr($playdetails, $typestartpos, ($shotpos-1)-$typestartpos);
-                        if(strpos($playdetails, "Missed") !== false)
-                        {
-                            $shot->success = false;
-                            if(strpos($playdetails, "Blocked") !== false)
-                            {
-                                $block = new block;
-                            }
-                        }
-                        else if(strpos($line, "Made") !== false)
-                        {
-                            $shot->success = true;
-                            $assistpos = strpos($playdetails, "Assist: ");
-                            if($assistpos !== false)
-                            {
-                                //echo "Found Assist <br/>";
-                                $assist = new assist;
-                                $assist->shot = $shot;
-                                $assist->time = $time;
-                                $assistdetails = substr($playdetails, $assistpos + 8);
-                                $pos2 = strpos($assistdetails, " ");
-                                $assister = substr($assistdetails, 0, $pos2);
-                                $assist->playerID = $assister;
-                                $assists[] = $assist;
-                            }
-                        }
-                        DataManager::insertShot($shot);
-                    }
-                    else if(strpos($line, "Rebound") !== false)
-                    {
-
-                    }
-                    else if(strpos($line, "Substitution") !== false)
-                    {
-                        $playeroff = $player;
-                        if($playeroff)
-                        {
-                            if(!array_key_exists($player->playerID, $shifts[$team]))
-                                die("<strong>Error</strong> Could not find shift");
-                            
-                            $shift = $shifts[$team][$playeroff->playerID];
-                            $shift->endtime = $time;
-                            DataManager::insertShift($shift);
-                            unset($shifts[$team][$playeroff->playerID]);
-
-                            //get replacement's lastname
-                            $pos2 = strpos($playdetails, "replaced by ");
-                            $replastname = substr($playdetails, $pos2 + 12);
-
-                            $playeron = getPlayer($replastname, $players[$team]);
-                            if($playeron)
-                            {
-                                $shifton = new shift;
-                                $shifton->playerID = $playeron->playerID;
-                                $shifton->starttime = $time;
-                                $shifton->gameID = $game->gameID;
-                                $shifton->isHome = $team == $home ? 1 : 0;
-                                $shifts[$team][$playeron->playerID] = $shifton;
-                            }
-                        }
-                    }
-                    }
-                }
-                else
-                {
-                    //throw
-                }
-            }
-            
-            $line = next($lines);
-            $linenum++;
-        }
+    }

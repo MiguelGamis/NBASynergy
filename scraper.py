@@ -1,1 +1,0 @@
-from ghost import Ghost

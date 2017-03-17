@@ -108,7 +108,6 @@
         
         $shots = array();
         $assists = array();
-        $keywords = ['Rebound', '3pt Shot', 'Shot', 'Layup Shot', 'Reverse Layup Shot', 'Assist'];
         
         $line = current($lines);
         $linenum = 0;

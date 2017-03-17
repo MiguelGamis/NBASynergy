@@ -47,3 +47,32 @@ function timeformat($milliseconds)
     if($leftoverseconds < 10) $leftoverseconds = "0".$leftoverseconds;
     return "$minutes:$leftoverseconds";
 }
+
+function timeintotalms($quarter, $clockstring)
+{
+    $timecomponents = explode(":", $clockstring);
+    $ms = ($quarter - 1) * 720000 + (720000 - (floatval($timecomponents[0]) * 60000 + floatval($timecomponents[1]) * 1000));
+    echo "$clockstring => $ms <br/>";
+    return $ms;
+}
+
+function findPlayerInPlay($play, $teamplayers)
+{
+    $matchingplayerID = -1;
+    $length = 0;
+    $matches = array();
+    $lastnames = array_walk($teamplayers, function($teamplayer){return $teamplayer->lastname;});
+    foreach($lastnames as $playerID => $lastname)
+    {
+        if(strpos($play, $lastname) !== false)
+        {   
+            if(strlen($lastname) > $length)
+            {
+                $length = strlen($lastname);
+                $matchingplayerID = $playerID;
+            }
+        }
+    }
+    if($matchingplayerID != -1)
+        return $teamplayers[$matchingplayerID];
+}

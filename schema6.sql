@@ -12,8 +12,8 @@ USE nbasynergy;
 
 CREATE TABLE IF NOT EXISTS `player` (
   `playerID` int(11) NOT NULL AUTO_INCREMENT,
-  `firstName` varchar(128) NOT NULL,
-  `lastName` varchar(128) NOT NULL,
+  `firstname` varchar(128) NOT NULL,
+  `lastname` varchar(128) NOT NULL,
   `team` varchar(3),
   PRIMARY KEY (`playerID`),
   UNIQUE KEY `fullName` (`firstName`, `lastName`)
@@ -27,10 +27,31 @@ CREATE TABLE IF NOT EXISTS `shot` (
   `gameID` int(11) NOT NULL,
   `time` int(11) NOT NULL,
   `home` tinyint(1) NOT NULL,
-  `distance` int(11) NOT NULL,
-  `shotclock` int(11) NOT NULL,
+  `distance` int(11),
+  `shotclock` int(11),
   PRIMARY KEY (`shotID`),
   UNIQUE KEY `playershot` (`playerID`, `gameID`, `time`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `freethrow` (
+  `shotID` int(11) NOT NULL,
+  `foulID` int(11),
+  `seq` tinyint(1) NOT NULL DEFAULT '1',
+  `total` tinyint(1) NOT NULL,
+  PRIMARY KEY (`freethrowID`),
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `foul` (
+  `foulID` int(11) NOT NULL AUTO_INCREMENT,
+  `shotID` int(11),
+  `foulerID` int(11) NOT NULL,
+  `fouleeID` int(11),
+  `type` varchar(128) NOT NULL,
+  `referee` varchar(128),
+  `gameID` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  PRIMARY KEY (`foulID`),
+  UNIQUE KEY (`shotID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `assist` (
@@ -39,6 +60,15 @@ CREATE TABLE IF NOT EXISTS `assist` (
   `shotID` int(11) NOT NULL,
   PRIMARY KEY (`assistID`),
   UNIQUE KEY `shotassisted` (`shotID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `rebound` (
+  `reboundID` int(11) NOT NULL AUTO_INCREMENT,
+  `playerID` int(11) NOT NULL,
+  `shotID` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  PRIMARY KEY (`assistID`),
+  UNIQUE KEY `shotrebounded` (`shotID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `game` (
@@ -69,11 +99,11 @@ CREATE TABLE IF NOT EXISTS `team` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 --
--- Constraints for table `shot`
+-- Constraints for table `player`
 --
 ALTER TABLE `player` 
 	ADD CONSTRAINT `player_ibfk_1` FOREIGN KEY (`team`) REFERENCES `team` (`shortName`) ON DELETE CASCADE;
-	
+
 --
 -- Constraints for table `shot`
 --
@@ -81,7 +111,43 @@ ALTER TABLE `shot`
 	ADD CONSTRAINT `shot_ibfk_1` FOREIGN KEY (`playerID`) REFERENCES `player` (`playerID`) ON DELETE CASCADE;
 ALTER TABLE `shot` 
 	ADD CONSTRAINT `shot_ibfk_2` FOREIGN KEY (`gameID`) REFERENCES `game` (`gameID`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `freethrow`
+--
+ALTER TABLE `freethrow` 
+	ADD CONSTRAINT `freethrow_ibfk_1` FOREIGN KEY (`shotID`) REFERENCES `shot` (`shotID`) ON DELETE CASCADE;
+ALTER TABLE `freethrow`
+	ADD CONSTRAINT `freethrow_ibfk_2` FOREIGN KEY (`foulID`) REFERENCES `foul` (`foulID`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `assist`
+--
+ALTER TABLE `assist`
+	ADD CONSTRAINT `assist_ibfk_1` FOREIGN KEY (`playerID`) REFERENCES `player` (`playerID`) ON DELETE CASCADE;
+ALTER TABLE `assist` 
+	ADD CONSTRAINT `assist_ibfk_2` FOREIGN KEY (`shotID`) REFERENCES `shot` (`shotID`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `rebound`
+--
+ALTER TABLE `rebound` 
+	ADD CONSTRAINT `rebound_ibfk_1` FOREIGN KEY (`playerID`) REFERENCES `player` (`playerID`) ON DELETE CASCADE;
+ALTER TABLE `rebound`
+	ADD CONSTRAINT `rebound_ibfk_2` FOREIGN KEY (`shotID`) REFERENCES `shot` (`shotID`) ON DELETE CASCADE;
 	
+--
+-- Constraints for table `foul`
+--
+ALTER TABLE `foul` 
+	ADD CONSTRAINT `foul_ibfk_1` FOREIGN KEY (`shotID`) REFERENCES `shot` (`shotID`) ON DELETE CASCADE;
+ALTER TABLE `foul` 
+	ADD CONSTRAINT `foul_ibfk_2` FOREIGN KEY (`foulerID`) REFERENCES `player` (`playerID`) ON DELETE CASCADE;
+ALTER TABLE `foul` 
+	ADD CONSTRAINT `foul_ibfk_3` FOREIGN KEY (`fouleeID`) REFERENCES `player` (`playerID`) ON DELETE CASCADE;
+ALTER TABLE `foul` 
+	ADD CONSTRAINT `foul_ibfk_4` FOREIGN KEY (`gameID`) REFERENCES `game` (`gameID`) ON DELETE CASCADE;
+
 --
 -- Constraints for table `shift`
 --
@@ -91,7 +157,7 @@ ALTER TABLE `shift`
   ADD CONSTRAINT `shift_ibfk_2` FOREIGN KEY (`gameID`) REFERENCES `game` (`gameID`) ON DELETE CASCADE;
 
 --
--- Constraints for table `playerteam`
+-- Constraints for table `game`
 --
 ALTER TABLE `game`
   ADD CONSTRAINT `game_ibfk_1` FOREIGN KEY (`hometeam`) REFERENCES `team` (`shortName`) ON DELETE CASCADE;
@@ -110,5 +176,23 @@ INSERT INTO `team` (shortName, city, teamName) VALUES
   ('MIA', 'Miami', 'Heat'),
   ('CHI', 'Chicago', 'Bulls' ),
   ('TOR', 'Toronto', 'Raptors' ),
-  ('WAS', 'Washington', 'Wizards');
+  ('WAS', 'Washington', 'Wizards'),
+  ('GSW', 'Golden State', 'Warriors'),
+  ('HOU', 'Houston', 'Rockets'),
+  ('DAL', 'Dallas', 'Mavericks'),
+  ('SAS', 'San Antonio', 'Spurs' ),
+  ('NOP', 'New Orleans', 'Pelicans'),
+  ('NYK', 'New York', 'Knicks'),
+  ('SAC', 'Sacramento', 'Kings'),
+  ('PHI', 'Philadelphia', '76ers'),
+  ('POR', 'Portland', 'Trailblazers'),
+  ('BKN', 'Brooklyn', 'Nets'),
+  ('IND', 'Indiana', 'Pacers'),
+  ('DET', 'Detroit', 'Pistons' ),
+  ('MIL', 'Milwaukee', 'Bucks' ),
+  ('MIN', 'Minnesota', 'Timberwolves'),
+  ('ATL', 'Atlanta', 'Hawks'),
+  ('UTA', 'Utah', 'Jazz'),
+  ('ORL', 'Orlando', 'Magic'),
+  ('CLE', 'Cleveland', 'Cavaliers');
 

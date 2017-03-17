@@ -30,6 +30,42 @@
             public $shotclock;
         }
         
+        class FreeThrow
+        {
+            public $freethrowID;
+            public $foulID;
+            public $playerID;
+            public $made;
+            public $seq;
+            public $total;
+            public function __construct($foulID, $playerID, $made, $seq, $total) {
+                $foulID
+                $playerID
+                $made
+                $seq
+                $total
+            }
+        }
+        
+        class Foul
+        {
+            public $foulID;
+            public $gameID;
+            public $time;
+            public $shotID;
+            public $foulerID;
+            public $fouleeID;
+            public $type;
+            public function __construct($gameID, $time, $foulerID, $type, $fouleeID = null, $shotID = null) {
+                $this->gameID = $gameID;
+                $this->time = $time;
+                $this->foulerID = $foulerID;
+                $this->type = $type;
+                $this->fouleeID = $fouleeID;
+                $this->shotID = $shotID;
+            }
+        }
+        
         class Assist
         {
             public $game;
@@ -44,17 +80,7 @@
             public $playerID;
             public $gameID;
             public $time;
-            public $isHome;
-        }
-        
-        class Foul
-        {
-            public $foulerID;
-            public $fouleeID;
-            public $gameID;
-            public $time;
-            public $type;
-            public $isHome;
+            public $defensive;
         }
         
         class Shift
@@ -79,8 +105,8 @@
             public $time;
             public $home;
             public $away;
-            public function __construct($id) {
-                $this->gameID = $id;
+            public function __construct($gameID, $date) {
+                $this->gameID = $gameID;
             }
         }
         

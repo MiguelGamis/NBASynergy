@@ -16,7 +16,7 @@ class DataManager
         $database = $db;
     }
     
-    function insertShift($shift)
+    static function insertShift($shift)
     {
         global $db;
         if($db)
@@ -26,13 +26,12 @@ class DataManager
         }
     }
     
-    function insertGame($date, $hometeam, $awayteam)
+    static function insertGame($date, $hometeam, $awayteam)
     {
         global $db;
         if($db)
         {
             $query = "SELECT gameID FROM game WHERE date = FROM_UNIXTIME($date) AND hometeam = '$hometeam' AND awayteam = '$awayteam';";
-            var_dump($query);
             $result = $db->query($query);
             $row = $result->fetch();
             if($row)
@@ -43,7 +42,6 @@ class DataManager
                 $game->date = $date;
                 return $game;
             }
-            echo "not found. now inserting <br/>";
             $query2 = "INSERT INTO game (date, hometeam, awayteam) VALUES ( FROM_UNIXTIME($date), '$hometeam', '$awayteam') ON DUPLICATE KEY UPDATE date = date;";
             $db->query($query2);
             //TODO: Check if it succeeded
@@ -56,40 +54,39 @@ class DataManager
         }
     }
     
-    function insertPlayer($firstname, $lastname, $team)
+    static function insertPlayer($firstname, $lastname, $team)
     {
         #Go and include the assignment page
         global $db;
         if($db)
         {
-            $query = "INSERT INTO player (firstname, lastname, team) VALUES ('$firstname', '$lastname', '$team');";
-            $db->query($query);
+            $query = "INSERT INTO player (firstname, lastname, team) VALUES (?, ?, ?);";
+            $sh = $db->prepare($query);
+            $sh->execute(array($firstname, $lastname, $team));
         }
     }
 
-    function getPlayer($firstname, $lastname)
+    static function getPlayer($firstname, $lastname)
     {
         global $db;
         #Go and include the assignment page
         if($db)
         {
-//            echo "trying to find $firstname $lastname <br/>";
-//            $query = "SELECT playerID FROM players WHERE firstname = ':firstname' AND lastname = ':lastname;'";
-//            $sh = $db->prepare($query);
-//            $result = $sh->execute(array("firstname" => $firstname, "lastname" => $lastname));
-            
-            $query = "SELECT playerID FROM player WHERE firstname = '$firstname' AND lastname = '$lastname';";
-            $result = $db->query($query);
-            $row = $result->fetch();
+            //echo "trying to find $firstname $lastname <br/>";
+            $query = "SELECT playerID FROM player WHERE firstname = ? AND lastname = ?";
+            $sh = $db->prepare($query);
+            $sh->execute(array($firstname, $lastname));
+            $row = $sh->fetch();
             
             if($row)
             {
-//                echo "found $firstname $lastname <br/>";
+                //echo "found $firstname $lastname <br/>";
                 $player = new player($firstname, $lastname);
                 $player->playerID = $row['playerID'];
                 return $player;
             }
-            echo "did not find $firstname $lastname <br/>";
+            echo "did not find $firstname $lastname : $query <br/>";
+            
         }
     }
 
@@ -108,7 +105,7 @@ class DataManager
         }
     }
     
-    function getShiftsFromGame($date, $hometeam, $awayteam, $home)
+    static function getShiftsFromGame($date, $hometeam, $awayteam, $home)
     {
         global $db;
         $query = "SELECT * FROM shift JOIN (SELECT gameID FROM game WHERE date = FROM_UNIXTIME($date) AND hometeam = '$hometeam' AND awayteam = '$awayteam') specificgame ON specificgame.gameID = shift.gameID WHERE home = $home";
@@ -135,7 +132,7 @@ class DataManager
         return array_values($shifts);
     }
     
-    function getPlayersFromTeam($team)
+    static function getPlayersFromTeam($team)
     {
         global $db;
         $query = "SELECT * FROM player WHERE team = ?;";
@@ -152,7 +149,7 @@ class DataManager
         return $players;
     }
     
-    function insertShot($shot)
+    static function insertShot($shot)
     {
         global $db;
         if($db)
@@ -163,7 +160,7 @@ class DataManager
         }
     }
     
-    function getPlayerData($playerID)
+    static function getPlayerData($playerID)
     {
         global $db;
         $query = "SELECT * FROM player WHERE playerID = ?";
@@ -174,7 +171,7 @@ class DataManager
         return $player;
     }
     
-    function prepareQuery($name, $query)
+    static function prepareQuery($name, $query)
     {
         if(!isset($this->$name)) {
             $this->$name = $this->db->prepare($query);
