@@ -58,21 +58,19 @@ function timeintotalms($quarter, $clockstring)
 
 function findPlayerInPlay($play, $teamplayers)
 {
-    $matchingplayerID = -1;
+    $matchingplayer = null;
     $length = 0;
-    $matches = array();
-    $lastnames = array_walk($teamplayers, function($teamplayer){return $teamplayer->lastname;});
-    foreach($lastnames as $playerID => $lastname)
+    foreach($teamplayers as $player)
     {
-        if(strpos($play, $lastname) !== false)
+        if(strpos($play, $player->lastname) !== false)
         {   
-            if(strlen($lastname) > $length)
+            echo $player->lastname;
+            if(strlen($player->lastname) > $length)
             {
-                $length = strlen($lastname);
-                $matchingplayerID = $playerID;
+                $length = strlen($player->lastname);
+                $matchingplayer = $player;
             }
         }
     }
-    if($matchingplayerID != -1)
-        return $teamplayers[$matchingplayerID];
+    return $matchingplayer;
 }

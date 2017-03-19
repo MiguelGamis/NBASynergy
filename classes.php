@@ -20,6 +20,7 @@
         
         class Shot
         {
+            public $shotID;
             public $playerID;
             public $gameID;
             public $time;
@@ -28,22 +29,28 @@
             public $isHome;
             public $distance;
             public $shotclock;
+            public function __construct($playerID, $gameID, $time, $type, $success, $isHome, $distance, $shotclock) {
+                $this->playerID = $playerID;
+                $this->gameID = $gameID;
+                $this->time = $time;
+                $this->type = $type;
+                $this->success = $success;
+                $this->isHome = $isHome;
+                $this->distance = $distance;
+                $this->shotclock = $shotclock;
+            }
         }
         
-        class FreeThrow
+        class FreeThrow extends Shot
         {
-            public $freethrowID;
             public $foulID;
-            public $playerID;
-            public $made;
             public $seq;
             public $total;
-            public function __construct($foulID, $playerID, $made, $seq, $total) {
-                $foulID
-                $playerID
-                $made
-                $seq
-                $total
+            public function __construct($playerID, $gameID, $time, $success, $isHome, $foulID, $seq, $total) {
+                parent::__construct($playerID, $gameID, $time, "Free Throw", $success, $isHome, NULL, NULL);
+                $this->foulID = $foulID;
+                $this->seq = $seq;
+                $this->total = $total;
             }
         }
         
@@ -54,15 +61,15 @@
             public $time;
             public $shotID;
             public $foulerID;
-            public $fouleeID;
             public $type;
-            public function __construct($gameID, $time, $foulerID, $type, $fouleeID = null, $shotID = null) {
+            public $referee;
+            public function __construct($gameID, $time, $foulerID, $type, $referee = null, $shotID = null) {
                 $this->gameID = $gameID;
                 $this->time = $time;
                 $this->foulerID = $foulerID;
                 $this->type = $type;
-                $this->fouleeID = $fouleeID;
                 $this->shotID = $shotID;
+                $this->referee = $referee;
             }
         }
         
@@ -105,12 +112,22 @@
             public $time;
             public $home;
             public $away;
-            public function __construct($gameID, $date) {
-                $this->gameID = $gameID;
+            public function __construct($date, $home, $away, $time = 0) {
+                $this->date = $date;
+                $this->home = $home;
+                $this->away = $away;
+                $this->time = $time;
             }
         }
         
         class Team
         {
-            public $name;
+            public $abbrev;
+            public $city;
+            public $teamname;
+            public function __construct($abbrev, $city, $teamname) {
+                $this->abbrev = $abbrev;
+                $this->city = $city;
+                $this->teamname = $teamname;
+            }
         }

@@ -5,10 +5,9 @@ import os.path
 from bs4 import BeautifulSoup as soup
 from selenium import webdriver
 
-#21600002
-
 def scrapeGames(gameIDs):
     for gameID in gameIDs:
+        print 'g'
         chrome_path = r"C:\Users\user\Desktop\chromedriver_win32\chromedriver.exe"
         driver = webdriver.Chrome(chrome_path)
         driver.get("http://stats.nba.com/game/#!/00" + str(gameID) + "/playbyplay")
@@ -55,13 +54,14 @@ def scrapeGames(gameIDs):
 
         pbpdiv = pagesoup.find("div", { "class" : "boxscore-pbp__inner ng-scope" } )
         pbptrs = pbpdiv.table.tbody.findAll("tr")
-        for pbptr in pbptrs:
+        for index, pbptr in enumerate(pbptrs):
             tds = pbptr.findAll("td")
             if len(tds) == 1:
                 try:
                     f.write(supertrim(tds[0].text.encode()))
                 except UnicodeEncodeError:
-                    print ("Unicode encode error\n")
+                    print ("Unicode encode error at singular cell at line "+str(index)+1)
+                    print ("'"+tds[0].text+"'")
                 except:
                     print "Unexpected error:", sys.exc_info()[0]  
                 f.write("\n")
@@ -71,7 +71,8 @@ def scrapeGames(gameIDs):
                 try:
                     f.write(supertrim(tds[1].text.encode()))
                 except UnicodeEncodeError:
-                    print ("Unicode encode error\n")
+                    print ("Unicode encode error at time/score cell at line "+str(index)+1)
+                    print ("'"+tds[1].text+"'")
                 except:
                     print "Unexpected error:", sys.exc_info()[0]                    
             f.write(",")
@@ -80,7 +81,8 @@ def scrapeGames(gameIDs):
                 try:
                     f.write(supertrim(tds[0].text.encode()))
                 except UnicodeEncodeError:
-                    print ("Unicode encode error\n")
+                    print ("Unicode encode error at away cell at line "+str(index)+1)
+                    print ("'"+tds[0].text+"'")
                 except:
                     print "Unexpected error:", sys.exc_info()[0]  
             f.write(",")
@@ -89,13 +91,16 @@ def scrapeGames(gameIDs):
                 try:
                     f.write(supertrim(tds[2].text.encode()))
                 except UnicodeEncodeError:
-                    print ("Unicode encode error\n")
+                    print ("Unicode encode error at home cell at line "+str(index)+1)
+                    print ("'"+tds[2].text+"'")
                 except:
                     print "Unexpected error:", sys.exc_info()[0]              
             f.write("\n")
+
+        f.write("***End of scrape")
                 
         driver.quit()
         driver2.quit()
         f.close()
 
-scrapeGames(range(21600050, 21600056))
+scrapeGames(range(21600056, 21600066))

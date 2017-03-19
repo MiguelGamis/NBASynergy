@@ -29,25 +29,32 @@ CREATE TABLE IF NOT EXISTS `shot` (
   `home` tinyint(1) NOT NULL,
   `distance` int(11),
   `shotclock` int(11),
-  PRIMARY KEY (`shotID`),
-  UNIQUE KEY `playershot` (`playerID`, `gameID`, `time`)
+  PRIMARY KEY (`shotID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `freethrow` (
   `shotID` int(11) NOT NULL,
-  `foulID` int(11),
-  `seq` tinyint(1) NOT NULL DEFAULT '1',
+  `freethrowbatchID` int(11) NOT NULL,
+  `seq` tinyint(1) NOT NULL,
+  PRIMARY KEY (`shotID`),
+  UNIQUE KEY `freethrowseq` (`freethrowbatchID`, `seq`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `freethrowbatch` (
+  `freethrowbatchID` int(11) NOT NULL,
+  `foulID` int(11) NOT NULL,
   `total` tinyint(1) NOT NULL,
-  PRIMARY KEY (`freethrowID`),
+  PRIMARY KEY (`freethrowbatchID`),
+  UNIQUE KEY (`foulID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `foul` (
   `foulID` int(11) NOT NULL AUTO_INCREMENT,
   `shotID` int(11),
   `foulerID` int(11) NOT NULL,
-  `fouleeID` int(11),
   `type` varchar(128) NOT NULL,
   `referee` varchar(128),
+  `home` tinyint(1) NOT NULL,
   `gameID` int(11) NOT NULL,
   `time` int(11) NOT NULL,
   PRIMARY KEY (`foulID`),
@@ -67,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `rebound` (
   `playerID` int(11) NOT NULL,
   `shotID` int(11) NOT NULL,
   `type` int(11) NOT NULL,
-  PRIMARY KEY (`assistID`),
+  PRIMARY KEY (`reboundID`),
   UNIQUE KEY `shotrebounded` (`shotID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
@@ -117,9 +124,13 @@ ALTER TABLE `shot`
 --
 ALTER TABLE `freethrow` 
 	ADD CONSTRAINT `freethrow_ibfk_1` FOREIGN KEY (`shotID`) REFERENCES `shot` (`shotID`) ON DELETE CASCADE;
-ALTER TABLE `freethrow`
-	ADD CONSTRAINT `freethrow_ibfk_2` FOREIGN KEY (`foulID`) REFERENCES `foul` (`foulID`) ON DELETE CASCADE;
 
+--
+-- Constraints for table `freethrowbatch`
+--
+ALTER TABLE `freethrowbatch`
+	ADD CONSTRAINT `freethrowbatch_ibfk_1` FOREIGN KEY (`foulID`) REFERENCES `foul` (`foulID`) ON DELETE CASCADE;	
+	
 --
 -- Constraints for table `assist`
 --
@@ -143,8 +154,6 @@ ALTER TABLE `foul`
 	ADD CONSTRAINT `foul_ibfk_1` FOREIGN KEY (`shotID`) REFERENCES `shot` (`shotID`) ON DELETE CASCADE;
 ALTER TABLE `foul` 
 	ADD CONSTRAINT `foul_ibfk_2` FOREIGN KEY (`foulerID`) REFERENCES `player` (`playerID`) ON DELETE CASCADE;
-ALTER TABLE `foul` 
-	ADD CONSTRAINT `foul_ibfk_3` FOREIGN KEY (`fouleeID`) REFERENCES `player` (`playerID`) ON DELETE CASCADE;
 ALTER TABLE `foul` 
 	ADD CONSTRAINT `foul_ibfk_4` FOREIGN KEY (`gameID`) REFERENCES `game` (`gameID`) ON DELETE CASCADE;
 
