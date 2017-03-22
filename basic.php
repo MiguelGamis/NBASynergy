@@ -24,18 +24,15 @@ function endsWith($haystack, $needle)
 
 function getPlayer($namestring, $players)
 {
-    if(isset($players[$namestring]))
+    $namestring = trim($namestring);
+    foreach($players as $player)
     {
-        return $players[$namestring];
-    }
-    else
-    {
-        foreach($players as $player)
+        if(endsWith($namestring, $player->lastname))
         {
-            if(endsWith($namestring, $player->lastname) && startsWith($player->firstname, substr($namestring, 0, -strlen($player->lastname))))
-            {
-                return $player;
-            }
+            $lastnamepos = strpos($namestring, $player->lastname);
+            $remainder = substr($namestring, 0, $lastnamepos);
+            startsWith($remainder, $player->firstname);
+            return $player;
         }
     }
 }
@@ -48,15 +45,15 @@ function timeformat($milliseconds)
     return "$minutes:$leftoverseconds";
 }
 
-function timeintotalms($quarter, $clockstring)
+function timeintotalms($quarter, $ot, $clockstring)
 {
     $timecomponents = explode(":", $clockstring);
-    $ms = ($quarter - 1) * 720000 + (720000 - (floatval($timecomponents[0]) * 60000 + floatval($timecomponents[1]) * 1000));
+    $ms = ($quarter - 1) * 720000 + $ot * 300000 + (720000 - (floatval($timecomponents[0]) * 60000 + floatval($timecomponents[1]) * 1000));
     echo "$clockstring => $ms <br/>";
     return $ms;
 }
 
-function findPlayerInPlay($play, $teamplayers)
+function getPlayerInPlay($play, $teamplayers)
 {
     $matchingplayer = null;
     $length = 0;
@@ -73,4 +70,15 @@ function findPlayerInPlay($play, $teamplayers)
         }
     }
     return $matchingplayer;
+}
+
+function getTypeInPlay(&$item, $play, $player)
+{
+    $type = gettype($item);
+    if($type == 'Turnover')
+    {
+        $start = strpos($play, $player->lastname) + 1;
+        $end = strpos($play, 'Turnover') - 1;
+        $item->type = substr($play, $start, $end-$start);
+    }
 }

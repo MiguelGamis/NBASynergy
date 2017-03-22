@@ -36,7 +36,8 @@ CREATE TABLE IF NOT EXISTS `shot` (
 
 CREATE TABLE IF NOT EXISTS `freethrow` (
   `shotID` int(11) NOT NULL,
-  `foulID` int(11) NOT NULL,/*(1)THIS NEEDS TO BE NOT NULL or ...*/
+  `foulID` int(11),/*JUST INTERESTED IN SHOOTING FOULS LINK BECAUSE THEY ARE MOST INTERESTING IF AT ALL AND SHOOTING FOULS MAY ALL BE LINKABLE TO FREE THROWS. SO SOME WILL BE NULL*/
+  `foultype` varchar(128) NOT NULL,
   `seq` tinyint(1) NOT NULL,
   `total` tinyint(1) NOT NULL,
   PRIMARY KEY (`shotID`),
@@ -45,7 +46,6 @@ CREATE TABLE IF NOT EXISTS `freethrow` (
 
 CREATE TABLE IF NOT EXISTS `foul` (
   `foulID` int(11) NOT NULL AUTO_INCREMENT,
-  `shotID` int(11),/*UNIQUE NULLABLE*/
   `foulerID` int(11),
   `type` varchar(128) NOT NULL,
   `referee` varchar(128),
@@ -54,7 +54,8 @@ CREATE TABLE IF NOT EXISTS `foul` (
   `lineID` int(11) NOT NULL,
   `time` int(11) NOT NULL,
   PRIMARY KEY (`foulID`),
-  UNIQUE KEY (`shotID`),
+  /*`shotID` int(11), IS THIS USEFUL?
+  UNIQUE KEY (`shotID`),*/
   UNIQUE KEY `gameline` (`gameID`, `lineID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
@@ -63,16 +64,49 @@ CREATE TABLE IF NOT EXISTS `assist` (
   `playerID` int(11) NOT NULL,
   `shotID` int(11) NOT NULL,
   PRIMARY KEY (`assistID`),
-  UNIQUE KEY `shotassisted` (`shotID`)
+  UNIQUE KEY (`shotID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `rebound` (
   `reboundID` int(11) NOT NULL AUTO_INCREMENT,
   `playerID` int(11) NOT NULL,
-  `shotID` int(11) NOT NULL,
-  `type` int(11) NOT NULL,
+  `gameID` int(11) NOT NULL,
+  `lineID` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  `offensive` int(11) NOT NULL,
   PRIMARY KEY (`reboundID`),
-  UNIQUE KEY `shotrebounded` (`shotID`)
+  UNIQUE KEY `gameline` (`gameID`, `lineID`)
+  /*`shotID` int(11) NOT NULL, IS THIS USEFUL?
+  UNIQUE KEY `shotrebounded` (`shotID`)*/
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `turnover` (
+  `turnoverID` int(11) NOT NULL AUTO_INCREMENT,
+  `playerID` int(11) NOT NULL,
+  `gameID` int(11) NOT NULL,
+  `lineID` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  PRIMARY KEY (`turnoverID`),
+  UNIQUE KEY `gameline` (`gameID`, `lineID`)
+  /*`foulID` int(11), IS THIS USEFUL?
+  UNIQUE KEY (`foulID`)*/
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `steal` (
+  `stealID` int(11) NOT NULL AUTO_INCREMENT,
+  `playerID` int(11) NOT NULL,
+  `turnoverID` int(11) NOT NULL,
+  PRIMARY KEY (`stealID`),
+  UNIQUE KEY (`turnoverID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `block` (
+  `blockID` int(11) NOT NULL AUTO_INCREMENT,
+  `playerID` int(11) NOT NULL,
+  `shotID` int(11) NOT NULL,
+  PRIMARY KEY (`blockID`),
+  UNIQUE KEY (`shotID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `game` (
@@ -137,18 +171,44 @@ ALTER TABLE `assist`
 --
 ALTER TABLE `rebound` 
 	ADD CONSTRAINT `rebound_ibfk_1` FOREIGN KEY (`playerID`) REFERENCES `player` (`playerID`) ON DELETE CASCADE;
-ALTER TABLE `rebound`
-	ADD CONSTRAINT `rebound_ibfk_2` FOREIGN KEY (`shotID`) REFERENCES `shot` (`shotID`) ON DELETE CASCADE;
+ALTER TABLE `rebound`  
+	ADD CONSTRAINT `rebound_ibfk_2` FOREIGN KEY (`gameID`) REFERENCES `game` (`gameID`) ON DELETE CASCADE;
+/*ALTER TABLE `rebound`
+	ADD CONSTRAINT `rebound_ibfk_3` FOREIGN KEY (`shotID`) REFERENCES `shot` (`shotID`) ON DELETE CASCADE;*/
+
+--
+-- Constraints for table `turnover`
+--
+ALTER TABLE `turnover` 
+	ADD CONSTRAINT `turnover_ibfk_1` FOREIGN KEY (`playerID`) REFERENCES `player` (`playerID`) ON DELETE CASCADE;
+ALTER TABLE `turnover` 
+	ADD CONSTRAINT `turnover_ibfk_2` FOREIGN KEY (`gameID`) REFERENCES `game` (`gameID`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `steal`
+--
+ALTER TABLE `steal` 
+	ADD CONSTRAINT `steal_ibfk_1` FOREIGN KEY (`playerID`) REFERENCES `player` (`playerID`) ON DELETE CASCADE;
+ALTER TABLE `steal` 
+	ADD CONSTRAINT `steal_ibfk_2` FOREIGN KEY (`turnoverID`) REFERENCES `turnover` (`turnoverID`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `block`
+--
+ALTER TABLE `block` 
+	ADD CONSTRAINT `block_ibfk_1` FOREIGN KEY (`playerID`) REFERENCES `player` (`playerID`) ON DELETE CASCADE;
+ALTER TABLE `block` 
+	ADD CONSTRAINT `block_ibfk_2` FOREIGN KEY (`shotID`) REFERENCES `shot` (`shotID`) ON DELETE CASCADE;
 	
 --
 -- Constraints for table `foul`
 --
-ALTER TABLE `foul` 
-	ADD CONSTRAINT `foul_ibfk_1` FOREIGN KEY (`shotID`) REFERENCES `shot` (`shotID`) ON DELETE CASCADE;
+/*ALTER TABLE `foul` 
+	ADD CONSTRAINT `foul_ibfk_1` FOREIGN KEY (`shotID`) REFERENCES `shot` (`shotID`) ON DELETE CASCADE;*/
 ALTER TABLE `foul` 
 	ADD CONSTRAINT `foul_ibfk_2` FOREIGN KEY (`foulerID`) REFERENCES `player` (`playerID`) ON DELETE CASCADE;
 ALTER TABLE `foul` 
-	ADD CONSTRAINT `foul_ibfk_4` FOREIGN KEY (`gameID`) REFERENCES `game` (`gameID`) ON DELETE CASCADE;
+	ADD CONSTRAINT `foul_ibfk_3` FOREIGN KEY (`gameID`) REFERENCES `game` (`gameID`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `shift`

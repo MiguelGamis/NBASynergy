@@ -8,13 +8,12 @@
     require("queries.php");
     require("classes.php");
 
-    $awayshifts = DataManager::getShiftsFromGame(strtotime('2017-02-16'), 'CHI', 'BOS', 0);
-
+    $awayshifts = DataManager::getShiftsFromGame(strtotime('2016-11-02'), 'TOR', 'WAS', false);
     $jsonawayshifts = json_encode($awayshifts);
     
-    $awayPlayers = DataManager::getPlayersFromTeam('BOS');
+    $awayPlayers = DataManager::getPlayersFromTeam('TOR');
 
-    $homePlayers = DataManager::getPlayersFromTeam('CHI');
+    $homePlayers = DataManager::getPlayersFromTeam('WAS');
     
     $jsonawayPlayers = json_encode($awayPlayers);
     

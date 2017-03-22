@@ -44,13 +44,15 @@
         class FreeThrow extends Shot
         {
             public $foulID;
+            public $foultype;
             public $seq;
             public $total;
-            public function __construct($playerID, $gameID, $time, $success, $isHome, $foulID, $seq, $total) {
+            public function __construct($playerID, $gameID, $time, $success, $isHome, $foulID, $foultype, $seq, $total) {
                 parent::__construct($playerID, $gameID, $time, "Free Throw", $success, $isHome, NULL, NULL);
                 $this->foulID = $foulID;
                 $this->seq = $seq;
                 $this->total = $total;
+                $this->foultype = $foultype;
             }
         }
         
@@ -59,27 +61,26 @@
             public $foulID;
             public $gameID;
             public $time;
-            public $shotID;
             public $foulerID;
             public $type;
             public $referee;
-            public function __construct($gameID, $time, $foulerID, $type, $referee = null, $shotID = null) {
+            public function __construct($gameID, $time, $foulerID, $type, $referee = null) {
                 $this->gameID = $gameID;
                 $this->time = $time;
                 $this->foulerID = $foulerID;
                 $this->type = $type;
-                $this->shotID = $shotID;
                 $this->referee = $referee;
             }
         }
         
         class Assist
         {
-            public $game;
-            public $time;
-            public $shot;
             public $playerID;
-            public $isHome;
+            public $shotID;
+            public function __construct($playerID, $shotID) {
+                $this->playerID = $playerID;
+                $this->shotID = $shotID;
+            }
         }
         
         class Rebound
@@ -87,7 +88,50 @@
             public $playerID;
             public $gameID;
             public $time;
-            public $defensive;
+            public $offensive;
+            public function __construct($playerID, $gameID, $time, $offensive) {
+                $this->playerID = $playerID;
+                $this->gameID = $gameID;
+                $this->time = $time;
+                $this->offensive = $offensive;
+            }
+        }
+        
+        class Turnover
+        {
+            public $turnoverID;
+            public $playerID;
+            public $gameID;
+            public $time;
+            public $type;
+            public function __construct($playerID, $gameID, $time, $type = null) {
+                $this->playerID = $playerID;
+                $this->gameID = $gameID;
+                $this->time = $time;
+                $this->offensive = $type;
+            }
+        }
+        
+        class Steal
+        {
+            public $stealID;
+            public $playerID;
+            public $turnoverID;
+            public function __construct($playerID, $turnoverID) {
+                $this->playerID = $playerID;
+                $this->turnoverID = $turnoverID;
+            }
+        }
+        
+        class Block
+        {
+            public $blockID;
+            public $playerID;
+            public $shotID;
+            public function __construct($playerID, $shotID = null) {
+                $this->playerID = $playerID;
+                $this->shotID = $shotID;
+            }
         }
         
         class Shift
@@ -97,6 +141,13 @@
             public $starttime;
             public $endtime;
             public $isHome;
+            public function __construct($playerID, $gameID, $starttime, $isHome, $endtime = 0) {
+                $this->playerID = $playerID;
+                $this->gameID = $gameID;
+                $this->starttime = $starttime;
+                $this->isHome = $isHome;
+                $this->endtime = $endtime;
+            }
         }
         
         class Subsitution
