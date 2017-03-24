@@ -11,7 +11,7 @@ CREATE DATABASE IF NOT EXISTS nbasynergy;
 USE nbasynergy;
 
 CREATE TABLE IF NOT EXISTS `player` (
-  `playerID` int(11) NOT NULL AUTO_INCREMENT,
+  `playerID` int(11) NOT NULL,
   `firstname` varchar(128) NOT NULL,
   `lastname` varchar(128) NOT NULL,
   `team` varchar(3),
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `block` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `game` (
-  `gameID` int(11) NOT NULL AUTO_INCREMENT,
+  `gameID` int(11) NOT NULL,
   `date` datetime NOT NULL,
   `hometeam` varchar(3) NOT NULL,
   `awayteam` varchar(3) NOT NULL,
@@ -256,5 +256,8 @@ INSERT INTO `team` (shortName, city, teamName) VALUES
   ('ATL', 'Atlanta', 'Hawks'),
   ('UTA', 'Utah', 'Jazz'),
   ('ORL', 'Orlando', 'Magic'),
-  ('CLE', 'Cleveland', 'Cavaliers');
+  ('CLE', 'Cleveland', 'Cavaliers'),
+  ('UNK', 'Unknown', '?????');
+  
+INSERT INTO `player`(`playerID`, `firstname`, `lastname`, `team`) VALUES (0, 'Unknown', 'Unknown', 'UNK');
 

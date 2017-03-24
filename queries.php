@@ -6,6 +6,7 @@
  * and open the template in the editor.
  */
 require_once('config.php');
+require_once("classes.php");
 
 class DataManager
 {
@@ -35,22 +36,28 @@ class DataManager
     static function insertGame(&$game)
     {
         global $db;
-        if($db)
+        $query = "INSERT IGNORE INTO game (gameID, date, hometeam, awayteam) VALUES (?, FROM_UNIXTIME(?), ?, ?);";
+        $sh = $db->prepare($query);
+        $result = $sh->execute(array($game->gameID, $game->date, $game->home, $game->away));
+        if(!$result)
         {
-            $query = "SELECT gameID FROM game WHERE date = FROM_UNIXTIME(?) AND hometeam = ? AND awayteam = ?;";
-            $sh = $db->prepare($query);
-            $sh->execute(array($game->date, $game->home, $game->away));
-            $row = $sh->fetch();
-            if($row)
-            {
-                $game->gameID = intval($row['gameID']);
-                return;
-            }
-            $query2 = "INSERT IGNORE INTO game (date, hometeam, awayteam) VALUES ( FROM_UNIXTIME(?), ?, ?);";
-            $sh2 = $db->prepare($query2);
-            $sh2->execute(array($game->date, $game->home, $game->away));
-            //TODO: Check if it succeeded
-            $game->gameID = intval($db->lastInsertID());
+            echo "Error: Something went wrong inserting a game: ".$sh->errorCode();
+            exit();
+        }
+    }
+    
+    static function selectGame($date, $home, $away)
+    {
+        global $db;
+        $query = "SELECT gameID FROM game WHERE date = FROM_UNIXTIME(?) AND hometeam = ? AND awayteam = ?;";
+        $sh = $db->prepare($query);
+        $sh->execute(array($date, $home, $away));
+        $row = $sh->fetch();
+        if($row)
+        {
+            $game = new Game($date, $home, $away);
+            $game->gameID = $row['gameID'];
+            return $game;
         }
     }
     
@@ -71,39 +78,36 @@ class DataManager
         return $team;
     }
     
-    static function insertPlayer($firstname, $lastname, $team)
+    static function insertPlayer($playerID, $firstname, $lastname, $team)
     {
         #Go and include the assignment page
         global $db;
         if($db)
         {
-            $query = "INSERT INTO player (firstname, lastname, team) VALUES (?, ?, ?);";
+            $query = "INSERT INTO player (playerID, firstname, lastname, team) VALUES (?, ?, ?, ?);";
             $sh = $db->prepare($query);
-            $sh->execute(array(trim($firstname), trim($lastname), $team));
+            $sh->execute(array($playerID, $firstname, $lastname, $team));
+            $player = new Player($playerID, $firstname, $lastname, $team);
+            return $player;
         }
     }
 
-    static function getPlayer($firstname, $lastname)
+    static function getPlayer($playerID)
     {
         global $db;
         #Go and include the assignment page
         if($db)
         {
-            //echo "trying to find $firstname $lastname <br/>";
-            $query = "SELECT playerID FROM player WHERE firstname = ? AND lastname = ?";
+            $query = "SELECT * FROM player WHERE playerID = ?";
             $sh = $db->prepare($query);
-            $sh->execute(array(trim($firstname), trim($lastname)));
+            $sh->execute(array($playerID));
             $row = $sh->fetch();
             
             if($row)
             {
-                //echo "found $firstname $lastname <br/>";
-                $player = new player($firstname, $lastname);
-                $player->playerID = $row['playerID'];
+                $player = new Player($row['firstname'], $row['lastname'], $row['playerID'], $row['team']);
                 return $player;
             }
-            //echo "did not find $firstname $lastname : $query <br/>";
-            
         }
     }
 
@@ -122,23 +126,6 @@ class DataManager
         }
     }
     
-    static function getPlayersFromTeam($team)
-    {
-        global $db;
-        $query = "SELECT * FROM player WHERE team = ?;";
-        $sh = $db->prepare($query);
-        $args = array($team);
-        $sh->execute($args);
-        $players = array();
-        while($res = $sh->fetch())
-        {
-            $player = new Player($res['firstname'], $res['lastname']);
-            $player->playerID = $res['playerID'];
-            $players[] = $player;
-        }
-        return $players;
-    }
-    
     static function insertShot(&$shot, $lineID)
     {
         global $db;
@@ -150,7 +137,22 @@ class DataManager
             echo "Error: Something went wrong inserting a shot at line $lineID";
             exit();
         }
-        $shot->shotID = $db->lastInsertID();
+        $shotID = $db->lastInsertID();
+        if($shotID)
+        {
+            $shot->shotID = $shotID;
+        }
+        else
+        {
+            $query = "SELECT shotID FROM shot WHERE gameID = ? AND lineID = ?";
+            $sh = $db->prepare($query);
+            $result = $sh->execute(array($shot->gameID, $lineID));
+            $row = $sh->fetch();
+            if($row)
+            {
+                $shot->shotID = $row['shotID'];
+            }
+        }
     }
     
     static function insertFreeThrow(&$freethrow, $lineID)
@@ -161,53 +163,20 @@ class DataManager
             $query = "INSERT IGNORE INTO shot (playerID, type, made, gameID, lineID, time, home, distance, shotclock) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
             $sh = $db->prepare($query);
             $result = $sh->execute(array($freethrow->playerID, $freethrow->type, $freethrow->success, $freethrow->gameID, $lineID, $freethrow->time, $freethrow->isHome, $freethrow->distance, $freethrow->shotclock));
-            $freethrow->shotID = intval($db->lastInsertID());
+            $freethrow->shotID = $db->lastInsertID();
             if(!$result)
             {
                 echo "Error: Something went wrong when insert a free throw";
                 exit();
             }
             
-            $query2 = "INSERT IGNORE INTO freethrow (shotID, foulID, foultype, seq, total) VALUES (?, ?, ?, ?, ?);";
+            $query2 = "INSERT IGNORE INTO freethrow (shotID, foultype, seq, total) VALUES (?, ?, ?, ?);";
             $sh2 = $db->prepare($query2);
-            if($freethrow->foulID) echo "I found the light i the tunnel at the eeeeend";
-            $result2 = $sh2->execute(array($freethrow->shotID, $freethrow->foulID, $freethrow->foultype, $freethrow->seq, $freethrow->total));
+            $result2 = $sh2->execute(array($freethrow->shotID, $freethrow->foultype, $freethrow->seq, $freethrow->total));
             if(!$result2)
             {
                 echo "Error: Something went wrong inserting a free throw at line $lineID: ".$sh2->errorCode();
                 exit();
-            }
-        }
-    }
-    
-    static function getShotByLineID($gameID, $lineID)
-    {
-        global $db;
-        if($db)
-        {
-            $query = "SELECT shotID FROM shot WHERE gameID = ? AND lineID = ?;";
-            $sh = $db->prepare($query);
-            $sh->execute(array($gameID, $lineID));
-            $row = $sh->fetch();
-            if($row)
-            {
-                return $row['shotID'];
-            }
-        }
-    }
-    
-    static function getLatestFoulByTeam($gameID, $lineID, $isHome)
-    {
-        global $db;
-        if($db)
-        {
-            $query = "SELECT * FROM foul WHERE gameID = ? AND home = ? ";
-            $sh = $db->prepare($query);
-            $sh->execute(array($gameID, $lineID, $isHome));
-            $row = $sh->fetch();
-            if($row)
-            {
-                return $row['shotID'];
             }
         }
     }
@@ -266,7 +235,22 @@ class DataManager
             echo "Error: Something went wrong inserting a turnover at line $lineID: ".$sh->errorCode();
             exit();
         }
-        $turnover->turnoverID = $db->lastInsertID();
+        $turnoverID = $db->lastInsertID();
+        if($turnoverID)
+        {
+            $turnover->turnoverID = $turnoverID;
+        }
+        else
+        {
+            $query = "SELECT turnoverID FROM turnover WHERE gameID = ? AND lineID = ?";
+            $sh = $db->prepare($query);
+            $result = $sh->execute(array($turnover->gameID, $lineID));
+            $row = $sh->fetch();
+            if($row)
+            {
+                $turnover->shotID = $row['turnoverID'];
+            }
+        }
     }
     
     static function insertSteal($steal, $lineID)
@@ -316,6 +300,63 @@ class DataManager
             $shifts[$res['playerID']]->shifts[] = $shift; 
         }
         return array_values($shifts);
+    }
+    
+    static function getShiftsFromGameById($gameID, $home)
+    {
+        global $db;
+        $query = "SELECT * FROM shift JOIN (SELECT gameID FROM game WHERE gameID = ?) specificgame ON specificgame.gameID = shift.gameID WHERE home = ?";
+        $sh = $db->prepare($query);
+        $homebit = $home ? 1 : 0;
+        $sh->execute(array($gameID, $homebit));
+        $shifts = array();
+        while($res = $sh->fetch())
+        {
+            $shift = new Shift($res['playerID'], $res['gameID'], $res['starttime'], boolval($res['home']), $res['endtime']);
+            if(!array_key_exists($res['playerID'], $shifts))
+            {
+                $playershifts = new stdClass();
+                $playershifts->player = DataManager::getPlayerByID($res['playerID']);
+                $playershifts->shifts = array();
+                $shifts[$res['playerID']] = $playershifts;
+            }
+            $shifts[$res['playerID']]->shifts[] = $shift; 
+        }
+        return array_values($shifts);
+    }
+    
+        static function getPlayersFromTeam($team)
+    {
+        global $db;
+        $query = "SELECT * FROM player WHERE team = ?;";
+        $sh = $db->prepare($query);
+        $args = array($team);
+        $sh->execute($args);
+        $players = array();
+        while($res = $sh->fetch())
+        {
+            $player = new Player($res['firstname'], $res['lastname']);
+            $player->playerID = $res['playerID'];
+            $players[] = $player;
+        }
+        return $players;
+    }
+    
+    static function getPlayersFromGame($gameID)
+    {
+        global $db;
+        $query = "SELECT * FROM player JOIN (SELECT * FROM shift WHERE gameID = ?) gameshift ON player.playerID = gameshift.playerID ORDER BY gameshift.home";
+        $sh = $db->prepare($query);
+        $args = array($team);
+        $sh->execute($args);
+        $players = array();
+        while($res = $sh->fetch())
+        {
+            $player = new Player($res['firstname'], $res['lastname']);
+            $player->playerID = $res['playerID'];
+            $players[] = $player;
+        }
+        return $players;
     }
     
     static function prepareQuery($name, $query)

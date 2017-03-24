@@ -256,5 +256,8 @@ INSERT INTO `team` (shortName, city, teamName) VALUES
   ('ATL', 'Atlanta', 'Hawks'),
   ('UTA', 'Utah', 'Jazz'),
   ('ORL', 'Orlando', 'Magic'),
-  ('CLE', 'Cleveland', 'Cavaliers');
+  ('CLE', 'Cleveland', 'Cavaliers'),
+  ('UNK', 'Unknown', '?????');
+  
+INSERT INTO `player`(`playerID`, `firstname`, `lastname`, `team`) VALUES (0, 'Unknown', 'Unknown', 'UNK');
 

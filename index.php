@@ -54,8 +54,7 @@ and open the template in the editor.
         </div>
         
         <?php
-            //include("displaydata.php");
-            include("processinput2.php");
+            include("displaydata.php");
         ?>
     </body>
 </html>

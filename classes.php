@@ -11,10 +11,13 @@
             public $playerID;
             public $firstname;
             public $lastname;
-            public function player($fname, $lname)
+            public $team;
+            public function __construct($firstname, $lastname, $playerID = null, $team = null)
             {
-                $this->firstname = $fname;
-                $this->lastname = $lname;
+                $this->firstname = $firstname;
+                $this->lastname = $lastname;
+                $this->playerID = $playerID;
+                $this->team = $team;
             }
         }
         
@@ -29,7 +32,7 @@
             public $isHome;
             public $distance;
             public $shotclock;
-            public function __construct($playerID, $gameID, $time, $type, $success, $isHome, $distance, $shotclock) {
+            public function __construct($playerID, $gameID, $time, $type, $success, $isHome, $distance = 0, $shotclock = 0) {
                 $this->playerID = $playerID;
                 $this->gameID = $gameID;
                 $this->time = $time;
@@ -43,13 +46,11 @@
         
         class FreeThrow extends Shot
         {
-            public $foulID;
             public $foultype;
             public $seq;
             public $total;
-            public function __construct($playerID, $gameID, $time, $success, $isHome, $foulID, $foultype, $seq, $total) {
+            public function __construct($playerID, $gameID, $time, $success, $isHome, $foultype, $seq, $total) {
                 parent::__construct($playerID, $gameID, $time, "Free Throw", $success, $isHome, NULL, NULL);
-                $this->foulID = $foulID;
                 $this->seq = $seq;
                 $this->total = $total;
                 $this->foultype = $foultype;
@@ -128,7 +129,7 @@
             public $blockID;
             public $playerID;
             public $shotID;
-            public function __construct($playerID, $shotID = null) {
+            public function __construct($playerID, $shotID) {
                 $this->playerID = $playerID;
                 $this->shotID = $shotID;
             }
@@ -160,14 +161,13 @@
         {
             public $gameID;
             public $date;
-            public $time;
             public $home;
             public $away;
-            public function __construct($date, $home, $away, $time = 0) {
+            public function __construct($gameID, $date, $home, $away) {
+                $this->gameID = $gameID;
                 $this->date = $date;
                 $this->home = $home;
                 $this->away = $away;
-                $this->time = $time;
             }
         }
         

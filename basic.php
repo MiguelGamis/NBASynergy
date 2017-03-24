@@ -45,31 +45,59 @@ function timeformat($milliseconds)
     return "$minutes:$leftoverseconds";
 }
 
-function timeintotalms($quarter, $ot, $clockstring)
+function timeintotalms($quarter, $clockstring)
 {
     $timecomponents = explode(":", $clockstring);
-    $ms = ($quarter - 1) * 720000 + $ot * 300000 + (720000 - (floatval($timecomponents[0]) * 60000 + floatval($timecomponents[1]) * 1000));
+    $ms = quarterbasetime($quarter) + (720000 - (floatval($timecomponents[0]) * 60000 + floatval($timecomponents[1]) * 1000));
     echo "$clockstring => $ms <br/>";
     return $ms;
 }
 
+function quarterbasetime($quarter)
+{
+    return $quarter > 4 ? 2880000 + ($quarter - 5) * 300000 : ($quarter - 1) * 720000;
+}
+
 function getPlayerInPlay($play, $teamplayers)
 {
-    $matchingplayer = null;
-    $length = 0;
+    $matchingplayers = array();
+    $maxlength = 0;
+    $minpos = INF;
     foreach($teamplayers as $player)
     {
-        if(strpos($play, $player->lastname) !== false)
+        $pos = strpos($play, $player->lastname);
+        if($pos !== false && $pos < $minpos)
         {   
-            echo $player->lastname;
-            if(strlen($player->lastname) > $length)
+            $minpos = $pos;
+            $matchingplayers = array();
+            $maxlength = strlen($player->lastname);
+            $matchingplayers[] = $player;
+        }
+        else if($pos !== false && $pos == $minpos)
+        {
+            if($maxlength < strlen($player->lastname))
             {
-                $length = strlen($player->lastname);
-                $matchingplayer = $player;
+                $matchingplayers = array();
+                $maxlength = strlen($player->lastname);
+                $matchingplayers[] = $player;
+            }
+            else if($maxlength == strlen($player->lastname))
+            {
+                $matchingplayers[] = $player;
             }
         }
     }
-    return $matchingplayer;
+    
+    if(sizeof($matchingplayers) > 1)
+    {
+        $unknownPlayer = new Player('Unknown', 'Player');
+        $unknownPlayer->playerID = 0;
+        return $unknownPlayer;
+    }
+    else if(sizeof($matchingplayers) == 1)
+    {
+        return $matchingplayers[0];
+    }
 }
 
 function getTypeInPlay(&$item, $play, $player)
