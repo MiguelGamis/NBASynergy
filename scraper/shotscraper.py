@@ -86,6 +86,12 @@ def scrapeShots(gameIDs):
             if i > 0:
                 f.write(",")
             hrefparts = profile['href'].split('/')
+            if len(hrefparts) < 3 and twoteams[1].text == 'HOU':
+                firstname = ''
+                lastname = 'Nene'
+                playerid = '2403'
+                f.write(playerid + "," + firstname + "," + lastname)
+                continue
             firstname = hrefparts[-3]
             lastname = hrefparts[-2]
             playerid = hrefparts[-1]
@@ -102,6 +108,12 @@ def scrapeShots(gameIDs):
             if i > 0:
                 f.write(",")
             hrefparts = profile['href'].split('/')
+            if len(hrefparts) < 3 and twoteams[0].text == 'HOU':
+                firstname = ''
+                lastname = 'Nene'
+                playerid = '2403'
+                f.write(playerid + "," + firstname + "," + lastname)
+                continue
             firstname = hrefparts[-3]
             lastname = hrefparts[-2]
             playerid = hrefparts[-1]
@@ -138,11 +150,16 @@ def scrapeShots(gameIDs):
                         href = playerlink['href']
                         if href is not None:
                             hrefparts = href.split("/")
-                            firstname = hrefparts[-3]
-                            lastname = hrefparts[-2]
-                            playerid = hrefparts[-1]
+                            if len(hrefparts) < 3 and team == 'HOU':
+                                firstname = ''
+                                lastname = 'Nene'
+                                playerid = '2403'
+                            else:
+                                firstname = hrefparts[-3]
+                                lastname = hrefparts[-2]
+                                playerid = hrefparts[-1]
                     play = playerinfo.find("div", {"class" : "player-right"})
-                    playdesc = play.find("div", {"class" : "desc"}).text
+                    playdesc = play.find("div", {"class" : "desc"}).text.replace(",","&")
 
                     f.write(time + "," + score + "," + team + "," + playerid + "," + firstname + "," + lastname + "," + playdesc + "\n");
         f.write("***End of scrape***")
@@ -151,4 +168,4 @@ def scrapeShots(gameIDs):
 
         driver2.quit()
                     
-scrapeShots(range(21600005, 21600006))
+scrapeShots(range(21600049, 21600060))

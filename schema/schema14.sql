@@ -36,12 +36,12 @@ CREATE TABLE IF NOT EXISTS `shot` (
 
 CREATE TABLE IF NOT EXISTS `freethrow` (
   `shotID` int(11) NOT NULL,
-  `foulID` int(11),/*JUST INTERESTED IN SHOOTING FOULS LINK BECAUSE THEY ARE MOST INTERESTING IF AT ALL AND SHOOTING FOULS MAY ALL BE LINKABLE TO FREE THROWS. SO SOME WILL BE NULL*/
+  /*`foulID` int(11), --JUST INTERESTED IN SHOOTING FOULS LINK BECAUSE THEY ARE MOST INTERESTING IF AT ALL AND SHOOTING FOULS MAY ALL BE LINKABLE TO FREE THROWS. SO SOME WILL BE NULL*/
   `foultype` varchar(128) NOT NULL,
   `seq` tinyint(1) NOT NULL,
   `total` tinyint(1) NOT NULL,
-  PRIMARY KEY (`shotID`),
-  UNIQUE KEY `freethrowseq` (`foulID`, `seq`)
+  PRIMARY KEY (`shotID`)
+  /*UNIQUE KEY `freethrowseq` (`foulID`, `seq`)*/
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `foul` (
@@ -73,6 +73,7 @@ CREATE TABLE IF NOT EXISTS `rebound` (
   `gameID` int(11) NOT NULL,
   `lineID` int(11) NOT NULL,
   `time` int(11) NOT NULL,
+  `home` tinyint(1) NOT NULL,
   `offensive` int(11) NOT NULL,
   PRIMARY KEY (`reboundID`),
   UNIQUE KEY `gameline` (`gameID`, `lineID`)
@@ -86,7 +87,8 @@ CREATE TABLE IF NOT EXISTS `turnover` (
   `gameID` int(11) NOT NULL,
   `lineID` int(11) NOT NULL,
   `time` int(11) NOT NULL,
-  `type` int(11) NOT NULL,
+  `home` tinyint(1) NOT NULL,
+  `type` varchar(128) NOT NULL,
   PRIMARY KEY (`turnoverID`),
   UNIQUE KEY `gameline` (`gameID`, `lineID`)
   /*`foulID` int(11), IS THIS USEFUL?
@@ -155,8 +157,8 @@ ALTER TABLE `shot`
 --
 ALTER TABLE `freethrow` 
 	ADD CONSTRAINT `freethrow_ibfk_1` FOREIGN KEY (`shotID`) REFERENCES `shot` (`shotID`) ON DELETE CASCADE;
-ALTER TABLE `freethrow` 
-	ADD CONSTRAINT `freethrow_ibfk_2` FOREIGN KEY (`foulID`) REFERENCES `foul` (`foulID`) ON DELETE CASCADE;	
+/*ALTER TABLE `freethrow` 
+	ADD CONSTRAINT `freethrow_ibfk_2` FOREIGN KEY (`foulID`) REFERENCES `foul` (`foulID`) ON DELETE CASCADE;*/
 	
 --
 -- Constraints for table `assist`
@@ -256,8 +258,7 @@ INSERT INTO `team` (shortName, city, teamName) VALUES
   ('ATL', 'Atlanta', 'Hawks'),
   ('UTA', 'Utah', 'Jazz'),
   ('ORL', 'Orlando', 'Magic'),
-  ('CLE', 'Cleveland', 'Cavaliers'),
-  ('UNK', 'Unknown', '?????');
+  ('CLE', 'Cleveland', 'Cavaliers');
   
-INSERT INTO `player`(`playerID`, `firstname`, `lastname`, `team`) VALUES (0, 'Unknown', 'Unknown', 'UNK');
+INSERT INTO `player`(`playerID`, `firstname`, `lastname`) VALUES (0, 'Unknown', 'Unknown');
 

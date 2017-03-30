@@ -49,7 +49,6 @@ function timeintotalms($quarter, $clockstring)
 {
     $timecomponents = explode(":", $clockstring);
     $ms = quarterbasetime($quarter) + (720000 - (floatval($timecomponents[0]) * 60000 + floatval($timecomponents[1]) * 1000));
-    echo "$clockstring => $ms <br/>";
     return $ms;
 }
 
@@ -65,7 +64,7 @@ function getPlayerInPlay($play, $teamplayers)
     $minpos = INF;
     foreach($teamplayers as $player)
     {
-        $pos = strpos($play, $player->lastname);
+        $pos = stripos($play, $player->lastname);
         if($pos !== false && $pos < $minpos)
         {   
             $minpos = $pos;
@@ -88,13 +87,13 @@ function getPlayerInPlay($play, $teamplayers)
         }
     }
     
-    if(sizeof($matchingplayers) > 1)
+    if(sizeof($matchingplayers) != 1)
     {
         $unknownPlayer = new Player('Unknown', 'Player');
         $unknownPlayer->playerID = 0;
         return $unknownPlayer;
     }
-    else if(sizeof($matchingplayers) == 1)
+    else
     {
         return $matchingplayers[0];
     }

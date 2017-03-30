@@ -11,18 +11,16 @@
 
     $pbpProcessor = new pbpProcessor2;
     
-//    if ($handle = opendir('scraper/playbyplays/')) {
-//        while (false !== ($file = readdir($handle)))
-//        {
-//            if (strtolower(substr($file, strrpos($file, '.') + 1)) == 'csv')
-//            {
-//                $pbpProcessor->processGame($file);
-//            }
-//        }
-//        closedir($handle);
-//    }
-    
-    $pbpProcessor->processGame("21600004-20161026-MIAORL.csv");
+    if ($handle = opendir('scraper/playbyplays/')) {
+        while (false !== ($file = readdir($handle)))
+        {
+            if (strtolower(substr($file, strrpos($file, '.') + 1)) == 'csv')
+            {
+                $pbpProcessor->processGame($file);
+            }
+        }
+        closedir($handle);
+    }
     
     class pbpProcessor2{
         
@@ -50,11 +48,12 @@
             $datetime = strtotime($date);
             $awayabbrev = substr($gamefile, 18, 3);
             $homeabbrev = substr($gamefile, 21, 3);
-//            if(DataManager::selectGame($datetime, $homeabbrev, $awayabbrev))
-//            {
-//                echo "Game '$gamefile' is already logged";
-//                return;
-//            }
+            if(DataManager::selectGame($datetime, $homeabbrev, $awayabbrev))
+            {
+                echo "Game '$gamefile' is already logged";
+                return;
+            }
+            echo "Logging '$gamefile'...";
             $this->game = new Game($gameID, $datetime, $homeabbrev, $awayabbrev);
             DataManager::insertGame($this->game);
 
@@ -93,12 +92,12 @@
                 {   
                     foreach($this->shifts as $team => &$teamshifts)
                     {
-                        $numteamshifts = sizeof($teamshifts);
-                        if($numteamshifts != 5)
-                        {
-                            echo "Error: $team does not have players ($numteamshifts) on the floor at $this->totalms\n";
-                            exit();
-                        }
+//                        $numteamshifts = sizeof($teamshifts);
+//                        if($numteamshifts != 5)
+//                        {
+//                            echo "Error: $team does not enough have players ($numteamshifts) on the floor at $this->totalms\n";
+//                            exit();
+//                        }
                         foreach($teamshifts as &$playershift)
                         {
                             $playershift->endtime = quarterbasetime($this->quarter + 1);
@@ -125,7 +124,7 @@
                 $team = $lineparts[2];
                 $playerID = $lineparts[3];
                 $firstname = $lineparts[4];
-                $lastname = $lineparts[5];
+                $lastname = str_replace("_"," ",$lineparts[5]);
                 $play = $lineparts[6];
 
                 if($playerID == "")
@@ -139,9 +138,6 @@
                 #HOME
                 $isHome = $team == $this->home->abbrev;
                 
-                #PLAY IN LOWERCASE
-                $play_lowercase = strtolower($play);
-                
                 #Check if player is in shifts, if not add him
                 if(!array_key_exists($playerID, $this->shifts[$team]))
                 {
@@ -151,28 +147,28 @@
                     
                     if(sizeof($this->shifts[$team]) > 5)
                     {
-                        echo "Error: Some player not currently in a shift caused total shifts to exceed 5";
+                        echo "Error: Some player not currently in a shift caused total shifts to exceed 5 at line $lineID";
                         exit();
                     }
                 }
                 
                 #SHOT
-                if(strpos($play_lowercase, "shot:") !== false)
+                if(stripos($play, "Shot:") !== false)
                 {
-                    $lastnamepos = strpos($play_lowercase, $lastname);
+                    $lastnamepos = stripos($play, $lastname);
                     if($lastnamepos === false)
                     {
-                        echo "Error: Player '$lastname' not found in play (lower case) '$play_lowercase'\n";
+                        echo "Error: Player '$lastname' not found in play '$play'\n";
                         exit();
                     }
                     
                     #type
                     $typestart = $lastnamepos + strlen($lastname) + 1;
-                    $typeend = strpos($play, "Shot:") + 4;
+                    $typeend = stripos($play, "Shot:") + 4;
                     $type = substr($play, $typestart, $typeend - $typestart);
                     
                     #made
-                    $made = strpos($play, "Shot: Made") !== false;
+                    $made = stripos($play, "Shot: Made") !== false;
                     
                     $shot = new Shot($playerID, $this->game->gameID, $this->totalms, $type, $made, $isHome);
                     DataManager::insertShot($shot, $lineID);
@@ -180,13 +176,22 @@
                     #ASSIST
                     if(strpos($play, "Assist:") !== false)
                     {
-                        $assist = new Assist($playerID, $shot->shotID);
+                        $assistpos = stripos($play, "Assist:");
+                        $assistplay = substr($play, $assistpos);
+                        $assister = getPlayerInPlay($assistplay, $this->players[$team]);
+                        
+                        $assist = new Assist($assister->playerID, $shot->shotID);
                         DataManager::insertAssist($assist, $lineID);
                     }
                     #BLOCK
                     else if(strpos($play, "Block:") !== false)
                     {
-                        $block = new Block($playerID, $shot->shotID);
+                        $blockpos = strpos($play, "Block:");
+                        $blockplay = substr($play, $blockpos);
+                        $oppositeteam = $team == $this->home->abbrev ? $this->away->abbrev : $this->home->abbrev;
+                        $blocker = getPlayerInPlay($blockplay, $this->players[$oppositeteam]);
+                        
+                        $block = new Block($blocker->playerID, $shot->shotID);
                         DataManager::insertBlock($block, $lineID);
                     }
                 }
@@ -194,10 +199,17 @@
                 else if(strpos($play, "Free Throw") !== false)
                 {
                     #made
-                    $made = strpos($play, "MISSED") === false;
+                    $made = stripos($play, "MISSED") === false;
                     
                     #foultype
-                    $foultype = $lastnamepos + strlen($lastname) + 1;
+                    if(strpos($play, "Technical") !== false)
+                    {
+                        $foultype = "Technical";
+                    }
+                    else
+                    {
+                        $foultype = "Regular";
+                    }
                     
                     #seq and total
                     $freethrow_seq_of_total_pattern = "/[0-9] of [0-9]/";
@@ -249,11 +261,11 @@
                     
                     if($offensive === null)
                     {
-                        echo "Error: Lost track of offensive(".$this->rebounds[$team][$playerID]["off"].")/defensive(".$this->rebounds[$team][$playerID]["def"].") rebound data for $lastname in play '$play'\n";
+                        echo "Error: Lost track of offensive(".$this->rebounds[$team][$playerID]["off"].")/defensive(".$this->rebounds[$team][$playerID]["def"].") rebound data for $lastname in play '$play' at line $lineID\n";
                         exit();
                     }
                     
-                    $rebound = new Rebound($playerID, $this->game->gameID, $this->totalms, $offensive);
+                    $rebound = new Rebound($playerID, $this->game->gameID, $this->totalms, $isHome, $offensive);
                     DataManager::insertRebound($rebound, $lineID);
                 }
                 #TURNOVER
@@ -270,17 +282,15 @@
                         echo "Error: Could not find expected turnover total in turnover at line $lineID\n";
                         exit();
                     }
-                    $typeend = $matches[0][1];
+                    $typeend = $matches[0][1] - 1;
                     $type = substr($play, $typestart, $typeend - $typestart);
                     
-                    $turnover = new Turnover($playerID, $this->game->gameID, $this->totalms);
+                    $turnover = new Turnover($playerID, $this->game->gameID, $this->totalms, $isHome, $type);
                     DataManager::insertTurnover($turnover, $lineID);
                     
                     #STEAL
                     if(strpos($play, "Steal:") !== false)
-                    {
-                        $oppositeteam = $team == $this->home->abbrev ? $this->away->abbrev : $this->home->abbrev;
-                        
+                    {   
                         #playerid
                         $stealpos = strpos($play, "Steal:");
                         $stealerstart = $stealpos + strlen("Steal:");
@@ -294,34 +304,39 @@
                         }
                         $stealerend = $matches[0][1] - 1;
                         $stealerlastname = substr($play, $stealerstart, $stealerend - 1);
-                        $stealermatches = array_filter($this->players[$oppositeteam], function($p) use ($stealerlastname) {return $p->lastname == $stealerlastname;});
-                        if(sizeof($stealermatches) != 1)
-                        {
-                            $steal = new Steal(0, $turnover->turnoverID);
-                            DataManager::insertSteal($steal, $lineID);
-                            continue;
-                        }
-                        $stealer = $stealermatches[0];
-                        
-                        $steal = new Steal($stealer->ID, $turnover->turnoverID);
+                        $oppositeteam = $team == $this->home->abbrev ? $this->away->abbrev : $this->home->abbrev;
+                        $stealer = getPlayerInPlay($stealerlastname, $this->players[$oppositeteam]);
+                        $steal = new Steal($stealer->playerID, $turnover->turnoverID);
                         DataManager::insertSteal($steal, $lineID);
                     }
                 }
                 #FOUL
-                else if(strpos($play, "Foul:") !== false)
+                else if(strpos($play, "Foul:") !== false || strpos($play, "Technical") !== false)
                 {
                     #type
-                    $foulpos = strpos($play, "Foul:");
-                    $typestart = $foulpos + 5;
-                    $pftotal_pattern = "/\([0-9]+ PF\)/";
-                    preg_match($pftotal_pattern, $play, $matches, PREG_OFFSET_CAPTURE);
-                    if(sizeof($matches) == 0)
+                    $type = null;
+                    if(strpos($play, "Double Technical") !== false)
                     {
-                        echo "Error: Could not find expected personal foul total in foul at line $lineID";
-                        exit();
+                        $type = "Double Technical";
                     }
-                    $typeend = $matches[0][1] - 1;
-                    $type = substr($play, $typestart, $typeend);
+                    else if(strpos($play, "Technical") !== false)
+                    {
+                        $type = "Technical";
+                    }
+                    else
+                    {
+                        $foulpos = strpos($play, "Foul:");
+                        $typestart = $foulpos + 5;
+                        $pftotal_pattern = "/\([0-9]+ PF\)/";
+                        preg_match($pftotal_pattern, $play, $matches, PREG_OFFSET_CAPTURE);
+                        if(sizeof($matches) == 0)
+                        {
+                            echo "Error: Could not find expected personal foul total in foul at line $lineID";
+                            exit();
+                        }
+                        $typeend = $matches[0][1] - 1;
+                        $type = substr($play, $typestart, $typeend - $typestart);
+                    }
 
                     #referee
                     $referee_pattern = "/\([A-Z] [A-Za-z]+\)$/";
@@ -336,9 +351,17 @@
                     {
                         $referee = str_replace(array('(',')'), '', $matches[0][0]);
                     }
-                    
-                    $foul = new Foul($this->game->gameID, $this->totalms, $playerID, $type, $referee);
+                    $foul = new Foul($this->game->gameID, $this->totalms, $isHome, $playerID, $type, $referee);
                     DataManager::insertFoul($foul, $lineID);
+                    if(strpos($play, "Double Technical") !== false)
+                    {
+                        $playerpos = stripos($play, $lastname);
+                        $restofplay = substr($play, $playerpos + strlen($lastname));
+                        $oppositeteam = $team == $this->home->abbrev ? $this->away->abbrev : $this->home->abbrev;
+                        $player = getPlayerInPlay($restofplay, $this->players[$oppositeteam]);
+                        $otherfoul = new Foul($this->game->gameID, $this->totalms, !$isHome, $player->playerID, "Double Technical", $referee);
+                        DataManager::insertFoul($otherfoul, $lineID);
+                    }
                 }
                 #SUBSTITUTION
                 else if(strpos($play, "Substitution replaced by"))
@@ -356,23 +379,14 @@
                     
                     $subpos = strpos($play, "Substitution replaced by");
                     $playeronlastnamestart = $subpos + strlen("Substitution replaced by") + 1;
-                    $playeronlastname = strtolower(substr($play, $playeronlastnamestart));
+                    $playeronlastname = substr($play, $playeronlastnamestart);
                     
-                    if($lineID = 464)
-                        echo "HERE COMES $playeronlastname";
-                    
-                    $playeronmatches = array_filter($this->players[$team], function($p) use ($playeronlastname ) {return $p->lastname == $playeronlastname; });
-                    if(sizeof($playeronmatches) != 1)
+                    $playeron = getPlayerInPlay($playeronlastname, $this->players[$team]);
+                    if($playeron->playerID != 0)
                     {
-                        echo "Unknown shift started";
-                        $shifton = new Shift(0, $this->game->gameID, $this->totalms, $isHome);
-                        $shifton
-                        continue;
+                        $shifton = new Shift($playeron->playerID, $this->game->gameID, $this->totalms, $isHome);
+                        $this->shifts[$team][$playeron->playerID] = $shifton;
                     }
-                    
-                    $playeron = current($playeronmatches);
-                    $shifton = new Shift($playeron->playerID, $this->game->gameID, $this->totalms, $isHome);
-                    $this->shifts[$team][$playeron->playerID] = $shifton;
                 }
             }
 
@@ -382,7 +396,6 @@
         {
             $playernames = array_chunk($roster , 3);
             $i=0;
-            var_dump($playernames);
             foreach($playernames as $p)
             {
                 $playerid = intval($p[0]);

@@ -7,8 +7,11 @@
  */
     require_once("queries.php");
 
-    $awayshifts = DataManager::getShiftsFromGameById(21600003, false);
+    $awayshifts = DataManager::getShiftsFromGameById(21600007, false);
     $jsonawayshifts = json_encode($awayshifts);
+    
+    $homeshifts = DataManager::getShiftsFromGameById(21600007, true);
+    $jsonhomeshifts = json_encode($homeshifts);
     
     $awayPlayers = DataManager::getPlayersFromTeam('NYK');
 
@@ -23,7 +26,8 @@
     $graph .= "
         window.onload = addOptions($jsonawayPlayers);
         window.onload = addOtherOptions($jsonhomePlayers);
-        window.onload = renderGanttShifts($jsonawayshifts);
+        window.onload = renderGanttShifts($jsonawayshifts, 'away-gantt');
+        window.onload = renderGanttShifts($jsonhomeshifts, 'home-gantt');
     ";
         
     $graph .= "</script>";

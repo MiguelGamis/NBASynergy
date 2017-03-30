@@ -62,12 +62,14 @@
             public $foulID;
             public $gameID;
             public $time;
+            public $isHome;
             public $foulerID;
             public $type;
             public $referee;
-            public function __construct($gameID, $time, $foulerID, $type, $referee = null) {
+            public function __construct($gameID, $time, $isHome, $foulerID, $type, $referee = null) {
                 $this->gameID = $gameID;
                 $this->time = $time;
+                $this->isHome = $isHome;
                 $this->foulerID = $foulerID;
                 $this->type = $type;
                 $this->referee = $referee;
@@ -89,11 +91,13 @@
             public $playerID;
             public $gameID;
             public $time;
+            public $isHome;
             public $offensive;
-            public function __construct($playerID, $gameID, $time, $offensive) {
+            public function __construct($playerID, $gameID, $time, $isHome, $offensive) {
                 $this->playerID = $playerID;
                 $this->gameID = $gameID;
                 $this->time = $time;
+                $this->isHome = $isHome;
                 $this->offensive = $offensive;
             }
         }
@@ -104,12 +108,14 @@
             public $playerID;
             public $gameID;
             public $time;
+            public $isHome;
             public $type;
-            public function __construct($playerID, $gameID, $time, $type = null) {
+            public function __construct($playerID, $gameID, $time, $isHome, $type = null) {
                 $this->playerID = $playerID;
                 $this->gameID = $gameID;
                 $this->time = $time;
-                $this->offensive = $type;
+                $this->isHome = $isHome;
+                $this->type = $type;
             }
         }
         

@@ -55,8 +55,7 @@ class DataManager
         $row = $sh->fetch();
         if($row)
         {
-            $game = new Game($date, $home, $away);
-            $game->gameID = $row['gameID'];
+            $game = new Game($row['gameID'], $date, $home, $away);
             return $game;
         }
     }
@@ -86,8 +85,8 @@ class DataManager
         {
             $query = "INSERT INTO player (playerID, firstname, lastname, team) VALUES (?, ?, ?, ?);";
             $sh = $db->prepare($query);
-            $sh->execute(array($playerID, $firstname, $lastname, $team));
-            $player = new Player($playerID, $firstname, $lastname, $team);
+            $sh->execute(array($playerID, ucfirst($firstname), ucfirst($lastname), $team));
+            $player = new Player($playerID, ucfirst($firstname), ucfirst($lastname), $team);
             return $player;
         }
     }
@@ -186,9 +185,9 @@ class DataManager
         global $db;
         if($db)
         {
-            $query = "INSERT IGNORE INTO foul (foulerID, type, referee, gameID, lineID, time) VALUES (?, ?, ?, ?, ?, ?);";
+            $query = "INSERT IGNORE INTO foul (foulerID, type, referee, gameID, lineID, time, home) VALUES (?, ?, ?, ?, ?, ?, ?);";
             $sh = $db->prepare($query);
-            $result = $sh->execute(array($foul->foulerID, $foul->type, $foul->referee, $foul->gameID, $lineID, $foul->time));
+            $result = $sh->execute(array($foul->foulerID, $foul->type, $foul->referee, $foul->gameID, $lineID, $foul->time, $foul->isHome));
             if(!$result)
             {
                 echo "Error: Something went wrong inserting a foul at line $lineID: ".$sh->errorCode();
@@ -214,9 +213,9 @@ class DataManager
     static function insertRebound($rebound, $lineID)
     {
         global $db;
-        $query = "INSERT IGNORE INTO rebound (playerID, gameID, lineID, time, offensive) VALUES (?, ?, ?, ?, ?);";
+        $query = "INSERT IGNORE INTO rebound (playerID, gameID, lineID, time, home, offensive) VALUES (?, ?, ?, ?, ?, ?);";
         $sh = $db->prepare($query);
-        $result = $sh->execute(array($rebound->playerID, $rebound->gameID, $lineID, $rebound->time, $rebound->offensive));
+        $result = $sh->execute(array($rebound->playerID, $rebound->gameID, $lineID, $rebound->time, $rebound->isHome, $rebound->offensive));
         if(!$result)
         {
             echo "Error: Something went wrong inserting a rebound at line $lineID: ".$sh->errorCode();
@@ -227,9 +226,9 @@ class DataManager
     static function insertTurnover(&$turnover, $lineID)
     {
         global $db;
-        $query = "INSERT IGNORE INTO turnover (playerID, gameID, lineID, time, type) VALUES (?, ?, ?, ?, ?);";
+        $query = "INSERT IGNORE INTO turnover (playerID, gameID, lineID, time, home, type) VALUES (?, ?, ?, ?, ?, ?);";
         $sh = $db->prepare($query);
-        $result = $sh->execute(array($turnover->playerID, $turnover->gameID, $lineID, $turnover->time, $turnover->type));
+        $result = $sh->execute(array($turnover->playerID, $turnover->gameID, $lineID, $turnover->time, $turnover->isHome, $turnover->type));
         if(!$result)
         {
             echo "Error: Something went wrong inserting a turnover at line $lineID: ".$sh->errorCode();
@@ -325,18 +324,19 @@ class DataManager
         return array_values($shifts);
     }
     
-        static function getPlayersFromTeam($team)
+    static function getPlayersFromTeam($team)
     {
         global $db;
         $query = "SELECT * FROM player WHERE team = ?;";
         $sh = $db->prepare($query);
         $args = array($team);
         $sh->execute($args);
-        $players = array();
+        $players = [];
         while($res = $sh->fetch())
         {
             $player = new Player($res['firstname'], $res['lastname']);
             $player->playerID = $res['playerID'];
+            $player->team = $res['team'];
             $players[] = $player;
         }
         return $players;
@@ -357,6 +357,224 @@ class DataManager
             $players[] = $player;
         }
         return $players;
+    }
+    
+    static function getTeams()
+    {
+        global $db;
+        $query = "SELECT * FROM team";
+        $sh = $db->prepare($query);
+        $sh->execute();
+        $teams = [];
+        while($row = $sh->fetch())
+        {
+            $teams[] = new Team($row['shortName'], $row['city'], $row['teamName']);
+        }
+        return $teams;
+    }
+    
+    static function getShotsFromPlayer($playerID)
+    {
+        global $db;
+        $query = "SELECT * FROM shot WHERE playerID = ? ORDER BY type";
+        $sh = $db->prepare($query);
+        $sh->execute(array($playerID));
+        
+        $shots = [];
+        $totalpts = 0;
+        while($row = $sh->fetch())
+        {
+            $type = $row['type'];
+            if($row['made'])
+            {
+                if(strpos($type, "3") !== false){
+                    $totalpts += 3;
+                }               
+                else if($type == "Free Throw"){
+                    $totalpts += 1;
+                }
+                else{
+                    $totalpts += 2;
+                }
+            }
+        }
+        
+        return $totalpts;
+    }
+    
+    static function getShots($playerID)
+    {
+        global $db;
+        $query = "SELECT * FROM shot WHERE playerID = ? ORDER BY time";
+        $sh = $db->prepare($query);
+        $sh->execute(array($playerID));
+        
+        $shots = [];
+        while($row = $sh->fetch())
+        {
+            $shot = new stdClass();
+            $shot->time = $row['time'];
+            $shot->type = $row['type'];
+            $shot->made = $row['made'];
+            $gameID = $row['gameID'];
+            if(!array_key_exists($gameID, $shots))
+            {
+                $shots[$gameID] = [];
+            }
+            $shots[$gameID][] = $shot;
+        }
+        
+        return $shots;
+    }
+    
+    static function getAssists($playerID)
+    {
+        global $db;
+        $query = "SELECT shot.gameID, shot.time FROM shot JOIN (SELECT * FROM assist WHERE playerID = ?) playerassists ON shot.shotID = playerassists.shotID ORDER BY shot.time";
+        $sh = $db->prepare($query);
+        $sh->execute(array($playerID));
+        
+        $assists = [];
+        while($row = $sh->fetch())
+        {
+            $assist = new stdClass();
+            $assist->time = $row['time'];
+            $gameID = $row['gameID'];
+            if(!array_key_exists($gameID, $assists))
+            {
+                $assists[$gameID] = [];
+            }
+            $assists[$gameID][] = $assist;
+        }
+        
+        return $assists;
+    }
+    
+    static function getShiftsFromPlayer($playerID)
+    {
+        global $db;
+        $query = "SELECT * FROM shift WHERE playerID = ? ORDER BY starttime;";
+        $sh = $db->prepare($query);
+        $sh->execute(array($playerID));
+        
+        $shifts = [];
+        while($row = $sh->fetch())
+        {
+            $shift = new stdClass();
+            $shift->starttime = $row['starttime'];
+            $shift->endtime = $row['endtime'];
+            $gameID = $row['gameID'];
+            if(!array_key_exists($gameID, $shifts))
+            {
+                $shifts[$gameID] = array();
+            }
+            $shifts[$gameID][] = $shift;
+        }
+        
+        return $shifts;
+    }
+    
+    static function getRebounds($playerID)
+    {
+        global $db;
+        $query = "SELECT * FROM rebound WHERE playerID = ? ORDER by time";
+        $sh = $db->prepare($query);
+        $sh->execute(array($playerID));
+        
+        $rebounds = [];
+        while($row = $sh->fetch())
+        {
+            $rebound = new stdClass();
+            $rebound->time = $row['time'];
+            $rebound->offensive = $row['offensive'];
+            $gameID = $row['gameID'];
+            if(!array_key_exists($gameID, $rebounds))
+            {
+                $rebounds[$gameID] = [];
+            }
+            $rebounds[$gameID][] = $rebound;
+        }
+        
+        return $rebounds;
+    }
+    
+    static function getBlocks($playerID)
+    {
+        global $db;
+        $query = "SELECT shot.gameID, shot.time FROM shot JOIN (SELECT * FROM block WHERE playerID = ?) playerblocks ON shot.shotID = playerblocks.shotID ORDER BY shot.time";
+        $sh = $db->prepare($query);
+        $sh->execute(array($playerID));
+        
+        $blocks = [];
+        while($row = $sh->fetch())
+        {
+            $block = new stdClass();
+            $block->time = $row['time'];
+            $gameID = $row['gameID'];
+            if(!array_key_exists($gameID, $blocks))
+            {
+                $blocks[$gameID] = [];
+            }
+            $blocks[$gameID][] = $block;
+        }
+        
+        return $blocks;
+    }
+    
+    static function getTurnovers($playerID)
+    {
+        global $db;
+        $query = "SELECT * FROM turnover WHERE playerID = ? ORDER BY time";
+        $sh = $db->prepare($query);
+        $sh->execute(array($playerID));
+        
+        $turnovers = [];
+        while($row = $sh->fetch())
+        {
+            $turnover = new stdClass();
+            $turnover->time = $row['time'];
+            $gameID = $row['gameID'];
+            if(!array_key_exists($gameID, $turnovers))
+            {
+                $turnovers[$gameID] = [];
+            }
+            $turnovers[$gameID][] = $turnover;
+        }
+        
+        return $turnovers;
+    }
+    
+    static function getSteals($playerID)
+    {
+        global $db;
+        $query = "SELECT turnover.gameID, turnover.time FROM turnover JOIN (SELECT * FROM steal WHERE playerID = ?) playersteals ON turnover.turnoverID = playersteals.turnoverID ORDER BY turnover.time";
+        $sh = $db->prepare($query);
+        $sh->execute(array($playerID));
+        
+        $steals = [];
+        while($row = $sh->fetch())
+        {
+            $steal = new stdClass();
+            $steal->time = $row['time'];
+            $gameID = $row['gameID'];
+            if(!array_key_exists($gameID, $steals))
+            {
+                $steals[$gameID] = [];
+            }
+            $steals[$gameID][] = $steal;
+        }
+        
+        return $steals;
+    }
+    
+    static function getGamesPlayedbyPlayer($playerID)
+    {
+        global $db;
+        $query = "SELECT count(*) as count FROM (SELECT gameID FROM shift WHERE playerID = 201942 GROUP BY gameID) gamesplayed;";
+        $sh = $db->prepare($query);
+        $sh->execute(array($playerID));
+        $row = $sh->fetch();
+        return intval($row['count']);
     }
     
     static function prepareQuery($name, $query)

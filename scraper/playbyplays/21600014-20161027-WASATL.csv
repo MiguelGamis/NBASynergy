@@ -1,0 +1,486 @@
+203145,Kent,Bazemore,200794,Paul,Millsap,2730,Dwight,Howard,2594,Kyle,Korver,203471,Dennis,Schroder,203488,Mike,Muscala,203501,Tim,Hardaway Jr.,200757,Thabo,Sefolosha,1627098,Malcolm,Delaney,2743,Kris,Humphries,1627752,Taurean,Prince,1627761,DeAndre',Bembry
+203490,Otto,Porter Jr.,202693,Markieff,Morris,101162,Marcin,Gortat,203078,Bradley,Beal,202322,John,Wall,203094,Andrew,Nicholson,203504,Trey,Burke,1626162,Kelly,Oubre Jr.,201160,Jason,Smith,201977,Marcus,Thornton,1627849,Daniel,Ochefu,1627815,Sheldon,McClellan,203107,Tomas,Satoransky
+Start of 1st Quarter
+12:00,0-0,ATL,2730,dwight,howard,Jump Ball Howard vs Gortat (Wall gains possession)
+11:42,0-0,WAS,202693,markieff,morris,[WAS] Morris Step Back Jump shot: Missed
+11:40,0-0,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:1 Def:0)
+11:34,0-0,WAS,202322,john,wall,[WAS] Wall 3pt Shot: Missed
+11:31,0-0,WAS,202693,markieff,morris,[WAS] Morris Rebound (Off:1 Def:0)
+11:31,0-0,WAS,202693,markieff,morris,[WAS] Morris Tip Layup Shot: Missed
+11:30,0-0,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:0 Def:1)
+11:17,0-0,ATL,2730,dwight,howard,[ATL] Howard Turnover : Bad Pass (1 TO) Steal:Gortat (1 ST)
+11:13,0-2,WAS,203078,bradley,beal,[WAS 2-0] Beal Running Dunk Shot: Made (2 PTS)
+10:51,0-2,ATL,203145,kent,bazemore,[ATL] Bazemore Pullup Jump shot: Missed
+10:49,0-2,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:1 Def:1)
+10:49,2-2,ATL,2730,dwight,howard,[ATL 2-2] Howard Tip Dunk Shot: Made (2 PTS)
+10:33,2-2,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Pullup Jump shot: Missed
+10:30,2-2,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:1 Def:2)
+10:19,4-2,ATL,2594,kyle,korver,[ATL 4-2] Korver Jump Shot: Made (2 PTS) Assist: Howard (1 AST)
+10:03,4-4,WAS,202693,markieff,morris,[WAS 4-4] Morris Driving Floating Jump Shot: Made (2 PTS) Assist: Beal (1 AST)
+09:44,6-4,ATL,203471,dennis,schroder,[ATL 6-4] Schroder Pullup Jump shot: Made (2 PTS)
+09:29,6-4,WAS,203078,bradley,beal,[WAS] Beal Step Back Jump shot: Missed
+09:26,6-4,ATL,200794,paul,millsap,[ATL] Millsap Rebound (Off:0 Def:1)
+09:20,6-4,ATL,200794,paul,millsap,[ATL] Millsap Turnaround Jump Shot: Missed
+09:17,6-4,WAS,202693,markieff,morris,[WAS] Morris Rebound (Off:1 Def:1)
+09:06,6-6,WAS,202693,markieff,morris,[WAS 6-6] Morris Pullup Jump shot: Made (4 PTS) Assist: Wall (1 AST)
+08:53,6-6,ATL,203471,dennis,schroder,[ATL] Schroder Pullup Jump shot: Missed
+08:52,6-6,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:2 Def:2)
+08:49,6-6,ATL,203145,kent,bazemore,[ATL] Bazemore 3pt Shot: Missed
+08:47,6-6,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:1 Def:1)
+08:33,6-8,WAS,202693,markieff,morris,[WAS 8-6] Morris Step Back Jump shot: Made (6 PTS) Assist: Porter Jr. (1 AST)
+08:24,6-8,WAS,202693,markieff,morris,[WAS] Morris Foul: Shooting (1 PF) (2 FTA) (B Adams)
+08:24,7-8,ATL,200794,paul,millsap,[ATL 7-8] Millsap Free Throw 1 of 2 (1 PTS)
+08:24,8-8,ATL,200794,paul,millsap,[ATL 8-8] Millsap Free Throw 2 of 2 (2 PTS)
+08:11,8-8,WAS,101162,marcin,gortat,[WAS] Gortat Foul: Offensive (1 PF) (M McCutchen)
+08:11,8-8,WAS,101162,marcin,gortat,[WAS] Gortat Turnover : Foul (1 TO)
+07:59,8-8,ATL,203471,dennis,schroder,[ATL] Schroder Driving Layup Shot: Missed
+07:56,8-8,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:3 Def:2)
+07:56,8-8,ATL,2730,dwight,howard,[ATL] Howard Turnaround Jump Shot: Missed
+07:54,8-8,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:1 Def:2)
+07:50,8-8,WAS,202322,john,wall,[WAS] Wall Running Layup Shot: Missed
+07:49,8-8,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:3 Def:3)
+07:41,8-8,ATL,203145,kent,bazemore,[ATL] Bazemore Turnover : Bad Pass (1 TO) Steal:Morris (1 ST)
+07:34,8-8,WAS,203078,bradley,beal,[WAS] Beal Turnover : Lost Ball (1 TO) Steal:Bazemore (1 ST)
+07:30,8-8,ATL,2594,kyle,korver,[ATL] Korver Turnover : Lost Ball (1 TO) Steal:Wall (1 ST)
+07:30,8-8,ATL,2594,kyle,korver,[ATL] Korver Foul: Personal (1 PF) (B Adams)
+07:21,8-8,WAS,101162,marcin,gortat,[WAS] Gortat Driving Layup Shot: Missed
+07:19,8-8,WAS,202322,john,wall,[WAS] Wall Rebound (Off:1 Def:0)
+07:19,8-8,WAS,202322,john,wall,[WAS] Wall Tip Layup Shot: Missed
+07:18,8-8,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:3 Def:4)
+07:09,10-8,ATL,200794,paul,millsap,[ATL 10-8] Millsap Pullup Jump shot: Made (4 PTS)
+07:09,10-8,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Foul: Shooting (1 PF) (1 FTA) (A Smith)
+07:09,10-8,ATL,2730,dwight,howard,[ATL] Howard Substitution replaced by Muscala
+07:09,11-8,ATL,200794,paul,millsap,[ATL 11-8] Millsap Free Throw 1 of 1 (5 PTS)
+06:53,11-8,WAS,203078,bradley,beal,[WAS] Beal Pullup Jump shot: Missed
+06:51,11-8,ATL,200794,paul,millsap,[ATL] Millsap Rebound (Off:0 Def:2)
+06:32,11-8,ATL,200794,paul,millsap,[ATL] Millsap Pullup Jump shot: Missed Block: Wall (1 BLK)
+06:29,11-8,ATL,200794,paul,millsap,[ATL] Millsap Rebound (Off:1 Def:2)
+06:26,14-8,ATL,203471,dennis,schroder,[ATL 14-8] Schroder 3pt Shot: Made (5 PTS) Assist: Millsap (1 AST)
+06:21,14-8,WAS,,,,[WAS] Team Timeout : Regular
+06:21,14-8,ATL,200794,paul,millsap,[ATL] Millsap Substitution replaced by Howard
+06:10,14-10,WAS,101162,marcin,gortat,[WAS 10-14] Gortat Hook Shot: Made (2 PTS) Assist: Wall (2 AST)
+05:52,14-10,ATL,203471,dennis,schroder,[ATL] Schroder Driving Floating Jump Shot: Missed
+05:51,14-10,WAS,202693,markieff,morris,[WAS] Morris Rebound (Off:1 Def:2)
+05:43,14-10,WAS,202322,john,wall,[WAS] Wall Driving Floating Jump Shot: Missed
+05:42,14-10,ATL,2594,kyle,korver,[ATL] Korver Rebound (Off:0 Def:1)
+05:39,14-10,WAS,202693,markieff,morris,[WAS] Morris Foul: Personal (2 PF) (M McCutchen)
+05:39,14-10,WAS,202693,markieff,morris,[WAS] Morris Substitution replaced by Nicholson
+05:33,14-10,ATL,203145,kent,bazemore,[ATL] Bazemore Turnover : Bad Pass (2 TO) Steal:Nicholson (1 ST)
+05:22,14-12,WAS,203490,otto,porter_jr.,[WAS 12-14] Porter Jr. Cutting Layup Shot: Made (2 PTS) Assist: Beal (2 AST)
+05:12,14-12,ATL,203471,dennis,schroder,[ATL] Schroder Driving Floating Jump Shot: Missed Block: Gortat (1 BLK)
+05:10,14-12,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:1 Def:3)
+05:06,14-14,WAS,203078,bradley,beal,[WAS 14-14] Beal Running Layup Shot: Made (4 PTS) Assist: Wall (3 AST)
+05:06,14-14,ATL,,,,[ATL] Team Timeout : Regular
+05:06,14-14,ATL,2594,kyle,korver,[ATL] Korver Substitution replaced by Hardaway Jr.
+04:55,14-14,WAS,203078,bradley,beal,[WAS] Beal Foul: Shooting (1 PF) (2 FTA) (A Smith)
+04:55,15-14,ATL,203145,kent,bazemore,[ATL 15-14] Bazemore Free Throw 1 of 2 (1 PTS)
+04:55,16-14,ATL,203145,kent,bazemore,[ATL 16-14] Bazemore Free Throw 2 of 2 (2 PTS)
+04:40,16-14,WAS,203078,bradley,beal,[WAS] Beal 3pt Shot: Missed
+04:38,16-14,ATL,203471,dennis,schroder,[ATL] Schroder Rebound (Off:0 Def:1)
+04:27,16-14,ATL,203501,tim,hardaway_jr.,[ATL] Hardaway Jr. Driving Floating Jump Shot: Missed
+04:25,16-14,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:4 Def:4)
+04:24,18-14,ATL,2730,dwight,howard,[ATL 18-14] Howard Jump Shot: Made (4 PTS)
+04:09,18-14,WAS,202322,john,wall,[WAS] Wall Pullup Jump shot: Missed
+04:07,18-14,ATL,203145,kent,bazemore,[ATL] Bazemore Rebound (Off:0 Def:1)
+04:00,18-14,ATL,203488,mike,muscala,[ATL] Muscala 3pt Shot: Missed
+03:59,18-14,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:0 Def:1)
+03:52,18-14,WAS,101162,marcin,gortat,[WAS] Gortat Turnover : Offensive Goaltending (2 TO)
+03:52,18-14,ATL,203145,kent,bazemore,[ATL] Bazemore Substitution replaced by Sefolosha
+03:52,18-14,ATL,203471,dennis,schroder,[ATL] Schroder Substitution replaced by Delaney
+03:52,18-14,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Substitution replaced by Burke
+03:52,18-14,WAS,202322,john,wall,[WAS] Wall Substitution replaced by Oubre Jr.
+03:38,18-14,ATL,2730,dwight,howard,[ATL] Howard Jump Bank Shot: Missed
+03:37,18-14,ATL,203488,mike,muscala,[ATL] Muscala Rebound (Off:1 Def:0)
+03:37,18-14,WAS,203094,andrew,nicholson,[WAS] Nicholson Foul: Shooting (1 PF) (2 FTA) (A Smith)
+03:37,19-14,ATL,203488,mike,muscala,[ATL 19-14] Muscala Free Throw 1 of 2 (1 PTS)
+03:37,20-14,ATL,203488,mike,muscala,[ATL 20-14] Muscala Free Throw 2 of 2 (2 PTS)
+03:26,20-14,WAS,203078,bradley,beal,[WAS] Beal Pullup Jump shot: Missed
+03:25,20-14,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:4 Def:5)
+03:12,23-14,ATL,203501,tim,hardaway_jr.,[ATL 23-14] Hardaway Jr. 3pt Shot: Made (3 PTS) Assist: Sefolosha (1 AST)
+02:53,23-17,WAS,203094,andrew,nicholson,[WAS 17-23] Nicholson 3pt Shot: Made (3 PTS) Assist: Burke (1 AST)
+02:32,23-17,ATL,203501,tim,hardaway_jr.,[ATL] Hardaway Jr. Pullup Jump shot: Missed
+02:31,23-17,WAS,203094,andrew,nicholson,[WAS] Nicholson Rebound (Off:0 Def:1)
+02:22,23-17,ATL,2730,dwight,howard,[ATL] Howard Substitution replaced by Millsap
+02:19,23-19,WAS,203094,andrew,nicholson,[WAS 19-23] Nicholson Layup Shot: Made (5 PTS) Assist: Oubre Jr. (1 AST)
+02:06,23-19,ATL,1627098,malcolm,delaney,[ATL] Delaney Turnover : Bad Pass (1 TO) Steal:Burke (1 ST)
+02:02,23-21,WAS,203078,bradley,beal,[WAS 21-23] Beal Running Dunk Shot: Made (6 PTS) Assist: Gortat (1 AST)
+01:46,25-21,ATL,1627098,malcolm,delaney,[ATL 25-21] Delaney Pullup Jump shot: Made (2 PTS) Assist: Sefolosha (2 AST)
+01:25,25-23,WAS,101162,marcin,gortat,[WAS 23-25] Gortat Hook Shot: Made (4 PTS)
+01:06,27-23,ATL,200794,paul,millsap,[ATL 27-23] Millsap Step Back Jump shot: Made (7 PTS)
+00:50.6,27-25,WAS,203504,trey,burke,[WAS 25-27] Burke Pullup Jump shot: Made (2 PTS)
+00:37.7,27-25,ATL,200757,thabo,sefolosha,[ATL] Sefolosha Layup Shot: Missed Block: Nicholson (1 BLK)
+00:35.9,27-25,ATL,200757,thabo,sefolosha,[ATL] Sefolosha Rebound (Off:1 Def:0)
+00:26.7,29-25,ATL,200794,paul,millsap,[ATL 29-25] Millsap Step Back Jump shot: Made (9 PTS)
+00:03.6,29-27,WAS,203078,bradley,beal,[WAS 27-29] Beal Driving Layup Shot: Made (8 PTS)
+00:00.0,29-27,ATL,1627098,malcolm,delaney,[ATL] Delaney Driving Floating Jump Shot: Missed
+00:00.0,29-27,ATL,,,,[ATL] Team Rebound
+End of 1st Quarter
+Start of 2nd Quarter
+11:52,29-27,WAS,201977,marcus,thornton,[WAS] Thornton Foul: Personal (1 PF) (B Adams)
+11:44,29-27,ATL,2594,kyle,korver,[ATL] Korver 3pt Shot: Missed
+11:43,29-27,WAS,201160,jason,smith,[WAS] Smith Rebound (Off:0 Def:1)
+11:26,29-30,WAS,1626162,kelly,oubre_jr.,[WAS 30-29] Oubre Jr. 3pt Shot: Made (3 PTS) Assist: Smith (1 AST)
+11:06,29-30,ATL,1627098,malcolm,delaney,[ATL] Delaney Pullup Jump shot: Missed
+11:04,29-30,WAS,203094,andrew,nicholson,[WAS] Nicholson Rebound (Off:0 Def:2)
+10:54,29-30,WAS,201977,marcus,thornton,[WAS] Thornton 3pt Shot: Missed
+10:54,29-30,ATL,,,,[ATL] Team Rebound
+10:54,29-30,WAS,201160,jason,smith,[WAS] Smith Foul: Loose Ball (1 PF) (B Adams)
+10:41,29-30,ATL,200794,paul,millsap,[ATL] Millsap 3pt Shot: Missed
+10:40,29-30,WAS,201160,jason,smith,[WAS] Smith Rebound (Off:0 Def:2)
+10:39,29-30,WAS,201160,jason,smith,[WAS] Smith Turnover : Step Out of Bounds Turnover (1 TO)
+10:27,29-30,ATL,1627098,malcolm,delaney,[ATL] Delaney Driving Layup Shot: Missed
+10:25,29-30,WAS,1626162,kelly,oubre_jr.,[WAS] Oubre Jr. Rebound (Off:0 Def:1)
+10:22,29-30,WAS,1626162,kelly,oubre_jr.,[WAS] Oubre Jr. Driving Layup Shot: Missed Block: Muscala (1 BLK)
+10:22,29-30,WAS,,,,[WAS] Team Rebound
+10:22,29-30,ATL,200757,thabo,sefolosha,[ATL] Sefolosha Violation:Kicked Ball
+10:13,29-30,WAS,201160,jason,smith,[WAS] Smith Jump Shot: Missed
+10:12,29-30,ATL,1627098,malcolm,delaney,[ATL] Delaney Rebound (Off:0 Def:1)
+10:05,29-30,ATL,203488,mike,muscala,[ATL] Muscala Substitution replaced by Humphries
+10:02,31-30,ATL,200757,thabo,sefolosha,[ATL 31-30] Sefolosha Cutting Layup Shot: Made (2 PTS) Assist: Korver (1 AST)
+09:53,31-30,WAS,203504,trey,burke,[WAS] Burke Turnover : Bad Pass (1 TO) Steal:Sefolosha (1 ST)
+09:48,33-30,ATL,200757,thabo,sefolosha,[ATL 33-30] Sefolosha Running Reverse Dunk Shot: Made (4 PTS)
+09:34,33-30,WAS,1626162,kelly,oubre_jr.,[WAS] Oubre Jr. 3pt Shot: Missed
+09:33,33-30,WAS,203094,andrew,nicholson,[WAS] Nicholson Rebound (Off:1 Def:2)
+09:31,33-30,WAS,203094,andrew,nicholson,[WAS] Nicholson Putback Layup Shot: Missed Block: Millsap (1 BLK)
+09:29,33-30,ATL,200794,paul,millsap,[ATL] Millsap Rebound (Off:1 Def:3)
+09:25,33-30,ATL,200757,thabo,sefolosha,[ATL] Sefolosha Jump Shot: Missed
+09:24,33-30,WAS,201160,jason,smith,[WAS] Smith Rebound (Off:0 Def:3)
+09:12,33-30,WAS,203094,andrew,nicholson,[WAS] Nicholson Hook Shot: Missed
+09:10,33-30,WAS,201160,jason,smith,[WAS] Smith Rebound (Off:1 Def:3)
+09:00,33-30,WAS,203094,andrew,nicholson,[WAS] Nicholson Turnover : Bad Pass (1 TO) Steal:Delaney (1 ST)
+08:55,36-30,ATL,2594,kyle,korver,[ATL 36-30] Korver 3pt Shot: Made (5 PTS) Assist: Delaney (1 AST)
+08:55,36-30,WAS,,,,[WAS] Team Timeout : Regular
+08:38,36-30,WAS,203504,trey,burke,[WAS] Burke Pullup Jump shot: Missed
+08:37,36-30,ATL,2594,kyle,korver,[ATL] Korver Rebound (Off:0 Def:2)
+08:30,38-30,ATL,200757,thabo,sefolosha,[ATL 38-30] Sefolosha Cutting Dunk Shot: Made (6 PTS) Assist: Delaney (2 AST)
+08:10,38-32,WAS,203504,trey,burke,[WAS 32-38] Burke Step Back Jump shot: Made (4 PTS)
+07:59,38-32,ATL,1627098,malcolm,delaney,[ATL] Delaney Turnover : Discontinue Dribble (2 TO)
+07:59,38-32,WAS,203504,trey,burke,[WAS] Burke Substitution replaced by Wall
+07:59,38-32,WAS,201160,jason,smith,[WAS] Smith Substitution replaced by Morris
+07:45,38-34,WAS,203094,andrew,nicholson,[WAS 34-38] Nicholson Floating Jump shot: Made (7 PTS) Assist: Thornton (1 AST)
+07:35,38-34,ATL,200794,paul,millsap,[ATL] Millsap Pullup Jump shot: Missed Block: Morris (1 BLK)
+07:33,38-34,ATL,200757,thabo,sefolosha,[ATL] Sefolosha Rebound (Off:2 Def:0)
+07:29,38-34,ATL,2594,kyle,korver,[ATL] Korver 3pt Shot: Missed
+07:26,38-34,WAS,202693,markieff,morris,[WAS] Morris Rebound (Off:1 Def:3)
+07:23,38-36,WAS,201977,marcus,thornton,[WAS 36-38] Thornton Running Layup Shot: Made (2 PTS) Assist: Wall (4 AST)
+07:15,38-36,ATL,200757,thabo,sefolosha,[ATL] Sefolosha Turnover : Bad Pass (1 TO) Steal:Wall (2 ST)
+07:11,38-36,ATL,200757,thabo,sefolosha,[ATL] Sefolosha Foul: Personal (1 PF) (M McCutchen)
+07:11,38-36,WAS,203094,andrew,nicholson,[WAS] Nicholson Substitution replaced by Gortat
+07:11,38-36,ATL,200794,paul,millsap,[ATL] Millsap Substitution replaced by Schroder
+07:11,38-36,ATL,1627098,malcolm,delaney,[ATL] Delaney Substitution replaced by Howard
+07:11,38-36,ATL,200757,thabo,sefolosha,[ATL] Sefolosha Substitution replaced by Bazemore
+07:03,38-36,WAS,201977,marcus,thornton,[WAS] Thornton Driving Floating Jump Shot: Missed Block: Howard (1 BLK)
+07:01,38-36,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:4 Def:6)
+06:58,38-36,ATL,203471,dennis,schroder,[ATL] Schroder Turnover : Out of Bounds - Bad Pass Turnover (1 TO)
+06:48,38-36,WAS,202322,john,wall,[WAS] Wall Pullup Jump shot: Missed
+06:45,38-36,ATL,203145,kent,bazemore,[ATL] Bazemore Rebound (Off:0 Def:2)
+06:31,38-36,ATL,203471,dennis,schroder,[ATL] Schroder 3pt Shot: Missed
+06:28,38-36,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:1 Def:4)
+06:26,38-36,WAS,1626162,kelly,oubre_jr.,[WAS] Oubre Jr. Substitution replaced by Beal
+06:26,38-36,WAS,201977,marcus,thornton,[WAS] Thornton Substitution replaced by Porter Jr.
+06:17,38-36,WAS,202693,markieff,morris,[WAS] Morris Fadeaway Jump Shot: Missed
+06:15,38-36,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:4 Def:7)
+06:07,41-36,ATL,203471,dennis,schroder,[ATL 41-36] Schroder 3pt Shot: Made (8 PTS) Assist: Korver (2 AST)
+05:56,41-36,ATL,2730,dwight,howard,[ATL] Howard Foul: Defense 3 Second (0 PF) (M McCutchen)
+Official Timeout
+05:56,41-37,WAS,203078,bradley,beal,[WAS 37-41] Beal Free Throw Technical (9 PTS)
+05:41,41-39,WAS,203078,bradley,beal,[WAS 39-41] Beal Pullup Jump shot: Made (11 PTS)
+05:28,41-39,ATL,2743,kris,humphries,[ATL] Humphries Jump Shot: Missed
+05:27,41-39,WAS,,,,[WAS] Team Rebound
+05:27,41-39,ATL,203471,dennis,schroder,[ATL] Schroder Foul: Loose Ball (1 PF) (A Smith)
+05:10,41-39,ATL,203145,kent,bazemore,[ATL] Bazemore Foul: Personal (1 PF) (B Adams)
+05:07,41-39,WAS,202322,john,wall,[WAS] Wall Turnover : Bad Pass (1 TO) Steal:Korver (1 ST)
+04:56,41-39,ATL,203471,dennis,schroder,[ATL] Schroder Turnover : Lost Ball (2 TO) Steal:Wall (3 ST)
+04:52,41-41,WAS,203490,otto,porter_jr.,[WAS 41-41] Porter Jr. Running Layup Shot: Made (4 PTS) Assist: Beal (3 AST)
+04:52,41-41,ATL,2594,kyle,korver,[ATL] Korver Foul: Shooting (2 PF) (1 FTA) (A Smith)
+04:52,41-41,ATL,2594,kyle,korver,[ATL] Korver Substitution replaced by Hardaway Jr.
+04:52,41-41,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Free Throw 1 of 1 Missed
+04:50,41-41,ATL,2743,kris,humphries,[ATL] Humphries Rebound (Off:0 Def:1)
+04:31,41-41,WAS,203078,bradley,beal,[WAS] Beal Foul: Shooting (2 PF) (2 FTA) (A Smith)
+04:31,42-41,ATL,2730,dwight,howard,[ATL 42-41] Howard Free Throw 1 of 2 (5 PTS)
+04:31,42-41,ATL,2730,dwight,howard,[ATL] Howard Free Throw 2 of 2 Missed
+04:30,42-41,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:1 Def:5)
+04:17,42-43,WAS,202693,markieff,morris,[WAS 43-42] Morris Turnaround Jump Shot: Made (8 PTS) Assist: Wall (5 AST)
+04:03,42-43,WAS,203078,bradley,beal,[WAS] Beal Foul: Shooting (3 PF) (2 FTA) (M McCutchen)
+04:03,43-43,ATL,203145,kent,bazemore,[ATL 43-43] Bazemore Free Throw 1 of 2 (3 PTS)
+04:03,43-43,ATL,2743,kris,humphries,[ATL] Humphries Substitution replaced by Muscala
+04:03,43-43,WAS,203078,bradley,beal,[WAS] Beal Substitution replaced by Thornton
+04:03,44-43,ATL,203145,kent,bazemore,[ATL 44-43] Bazemore Free Throw 2 of 2 (4 PTS)
+03:47,44-43,WAS,201977,marcus,thornton,[WAS] Thornton Pullup Jump shot: Missed
+03:45,44-43,ATL,203488,mike,muscala,[ATL] Muscala Rebound (Off:1 Def:1)
+03:41,44-43,ATL,203471,dennis,schroder,[ATL] Schroder Turnover : Bad Pass (3 TO) Steal:Porter Jr. (1 ST)
+03:39,44-43,ATL,203471,dennis,schroder,[ATL] Schroder Foul: Personal (2 PF) (2 FTA) (A Smith)
+03:39,44-44,WAS,202322,john,wall,[WAS 44-44] Wall Free Throw 1 of 2 (1 PTS)
+03:39,44-44,WAS,202322,john,wall,[WAS] Wall Free Throw 2 of 2 Missed
+03:38,44-44,WAS,,,,[WAS] Team Rebound
+03:38,44-44,ATL,203471,dennis,schroder,[ATL] Schroder Foul: Personal (3 PF) (2 FTA) (B Adams)
+03:38,44-45,WAS,202322,john,wall,[WAS 45-44] Wall Free Throw 1 of 2 (2 PTS)
+03:38,44-46,WAS,202322,john,wall,[WAS 46-44] Wall Free Throw 2 of 2 (3 PTS)
+03:23,46-46,ATL,2730,dwight,howard,[ATL 46-46] Howard Hook Shot: Made (7 PTS)
+03:00,46-48,WAS,203490,otto,porter_jr.,[WAS 48-46] Porter Jr. Cutting Layup Shot: Made (6 PTS) Assist: Wall (6 AST)
+02:54,46-48,ATL,,,,[ATL] Team Timeout : Regular
+02:54,46-48,ATL,203471,dennis,schroder,[ATL] Schroder Substitution replaced by Sefolosha
+02:40,46-48,ATL,203501,tim,hardaway_jr.,[ATL] Hardaway Jr. 3pt Shot: Missed
+02:38,46-48,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:5 Def:7)
+02:37,46-48,ATL,2730,dwight,howard,[ATL] Howard Tip Layup Shot: Missed
+02:37,46-48,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:6 Def:7)
+02:37,46-48,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Foul: Shooting (2 PF) (2 FTA) (B Adams)
+02:37,47-48,ATL,2730,dwight,howard,[ATL 47-48] Howard Free Throw 1 of 2 (8 PTS)
+02:37,48-48,ATL,2730,dwight,howard,[ATL 48-48] Howard Free Throw 2 of 2 (9 PTS)
+02:19,48-50,WAS,202693,markieff,morris,[WAS 50-48] Morris Step Back Jump shot: Made (10 PTS)
+02:07,48-50,ATL,203145,kent,bazemore,[ATL] Bazemore Cutting Layup Shot: Missed
+02:03,48-50,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:7 Def:7)
+02:03,48-50,ATL,2730,dwight,howard,[ATL] Howard Tip Dunk Shot: Missed
+02:02,48-50,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:0 Def:2)
+01:59,48-53,WAS,202693,markieff,morris,[WAS 53-48] Morris 3pt Shot: Made (13 PTS) Assist: Wall (7 AST)
+01:44,50-53,ATL,203501,tim,hardaway_jr.,[ATL 50-53] Hardaway Jr. Pullup Jump shot: Made (5 PTS)
+01:24,50-53,WAS,202322,john,wall,[WAS] Wall Step Back Jump shot: Missed
+01:21,50-53,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:7 Def:8)
+01:19,50-53,ATL,203488,mike,muscala,[ATL] Muscala Substitution replaced by Millsap
+01:19,50-53,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Substitution replaced by Oubre Jr.
+01:04,50-53,ATL,2730,dwight,howard,[ATL] Howard Layup Shot: Missed
+01:03,50-53,ATL,200794,paul,millsap,[ATL] Millsap Rebound (Off:2 Def:3)
+01:02,52-53,ATL,200794,paul,millsap,[ATL 52-53] Millsap Putback Layup Shot: Made (11 PTS)
+00:54.6,52-53,WAS,202322,john,wall,[WAS] Wall Turnover : Lost Ball (2 TO) Steal:Sefolosha (2 ST)
+00:51.4,52-53,ATL,203145,kent,bazemore,[ATL] Bazemore Turnover : Out of Bounds - Bad Pass Turnover (3 TO)
+00:51.4,52-53,WAS,,,,[WAS] Team Timeout : Short
+00:51.4,52-53,WAS,202693,markieff,morris,[WAS] Morris Substitution replaced by Nicholson
+00:36.9,52-53,WAS,201977,marcus,thornton,[WAS] Thornton Step Back Jump shot: Missed
+00:34.3,52-53,ATL,203145,kent,bazemore,[ATL] Bazemore Rebound (Off:0 Def:3)
+00:34.3,52-53,WAS,201977,marcus,thornton,[WAS] Thornton Foul: Personal (2 PF) (2 FTA) (B Adams)
+00:34.3,53-53,ATL,203501,tim,hardaway_jr.,[ATL 53-53] Hardaway Jr. Free Throw 1 of 2 (6 PTS)
+00:34.3,54-53,ATL,203501,tim,hardaway_jr.,[ATL 54-53] Hardaway Jr. Free Throw 2 of 2 (7 PTS)
+00:29.9,54-53,WAS,202322,john,wall,[WAS] Wall Step Back Jump shot: Missed
+00:27.8,54-53,ATL,203501,tim,hardaway_jr.,[ATL] Hardaway Jr. Rebound (Off:0 Def:1)
+00:20.8,54-53,ATL,,,,[ATL] Team Timeout : Short
+00:20.8,54-53,ATL,200757,thabo,sefolosha,[ATL] Sefolosha Substitution replaced by Korver
+00:13.0,57-53,ATL,200794,paul,millsap,[ATL 57-53] Millsap 3pt Shot: Made (14 PTS) Assist: Bazemore (1 AST)
+00:02.9,57-55,WAS,202322,john,wall,[WAS 55-57] Wall Driving Floating Jump Shot: Made (5 PTS)
+00:02.9,57-55,ATL,203145,kent,bazemore,[ATL] Bazemore Foul: Shooting (2 PF) (1 FTA) (B Adams)
+00:02.9,57-56,WAS,202322,john,wall,[WAS 56-57] Wall Free Throw 1 of 1 (6 PTS)
+00:00.0,57-56,ATL,203501,tim,hardaway_jr.,[ATL] Hardaway Jr. 3pt Shot: Missed
+00:00.0,57-56,ATL,,,,[ATL] Team Rebound
+End of 2nd Quarter
+Start of 3rd Quarter
+11:45,59-56,ATL,203471,dennis,schroder,[ATL 59-56] Schroder Driving Layup Shot: Made (10 PTS) Assist: Korver (3 AST)
+11:21,59-59,WAS,202693,markieff,morris,[WAS 59-59] Morris 3pt Shot: Made (16 PTS) Assist: Beal (4 AST)
+10:58,59-59,ATL,203145,kent,bazemore,[ATL] Bazemore 3pt Shot: Missed
+10:57,59-59,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:1 Def:6)
+10:48,59-61,WAS,202322,john,wall,[WAS 61-59] Wall Pullup Jump shot: Made (8 PTS) Assist: Morris (1 AST)
+10:34,61-61,ATL,200794,paul,millsap,[ATL 61-61] Millsap Driving Layup Shot: Made (16 PTS) Assist: Schroder (1 AST)
+10:34,61-61,WAS,101162,marcin,gortat,[WAS] Gortat Foul: Shooting (2 PF) (1 FTA) (M McCutchen)
+10:34,61-61,ATL,200794,paul,millsap,[ATL] Millsap Free Throw 1 of 1 Missed
+10:32,61-61,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:1 Def:7)
+10:16,61-63,WAS,202693,markieff,morris,[WAS 63-61] Morris Pullup Jump shot: Made (18 PTS) Assist: Wall (8 AST)
+10:04,61-63,ATL,200794,paul,millsap,[ATL] Millsap Turnover : Lost Ball (1 TO) Steal:Wall (4 ST)
+09:53,61-65,WAS,203490,otto,porter_jr.,[WAS 65-61] Porter Jr. Jump Shot: Made (8 PTS) Assist: Morris (2 AST)
+09:27,61-65,ATL,200794,paul,millsap,[ATL] Millsap 3pt Shot: Missed
+09:27,61-65,ATL,,,,[ATL] Team Rebound
+09:27,61-65,WAS,101162,marcin,gortat,[WAS] Gortat Foul: Loose Ball (3 PF) (M McCutchen)
+09:22,61-65,WAS,203078,bradley,beal,[WAS] Beal Foul: Personal (4 PF) (B Adams)
+09:22,61-65,WAS,203078,bradley,beal,[WAS] Beal Substitution replaced by Thornton
+09:12,61-65,ATL,2594,kyle,korver,[ATL] Korver Turnover : Bad Pass (2 TO) Steal:Porter Jr. (2 ST)
+09:06,61-65,WAS,202693,markieff,morris,[WAS] Morris Jump Shot: Missed
+09:04,61-65,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:1 Def:2)
+09:04,61-65,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Tip Layup Shot: Missed
+09:04,61-65,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:2 Def:2)
+09:04,61-65,ATL,2594,kyle,korver,[ATL] Korver Foul: Personal (3 PF) (M McCutchen)
+08:55,61-67,WAS,203490,otto,porter_jr.,[WAS 67-61] Porter Jr. Cutting Layup Shot: Made (10 PTS) Assist: Wall (9 AST)
+08:29,63-67,ATL,200794,paul,millsap,[ATL 63-67] Millsap Driving Layup Shot: Made (18 PTS) Assist: Schroder (2 AST)
+08:20,63-67,WAS,202322,john,wall,[WAS] Wall Pullup Jump shot: Missed
+08:19,63-67,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:7 Def:9)
+08:05,63-67,ATL,203471,dennis,schroder,[ATL] Schroder Turnover : Lost Ball (4 TO) Steal:Morris (2 ST)
+08:01,63-67,ATL,203145,kent,bazemore,[ATL] Bazemore Foul: Flagrant Type 1 (3 PF) (2 FTA) (A Smith)
+08:01,63-68,WAS,202322,john,wall,[WAS 68-63] Wall Free Throw Flagrant 1 of 2 (9 PTS)
+08:01,63-69,WAS,202322,john,wall,[WAS 69-63] Wall Free Throw Flagrant 2 of 2 (10 PTS)
+07:56,63-69,WAS,202322,john,wall,[WAS] Wall Turnover : Bad Pass (3 TO) Steal:Howard (1 ST)
+07:49,65-69,ATL,203471,dennis,schroder,[ATL 65-69] Schroder Driving Layup Shot: Made (12 PTS)
+07:31,65-69,WAS,202322,john,wall,[WAS] Wall 3pt Shot: Missed
+07:30,65-69,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:2 Def:7)
+07:25,65-69,WAS,101162,marcin,gortat,[WAS] Gortat Turnaround Hook Shot: Missed
+07:23,65-69,ATL,200794,paul,millsap,[ATL] Millsap Rebound (Off:2 Def:4)
+07:10,68-69,ATL,203145,kent,bazemore,[ATL 68-69] Bazemore 3pt Shot: Made (7 PTS) Assist: Millsap (2 AST)
+06:50,68-69,WAS,202693,markieff,morris,[WAS] Morris Driving Floating Bank Jump Shot: Missed Block: Howard (2 BLK)
+06:49,68-69,ATL,2594,kyle,korver,[ATL] Korver Rebound (Off:0 Def:3)
+06:32,70-69,ATL,200794,paul,millsap,[ATL 70-69] Millsap Jump Shot: Made (20 PTS) Assist: Korver (4 AST)
+06:30,70-69,WAS,,,,[WAS] Team Timeout : Regular
+06:12,70-71,WAS,202322,john,wall,[WAS 71-70] Wall Pullup Jump shot: Made (12 PTS)
+05:51,70-71,ATL,200794,paul,millsap,[ATL] Millsap Pullup Bank shot: Missed
+05:49,70-71,WAS,201977,marcus,thornton,[WAS] Thornton Rebound (Off:0 Def:1)
+05:43,70-71,WAS,201977,marcus,thornton,[WAS] Thornton 3pt Shot: Missed
+05:43,70-71,ATL,,,,[ATL] Team Rebound
+05:31,70-71,ATL,203145,kent,bazemore,[ATL] Bazemore Pullup Jump shot: Missed
+05:29,70-71,WAS,202322,john,wall,[WAS] Wall Rebound (Off:1 Def:1)
+05:24,70-71,WAS,101162,marcin,gortat,[WAS] Gortat Foul: Offensive (4 PF) (B Adams)
+05:24,70-71,WAS,101162,marcin,gortat,[WAS] Gortat Turnover : Foul (3 TO)
+05:24,70-71,ATL,200794,paul,millsap,[ATL] Millsap Substitution replaced by Muscala
+05:09,72-71,ATL,2730,dwight,howard,[ATL 72-71] Howard Dunk Shot: Made (11 PTS)
+04:53,72-71,ATL,203488,mike,muscala,[ATL] Muscala Foul: Shooting (1 PF) (2 FTA) (M McCutchen)
+04:53,72-72,WAS,202693,markieff,morris,[WAS 72-72] Morris Free Throw 1 of 2 (19 PTS)
+04:53,72-72,WAS,101162,marcin,gortat,[WAS] Gortat Substitution replaced by Nicholson
+04:53,72-73,WAS,202693,markieff,morris,[WAS 73-72] Morris Free Throw 2 of 2 (20 PTS)
+04:42,72-73,ATL,2594,kyle,korver,[ATL] Korver Substitution replaced by Hardaway Jr.
+04:35,72-73,ATL,203488,mike,muscala,[ATL] Muscala Floating Jump shot: Missed
+04:35,72-73,WAS,,,,[WAS] Team Rebound
+04:35,72-73,ATL,2730,dwight,howard,[ATL] Howard Foul: Loose Ball (1 PF) (M McCutchen)
+04:35,72-73,ATL,203471,dennis,schroder,[ATL] Schroder Substitution replaced by Delaney
+04:20,72-73,WAS,203094,andrew,nicholson,[WAS] Nicholson 3pt Shot: Missed
+04:19,72-73,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:7 Def:10)
+04:14,72-73,ATL,203145,kent,bazemore,[ATL] Bazemore 3pt Shot: Missed
+04:11,72-73,WAS,203094,andrew,nicholson,[WAS] Nicholson Rebound (Off:1 Def:3)
+04:04,72-73,WAS,202322,john,wall,[WAS] Wall Pullup Jump shot: Missed
+04:01,72-73,WAS,202322,john,wall,[WAS] Wall Rebound (Off:2 Def:1)
+03:45,72-73,WAS,202693,markieff,morris,[WAS] Morris Pullup Jump shot: Missed
+03:45,72-73,ATL,,,,[ATL] Team Rebound
+03:31,74-73,ATL,203488,mike,muscala,[ATL 74-73] Muscala Jump Shot: Made (4 PTS) Assist: Delaney (3 AST)
+03:06,74-73,WAS,202322,john,wall,[WAS] Wall Pullup Jump shot: Missed
+03:04,74-73,ATL,203488,mike,muscala,[ATL] Muscala Rebound (Off:1 Def:2)
+02:58,74-73,ATL,2730,dwight,howard,[ATL] Howard Foul: Offensive (2 PF) (A Smith)
+02:58,74-73,ATL,2730,dwight,howard,[ATL] Howard Turnover : Foul (2 TO)
+02:58,74-73,ATL,,,,[ATL] Team Timeout : Regular
+02:58,74-73,ATL,203145,kent,bazemore,[ATL] Bazemore Substitution replaced by Sefolosha
+02:58,74-73,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Substitution replaced by Oubre Jr.
+02:58,74-73,WAS,202693,markieff,morris,[WAS] Morris Substitution replaced by Burke
+02:58,74-73,WAS,202322,john,wall,[WAS] Wall Substitution replaced by Smith
+02:38,74-73,WAS,1626162,kelly,oubre_jr.,[WAS] Oubre Jr. Driving Floating Jump Shot: Missed
+02:37,74-73,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:7 Def:11)
+02:32,76-73,ATL,203501,tim,hardaway_jr.,[ATL 76-73] Hardaway Jr. Running Layup Shot: Made (9 PTS) Assist: Howard (2 AST)
+02:16,76-73,ATL,203488,mike,muscala,[ATL] Muscala Foul: Personal (2 PF) (2 FTA) (B Adams)
+02:16,76-73,ATL,2730,dwight,howard,[ATL] Howard Substitution replaced by Millsap
+02:16,76-74,WAS,203094,andrew,nicholson,[WAS 74-76] Nicholson Free Throw 1 of 2 (8 PTS)
+02:16,76-75,WAS,203094,andrew,nicholson,[WAS 75-76] Nicholson Free Throw 2 of 2 (9 PTS)
+02:00,76-75,ATL,1627098,malcolm,delaney,[ATL] Delaney Step Back Jump shot: Missed
+01:59,76-75,WAS,201160,jason,smith,[WAS] Smith Rebound (Off:1 Def:4)
+01:53,76-77,WAS,203504,trey,burke,[WAS 77-76] Burke Pullup Jump shot: Made (6 PTS)
+01:53,76-77,ATL,1627098,malcolm,delaney,[ATL] Delaney Foul: Shooting (1 PF) (1 FTA) (B Adams)
+01:53,76-77,WAS,203504,trey,burke,[WAS] Burke Free Throw 1 of 1 Missed
+01:47,76-77,WAS,203094,andrew,nicholson,[WAS] Nicholson Rebound (Off:2 Def:3)
+01:40,76-77,WAS,201977,marcus,thornton,[WAS] Thornton Pullup Jump shot: Missed
+01:38,76-77,ATL,200757,thabo,sefolosha,[ATL] Sefolosha Rebound (Off:2 Def:1)
+01:29,79-77,ATL,200757,thabo,sefolosha,[ATL 79-77] Sefolosha 3pt Shot: Made (9 PTS) Assist: Millsap (3 AST)
+01:13,79-77,WAS,201160,jason,smith,[WAS] Smith Turnover : Bad Pass (2 TO) Steal:Muscala (1 ST)
+01:09,81-77,ATL,200757,thabo,sefolosha,[ATL 81-77] Sefolosha Running Layup Shot: Made (11 PTS) Assist: Muscala (1 AST)
+00:47.9,81-80,WAS,201977,marcus,thornton,[WAS 80-81] Thornton 3pt Shot: Made (5 PTS) Assist: Smith (2 AST)
+00:24.9,81-80,ATL,200794,paul,millsap,[ATL] Millsap Turnover : Out of Bounds - Bad Pass Turnover (2 TO)
+00:00.8,81-80,WAS,203504,trey,burke,[WAS] Burke 3pt Shot: Missed
+00:00.3,81-80,ATL,200794,paul,millsap,[ATL] Millsap Rebound (Off:2 Def:5)
+End of 3rd Quarter
+Start of 4th Quarter
+11:44,81-80,WAS,201977,marcus,thornton,[WAS] Thornton Turnover : Double Dribble (1 TO)
+11:29,81-80,ATL,200794,paul,millsap,[ATL] Millsap Driving Layup Shot: Missed
+11:27,81-80,WAS,203094,andrew,nicholson,[WAS] Nicholson Rebound (Off:2 Def:4)
+11:18,81-82,WAS,201160,jason,smith,[WAS 82-81] Smith Jump Shot: Made (2 PTS) Assist: Burke (2 AST)
+11:01,81-82,ATL,203488,mike,muscala,[ATL] Muscala Jump Shot: Missed
+10:59,81-82,WAS,203094,andrew,nicholson,[WAS] Nicholson Rebound (Off:2 Def:5)
+10:54,81-82,WAS,201160,jason,smith,[WAS] Smith Foul: Offensive (2 PF) (B Adams)
+10:54,81-82,WAS,201160,jason,smith,[WAS] Smith Turnover : Foul (3 TO)
+10:54,81-82,WAS,201977,marcus,thornton,[WAS] Thornton Substitution replaced by Beal
+10:40,84-82,ATL,200794,paul,millsap,[ATL 84-82] Millsap 3pt Shot: Made (23 PTS) Assist: Hardaway Jr. (1 AST)
+10:31,84-82,WAS,201160,jason,smith,[WAS] Smith Turnover : Bad Pass (4 TO) Steal:Muscala (2 ST)
+10:17,84-82,ATL,203501,tim,hardaway_jr.,[ATL] Hardaway Jr. Driving Layup Shot: Missed
+10:16,84-82,ATL,203501,tim,hardaway_jr.,[ATL] Hardaway Jr. Rebound (Off:1 Def:1)
+10:16,86-82,ATL,203501,tim,hardaway_jr.,[ATL 86-82] Hardaway Jr. Putback Layup Shot: Made (11 PTS)
+10:11,86-82,WAS,,,,[WAS] Team Timeout : Regular
+10:11,86-82,WAS,201160,jason,smith,[WAS] Smith Substitution replaced by Gortat
+10:03,86-82,ATL,200757,thabo,sefolosha,[ATL] Sefolosha Foul: Personal (2 PF) (B Adams)
+09:57,86-82,WAS,101162,marcin,gortat,[WAS] Gortat Hook Shot: Missed
+09:55,86-82,ATL,203488,mike,muscala,[ATL] Muscala Rebound (Off:1 Def:3)
+09:44,86-82,WAS,1626162,kelly,oubre_jr.,[WAS] Oubre Jr. Foul: Personal (1 PF) (M McCutchen)
+09:39,88-82,ATL,203501,tim,hardaway_jr.,[ATL 88-82] Hardaway Jr. Step Back Jump shot: Made (13 PTS) Assist: Millsap (4 AST)
+09:27,88-82,WAS,203078,bradley,beal,[WAS] Beal Turnover : Bad Pass (2 TO) Steal:Sefolosha (3 ST)
+09:21,91-82,ATL,203501,tim,hardaway_jr.,[ATL 91-82] Hardaway Jr. 3pt Shot: Made (16 PTS) Assist: Millsap (5 AST)
+09:21,91-82,WAS,,,,[WAS] Team Timeout : Short
+09:21,91-82,WAS,203094,andrew,nicholson,[WAS] Nicholson Substitution replaced by Wall
+09:21,91-82,WAS,203504,trey,burke,[WAS] Burke Substitution replaced by Morris
+08:56,91-82,WAS,202693,markieff,morris,[WAS] Morris 3pt Shot: Missed
+08:53,91-82,ATL,200757,thabo,sefolosha,[ATL] Sefolosha Rebound (Off:2 Def:2)
+08:51,91-82,WAS,202322,john,wall,[WAS] Wall Foul: Personal (1 PF) (B Adams)
+08:44,91-82,ATL,1627098,malcolm,delaney,[ATL] Delaney Foul: Offensive Charge (2 PF) (M McCutchen)
+08:44,91-82,ATL,1627098,malcolm,delaney,[ATL] Delaney Turnover : Foul (3 TO)
+08:28,91-84,WAS,203078,bradley,beal,[WAS 84-91] Beal Driving Reverse Layup Shot: Made (13 PTS)
+08:11,94-84,ATL,200794,paul,millsap,[ATL 94-84] Millsap 3pt Shot: Made (26 PTS) Assist: Sefolosha (3 AST)
+08:03,94-84,WAS,203078,bradley,beal,[WAS] Beal Turnover : Bad Pass (3 TO) Steal:Sefolosha (4 ST)
+07:52,94-84,ATL,200794,paul,millsap,[ATL] Millsap Jump Shot: Missed
+07:50,94-84,ATL,200757,thabo,sefolosha,[ATL] Sefolosha Rebound (Off:3 Def:2)
+07:47,97-84,ATL,203501,tim,hardaway_jr.,[ATL 97-84] Hardaway Jr. 3pt Shot: Made (19 PTS) Assist: Sefolosha (4 AST)
+07:44,97-84,WAS,,,,[WAS] Team Timeout : Regular
+07:44,97-84,ATL,203488,mike,muscala,[ATL] Muscala Substitution replaced by Schroder
+07:44,97-84,ATL,1627098,malcolm,delaney,[ATL] Delaney Substitution replaced by Howard
+07:44,97-84,WAS,1626162,kelly,oubre_jr.,[WAS] Oubre Jr. Substitution replaced by Porter Jr.
+07:32,97-84,WAS,202693,markieff,morris,[WAS] Morris Jump Shot: Missed
+07:30,97-84,ATL,200757,thabo,sefolosha,[ATL] Sefolosha Rebound (Off:3 Def:3)
+07:14,99-84,ATL,203471,dennis,schroder,[ATL 99-84] Schroder Driving Floating Bank Jump Shot: Made (14 PTS)
+06:56,99-84,WAS,202322,john,wall,[WAS] Wall Turnover : Bad Pass (4 TO) Steal:Schroder (1 ST)
+06:52,99-84,WAS,202322,john,wall,[WAS] Wall Foul: Shooting (2 PF) (2 FTA) (B Adams)
+06:52,99-84,ATL,200757,thabo,sefolosha,[ATL] Sefolosha Free Throw 1 of 2 Missed
+06:52,99-84,ATL,,,,[ATL] Team Rebound
+06:52,99-84,ATL,200757,thabo,sefolosha,[ATL] Sefolosha Free Throw 2 of 2 Missed
+06:51,99-84,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:2 Def:3)
+06:41,99-84,WAS,203078,bradley,beal,[WAS] Beal 3pt Shot: Missed
+06:39,99-84,ATL,2730,dwight,howard,[ATL] Howard Rebound (Off:7 Def:12)
+06:23,101-84,ATL,203501,tim,hardaway_jr.,[ATL 101-84] Hardaway Jr. Floating Jump shot: Made (21 PTS) Assist: Millsap (6 AST)
+06:09,101-86,WAS,202693,markieff,morris,[WAS 86-101] Morris Driving Floating Jump Shot: Made (22 PTS) Assist: Wall (10 AST)
+05:46,101-86,ATL,200794,paul,millsap,[ATL] Millsap 3pt Shot: Missed
+05:45,101-86,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:2 Def:8)
+05:28,101-86,WAS,203078,bradley,beal,[WAS] Beal Driving Layup Shot: Missed Block: Howard (3 BLK)
+05:26,101-86,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:3 Def:8)
+05:23,101-86,WAS,101162,marcin,gortat,[WAS] Gortat Jump Bank Shot: Missed
+05:22,101-86,ATL,203471,dennis,schroder,[ATL] Schroder Rebound (Off:0 Def:2)
+05:03,101-86,ATL,203471,dennis,schroder,[ATL] Schroder 3pt Shot: Missed
+05:02,101-86,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:2 Def:4)
+04:53,101-86,WAS,202322,john,wall,[WAS] Wall Turnover : Lost Ball (5 TO) Steal:Sefolosha (5 ST)
+04:47,103-86,ATL,200794,paul,millsap,[ATL 103-86] Millsap Alley Oop Layup shot: Made (28 PTS) Assist: Sefolosha (5 AST)
+04:24,103-86,WAS,202693,markieff,morris,[WAS] Morris Step Back Jump shot: Missed
+04:21,103-86,ATL,200757,thabo,sefolosha,[ATL] Sefolosha Rebound (Off:3 Def:4)
+04:14,105-86,ATL,200757,thabo,sefolosha,[ATL 105-86] Sefolosha Driving Finger Roll Layup Shot: Made (13 PTS)
+04:13,105-86,WAS,,,,[WAS] Team Timeout : Regular
+04:13,105-86,ATL,200794,paul,millsap,[ATL] Millsap Substitution replaced by Bazemore
+04:13,105-86,ATL,200757,thabo,sefolosha,[ATL] Sefolosha Substitution replaced by Muscala
+04:13,105-86,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Substitution replaced by Ochefu
+04:13,105-86,WAS,202693,markieff,morris,[WAS] Morris Substitution replaced by McClellan
+04:13,105-86,WAS,101162,marcin,gortat,[WAS] Gortat Substitution replaced by Burke
+04:13,105-86,WAS,203078,bradley,beal,[WAS] Beal Substitution replaced by Satoransky
+04:13,105-86,WAS,202322,john,wall,[WAS] Wall Substitution replaced by Oubre Jr.
+03:51,105-86,WAS,1627849,daniel,ochefu,[WAS] Ochefu Layup Shot: Missed Block: Muscala (2 BLK)
+03:51,105-86,WAS,,,,[WAS] Team Rebound
+03:51,105-86,ATL,203501,tim,hardaway_jr.,[ATL] Hardaway Jr. Substitution replaced by Prince
+03:49,105-86,WAS,1626162,kelly,oubre_jr.,[WAS] Oubre Jr. 3pt Shot: Missed
+03:47,105-86,WAS,203107,tomas,satoransky,[WAS] Satoransky Rebound (Off:1 Def:0)
+03:44,105-86,WAS,203504,trey,burke,[WAS] Burke 3pt Shot: Missed
+03:43,105-86,WAS,,,,[WAS] Team Rebound
+03:39,105-88,WAS,1627815,sheldon,mcclellan,[WAS 88-105] McClellan Driving Floating Jump Shot: Made (2 PTS) Assist: Satoransky (1 AST)
+03:27,105-88,ATL,2730,dwight,howard,[ATL] Howard Turnover : Bad Pass (3 TO) Steal:McClellan (1 ST)
+03:23,105-88,ATL,203145,kent,bazemore,[ATL] Bazemore Foul: Shooting (4 PF) (2 FTA) (M McCutchen)
+03:23,105-89,WAS,1626162,kelly,oubre_jr.,[WAS 89-105] Oubre Jr. Free Throw 1 of 2 (4 PTS)
+03:23,105-89,ATL,2730,dwight,howard,[ATL] Howard Substitution replaced by Humphries
+03:23,105-89,WAS,1626162,kelly,oubre_jr.,[WAS] Oubre Jr. Free Throw 2 of 2 Missed
+03:21,105-89,WAS,,,,[WAS] Team Rebound
+03:08,105-89,WAS,1627815,sheldon,mcclellan,[WAS] McClellan 3pt Shot: Missed
+03:07,105-89,ATL,2743,kris,humphries,[ATL] Humphries Rebound (Off:0 Def:2)
+02:59,107-89,ATL,203488,mike,muscala,[ATL 107-89] Muscala Reverse Layup Shot: Made (6 PTS) Assist: Prince (1 AST)
+02:39,107-91,WAS,203107,tomas,satoransky,[WAS 91-107] Satoransky Hook Shot: Made (2 PTS)
+02:32,107-91,ATL,203145,kent,bazemore,[ATL] Bazemore Turnover : Lost Ball (4 TO) Steal:McClellan (2 ST)
+02:26,107-93,WAS,1627815,sheldon,mcclellan,[WAS 93-107] McClellan Running Reverse Layup Shot: Made (4 PTS)
+02:26,107-93,ATL,,,,[ATL] Team Timeout : Regular
+02:26,107-93,ATL,203145,kent,bazemore,[ATL] Bazemore Substitution replaced by Bembry
+02:26,107-93,ATL,203471,dennis,schroder,[ATL] Schroder Substitution replaced by Delaney
+02:09,107-93,ATL,2743,kris,humphries,[ATL] Humphries Turnover : Out of Bounds - Bad Pass Turnover (1 TO)
+01:57,107-93,ATL,1627752,taurean,prince,[ATL] Prince Foul: Shooting (1 PF) (2 FTA) (B Adams)
+01:57,107-93,WAS,1626162,kelly,oubre_jr.,[WAS] Oubre Jr. Free Throw 1 of 2 Missed
+01:57,107-93,WAS,,,,[WAS] Team Rebound
+01:57,107-94,WAS,1626162,kelly,oubre_jr.,[WAS 94-107] Oubre Jr. Free Throw 2 of 2 (5 PTS)
+01:43,109-94,ATL,1627761,deandre',bembry,[ATL 109-94] Bembry Cutting Layup Shot: Made (2 PTS) Assist: Delaney (4 AST)
+01:32,109-97,WAS,1627815,sheldon,mcclellan,[WAS 97-109] McClellan 3pt Shot: Made (7 PTS)
+01:19,112-97,ATL,203488,mike,muscala,[ATL 112-97] Muscala 3pt Shot: Made (9 PTS) Assist: Delaney (5 AST)
+01:10,112-99,WAS,203504,trey,burke,[WAS 99-112] Burke Step Back Jump shot: Made (8 PTS)
+00:54.0,114-99,ATL,1627098,malcolm,delaney,[ATL 114-99] Delaney Pullup Jump shot: Made (4 PTS)
+00:44.4,114-99,WAS,203504,trey,burke,[WAS] Burke Turnover : Bad Pass (2 TO) Steal:Prince (1 ST)
+00:39.3,114-99,ATL,1627752,taurean,prince,[ATL] Prince Turnover : Bad Pass (1 TO) Steal:Oubre Jr. (1 ST)
+00:32.3,114-99,WAS,1627849,daniel,ochefu,[WAS] Ochefu Layup Shot: Missed Block: Muscala (3 BLK)
+00:29.9,114-99,ATL,1627761,deandre',bembry,[ATL] Bembry Rebound (Off:0 Def:1)
+00:07.9,114-99,ATL,1627098,malcolm,delaney,[ATL] Delaney 3pt Shot: Missed
+00:04.9,114-99,WAS,1627849,daniel,ochefu,[WAS] Ochefu Rebound (Off:0 Def:1)
+00:00.9,114-99,WAS,1626162,kelly,oubre_jr.,[WAS] Oubre Jr. 3pt Shot: Missed
+00:00.0,114-99,ATL,2743,kris,humphries,[ATL] Humphries Rebound (Off:0 Def:3)
+End of 4th Quarter
+***End of scrape***
