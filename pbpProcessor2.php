@@ -22,6 +22,8 @@
         closedir($handle);
     }
     
+    //$pbpProcessor->processGame("21600024-20161028-LALUTA.csv");
+    
     class pbpProcessor2{
         
         function __construct() {
@@ -37,6 +39,7 @@
         private $ot = 0;
         private $totalms = 0;
         
+        private $possessingTeam = 0;
         private $possessionStartTime = 0;
         
         function processGame($gamefile)
@@ -45,7 +48,7 @@
             $gameID = intval(substr($gamefile, 0, 8));
             $date = substr($gamefile, 9, 8);
             $date = substr($date, 0, 4)."-".substr($date, 4, 2)."-".substr($date, 6, 2);
-            $datetime = strtotime($date);
+            $datetime = strtotime($date.' + 17 hours');
             $awayabbrev = substr($gamefile, 18, 3);
             $homeabbrev = substr($gamefile, 21, 3);
             if(DataManager::selectGame($datetime, $homeabbrev, $awayabbrev))
@@ -81,6 +84,12 @@
                 if($line_id < 2) continue;
 
                 $lineID = $line_id + 1;
+                
+                if($line == '***End of scrape***')
+                {
+                    echo "End of play by play scrape";
+                    return;
+                }
                 
                 #SPECIAL CASE: LINE IS FOR START OF A PERIOD
                 if(strpos($line, 'Start of ') === 0)
@@ -127,6 +136,12 @@
                 $lastname = str_replace("_"," ",$lineparts[5]);
                 $play = $lineparts[6];
 
+                if(strpos($play, "Team Turnover") !==  false)
+                {
+                    $this->possessingTeam = $team == $this->home->abbrev ? $this->away->abbrev : $this->home->abbrev;
+                    $this->possessionStartTime = $this->totalms;
+                    continue;
+                }
                 if($playerID == "")
                 {
                     continue;
@@ -138,17 +153,20 @@
                 #HOME
                 $isHome = $team == $this->home->abbrev;
                 
-                #Check if player is in shifts, if not add him
+                #Check if player is in shifts, if not add him - unless it's technical foul
                 if(!array_key_exists($playerID, $this->shifts[$team]))
                 {
-                    $starttime = quarterbasetime($this->quarter);
-                    $shift = new Shift($playerID, $this->game->gameID, $starttime, $isHome);
-                    $this->shifts[$team][$playerID] = $shift;
-                    
-                    if(sizeof($this->shifts[$team]) > 5)
+                    if(strpos($play, "Technical") === false)
                     {
-                        echo "Error: Some player not currently in a shift caused total shifts to exceed 5 at line $lineID";
-                        exit();
+                        $starttime = quarterbasetime($this->quarter);
+                        $shift = new Shift($playerID, $this->game->gameID, $starttime, $isHome);
+                        $this->shifts[$team][$playerID] = $shift;
+
+                        if(sizeof($this->shifts[$team]) > 5)
+                        {
+                            echo "Error: Some player not currently in a shift caused total shifts to exceed 5 at line $lineID";
+                            exit();
+                        }
                     }
                 }
                 
@@ -172,6 +190,16 @@
                     
                     $shot = new Shot($playerID, $this->game->gameID, $this->totalms, $type, $made, $isHome);
                     DataManager::insertShot($shot, $lineID);
+                    if($type != 'Free Throw')
+                    {
+                        $shotclock = $this->totalms - $this->possessionStartTime;
+//                        if($shotclock >= 24000)
+//                        {
+//                            echo "Error: shot clock computed is over 24 seconds at line $lineID";
+//                            exit();
+//                        }
+                        //DataManager::addShotClockTime($shot->shotID, $shotclock);
+                    }
                     
                     #ASSIST
                     if(strpos($play, "Assist:") !== false)
@@ -206,10 +234,16 @@
                     {
                         $foultype = "Technical";
                     }
+                    else if(strpos($play, "Flagrant") !== false)
+                    {
+                        $foultype = "Flagrant";
+                    }
                     else
                     {
                         $foultype = "Regular";
+                        $this->possessingTeam = $team == $this->home->abbrev ? $this->away->abbrev : $this->home->abbrev;
                     }
+                    $this->possessionStartTime = $this->totalms;
                     
                     #seq and total
                     $freethrow_seq_of_total_pattern = "/[0-9] of [0-9]/";
@@ -239,6 +273,8 @@
                 #REBOUND
                 else if(strpos($play, "Rebound") !== false)
                 {
+                    $this->possessingTeam = $team;
+                    $this->possessionStartTime = $this->totalms;
                     #offensive
                     $offrebsmatches = array(); $defrebsmatches = array();
                     preg_match("/Off:[0-9]+/", $play, $offrebsmatches, PREG_OFFSET_CAPTURE);
@@ -271,6 +307,9 @@
                 #TURNOVER
                 else if(strpos($play, "Turnover :") !== false)
                 {
+                    $this->possessingTeam = $team == $this->home->abbrev ? $this->away->abbrev : $this->home->abbrev;
+                    $this->possessionStartTime = $this->totalms;
+                    
                     #type
                     $turnoverpos = strpos($play, "Turnover :");
                     $typestart = $turnoverpos + strlen("Turnover :") + 1;
@@ -325,6 +364,9 @@
                     }
                     else
                     {
+                        $this->possessingTeam = $team == $this->home->abbrev ? $this->away->abbrev : $this->home->abbrev;
+                        $this->possessionStartTime = max($this->totalms, 14000);
+                        
                         $foulpos = strpos($play, "Foul:");
                         $typestart = $foulpos + 5;
                         $pftotal_pattern = "/\([0-9]+ PF\)/";
@@ -339,7 +381,7 @@
                     }
 
                     #referee
-                    $referee_pattern = "/\([A-Z] [A-Za-z]+\)$/";
+                    $referee_pattern = "/\([A-Z] [A-Za-z\-]+\)$/";
                     preg_match($referee_pattern, $play, $matches, PREG_OFFSET_CAPTURE);
                     $referee = "";
                     if(sizeof($matches) == 0)

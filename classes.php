@@ -32,15 +32,13 @@
             public $isHome;
             public $distance;
             public $shotclock;
-            public function __construct($playerID, $gameID, $time, $type, $success, $isHome, $distance = 0, $shotclock = 0) {
+            public function __construct($playerID, $gameID, $time, $type, $success, $isHome) {
                 $this->playerID = $playerID;
                 $this->gameID = $gameID;
                 $this->time = $time;
                 $this->type = $type;
                 $this->success = $success;
                 $this->isHome = $isHome;
-                $this->distance = $distance;
-                $this->shotclock = $shotclock;
             }
         }
         

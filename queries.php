@@ -128,9 +128,9 @@ class DataManager
     static function insertShot(&$shot, $lineID)
     {
         global $db;
-        $query = "INSERT IGNORE INTO shot (playerID, type, made, gameID, lineID, time, home, distance, shotclock) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        $query = "INSERT IGNORE INTO shot (playerID, type, made, gameID, lineID, time, home) VALUES (?, ?, ?, ?, ?, ?, ?);";
         $sh = $db->prepare($query);
-        $result = $sh->execute(array($shot->playerID, $shot->type, $shot->success, $shot->gameID, $lineID, $shot->time, $shot->isHome, $shot->distance, $shot->shotclock));
+        $result = $sh->execute(array($shot->playerID, $shot->type, $shot->success, $shot->gameID, $lineID, $shot->time, $shot->isHome));
         if(!$result)
         {
             echo "Error: Something went wrong inserting a shot at line $lineID";
@@ -154,18 +154,87 @@ class DataManager
         }
     }
     
+    static function getShot($gameID, $time, $playerID, $isHome, $made)
+    {
+        global $db;
+        if($db)
+        {
+            $query = "SELECT shotID FROM shot WHERE gameID = ? AND time = ? AND playerID = ? AND home = ? AND made = ?";
+            $sh = $db->prepare($query);
+            $result = $sh->execute(array($gameID, $time, $playerID, $isHome, $made));
+            if(!$result)
+            {
+                echo "Error: Something went wrong when finding a shot";
+                exit();
+            }
+            $row = $sh->fetch();
+            if($row)
+            {
+                return $row['shotID'];
+            }
+        }
+    }
+    
+    static function addShotClockTime($shotID, $shotclock)
+    {
+        global $db;
+        if($db)
+        {
+            $query = "INSERT INTO shotdetails (shotID, shotclock) VALUES (:shotID, :shotclock) ON DUPLICATE KEY UPDATE shotclock = :shotclock";
+            $sh = $db->prepare($query);
+            $result = $sh->execute(array('shotID'=>$shotID, 'shotclock'=>$shotclock));
+            if(!$result)
+            {
+                echo "Error: Something went wrong when adding shot clock time at line $lineID: ".$sh->errorCode();
+                exit();
+            }
+        }
+    }
+    
+    static function addShotLocation($shotID, $X, $Y, $lineID)
+    {
+        global $db;
+        if($db)
+        {
+            $query = "INSERT INTO shotdetails (shotID, X, Y) VALUES (:shotID, :X, :Y) ON DUPLICATE KEY UPDATE X = :X AND Y = :Y";
+            $sh = $db->prepare($query);
+            $result = $sh->execute(array('shotID'=>$shotID, 'X'=>$X, 'Y'=>$Y));
+            if(!$result)
+            {
+                echo "Error: Something went wrong when adding a shot location at line $lineID: ".$sh->errorCode();
+                exit();
+            }
+        }
+    }
+    
+    static function addMissingShotLocation($gameID, $totalms, $playerID, $made, $isHome, $X, $Y, $lineID)
+    {
+        global $db;
+        if($db)
+        {
+            $query = "INSERT IGNORE INTO missingshotlocation (gameID, time, playerID, made, home, X, Y, lineID) VALUES (:gameID, :time, :playerID, :made, :home, :X, :Y, :lineID)";
+            $sh = $db->prepare($query);
+            $result = $sh->execute(array('gameID'=>$gameID, 'time'=>$totalms, 'playerID'=>$playerID, 'made'=>$made, 'home'=>$isHome, 'X'=>$X, 'Y'=>$Y, 'lineID'=>$lineID));
+            if(!$result)
+            {
+                echo "Error: Something went wrong when inserting a missing shot location at line $lineID: ".$sh->errorCode();
+                exit();
+            }
+        }
+    }
+    
     static function insertFreeThrow(&$freethrow, $lineID)
     {
         global $db;
         if($db)
         {
-            $query = "INSERT IGNORE INTO shot (playerID, type, made, gameID, lineID, time, home, distance, shotclock) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            $query = "INSERT IGNORE INTO shot (playerID, type, made, gameID, lineID, time, home) VALUES (?, ?, ?, ?, ?, ?, ?);";
             $sh = $db->prepare($query);
-            $result = $sh->execute(array($freethrow->playerID, $freethrow->type, $freethrow->success, $freethrow->gameID, $lineID, $freethrow->time, $freethrow->isHome, $freethrow->distance, $freethrow->shotclock));
+            $result = $sh->execute(array($freethrow->playerID, $freethrow->type, $freethrow->success, $freethrow->gameID, $lineID, $freethrow->time, $freethrow->isHome));
             $freethrow->shotID = $db->lastInsertID();
             if(!$result)
             {
-                echo "Error: Something went wrong when insert a free throw";
+                echo "Error: Something went wrong inserting a free throw at line $lineID: ".$sh->errorCode();
                 exit();
             }
             
@@ -415,7 +484,7 @@ class DataManager
             $shot = new stdClass();
             $shot->time = $row['time'];
             $shot->type = $row['type'];
-            $shot->made = $row['made'];
+            $shot->made = intval($row['made']);
             $gameID = $row['gameID'];
             if(!array_key_exists($gameID, $shots))
             {
@@ -570,11 +639,43 @@ class DataManager
     static function getGamesPlayedbyPlayer($playerID)
     {
         global $db;
-        $query = "SELECT count(*) as count FROM (SELECT gameID FROM shift WHERE playerID = 201942 GROUP BY gameID) gamesplayed;";
+        $query = "SELECT game.gameID, date, hometeam, awayteam FROM game JOIN (SELECT DISTINCT(gameID) FROM shift WHERE playerID = ?) gamesplayed ON game.gameID = gamesplayed.gameID;";
         $sh = $db->prepare($query);
         $sh->execute(array($playerID));
-        $row = $sh->fetch();
-        return intval($row['count']);
+        $games = [];
+        while($row = $sh->fetch())
+        {
+            $game = new stdClass();
+            $game->gameID = $row['gameID'];
+            $game->home = $row['hometeam'];
+            $game->away = $row['awayteam'];
+            $game->date = $row['date'];
+            $games[$game->gameID] = $game;
+        }
+        return $games;
+    }
+    
+    static function getGamesInDateOrder()
+    {
+        global $db;
+        $query = "SELECT * FROM game WHERE (date BETWEEN FROM_UNIXTIME(:startdate) AND FROM_UNIXTIME(:enddate)) ORDER BY gameID;";
+        $sh = $db->prepare($query);
+        $sh->execute(array('startdate'=>strtotime("2016-10-25"), 'enddate'=>strtotime("today")));
+        $games = [];
+        while($row = $sh->fetch())
+        {
+            $game = new stdClass();
+            $game->gameID = $row['gameID'];
+            $game->date = $row['date'];
+            $game->home = $row['hometeam'];
+            $game->away = $row['awayteam'];
+            if(!array_key_exists($game->date, $games))
+            {
+                $games[$game->date] = [];
+            }
+            $games[$game->date][] = $game;
+        }
+        return $games;
     }
     
     static function prepareQuery($name, $query)

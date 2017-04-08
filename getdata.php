@@ -14,7 +14,7 @@ if($action == "getplayers")
     echo json_encode($players);
 }
 else if($action == "getplayerdata")
-{    
+{   
     $playerID = intval($_GET['playerID']);
 
     $shots = DataManager::getShots($playerID);
@@ -26,17 +26,29 @@ else if($action == "getplayerdata")
     $turnovers = DataManager::getTurnovers($playerID);
     $games = DataManager::getGamesPlayedbyPlayer($playerID);
     
-    if(isset($_GET['otherplayerID1']))
+    $matchupplayerIDs = [];
+    for($i = 1; $i <= 5; $i++)
     {
-        $otherplayerID1 = intval($_GET['otherplayerID1']);
-        
+        if(isset($_GET["matchup$i"]))
+        {
+            $matchupplayerIDs[] = $_GET["matchup$i"];
+        }
+    }
+    
+    if(sizeof($matchupplayerIDs))
+    {
         $shifts = DataManager::getShiftsFromPlayer($playerID);
-        $othershifts1 = DataManager::getShiftsFromPlayer($otherplayerID1);
+        $matchupshifts = [];
+        $matchupshifts[$playerID] = $shifts;
+        foreach($matchupplayerIDs as $matchupplayerID)
+        {
+            $matchupshifts[$matchupplayerID] = DataManager::getShiftsFromPlayer($matchupplayerID);
+        }
         
-        $matchedintervals = overlappingshifts($shifts, $othershifts1);
+        $commonintervals = commonintervals($matchupshifts);
         
         #SIFT SHOTS STATS
-        $shotsplits = siftstats($shots, $matchedintervals);
+        $shotsplits = siftstats($shots, $commonintervals);
         $shotswithout = $shotsplits["without"];
         $shotswith = $shotsplits["with"];
         $shotstatswithout = getShotStats($shotswithout);
@@ -51,6 +63,7 @@ else if($action == "getplayerdata")
         
         $FGwithout = $totalshotswithout == 0 ? 0 : number_format($shotsmadewithout/$totalshotswithout, 3);
         $_3FGwithout = $total3pointerswithout == 0 ? 0: number_format($_3pointersmadewithout/$total3pointerswithout, 3);
+        $FTPwithout = $totalfreethrowswithout == 0 ? 0: number_format($freethrowsmadewithout/$totalfreethrowswithout, 3);
         
         $totalshotswith = $shotstatswith['totalshots'];
         $shotsmadewith = $shotstatswith['shotsmade'];
@@ -61,9 +74,10 @@ else if($action == "getplayerdata")
         
         $FGwith = $totalshotswith == 0 ? 0 : number_format($shotsmadewith/$totalshotswith, 3);
         $_3FGwith = $total3pointerswith == 0 ? 0: number_format($_3pointersmadewith/$total3pointerswith, 3);
+        $FTPwith = $totalfreethrowswith == 0 ? 0: number_format($freethrowsmadewith/$totalfreethrowswith, 3);
         
         #SIFT REBOUNDS STATS
-        $reboundsplits = siftstats($rebounds, $matchedintervals);
+        $reboundsplits = siftstats($rebounds, $commonintervals);
         $reboundswithout = $reboundsplits["without"];
         $reboundswith = $reboundsplits["with"];
         $offreboundswithout = 0;
@@ -89,27 +103,27 @@ else if($action == "getplayerdata")
         $totalreboundswith = $offreboundswith + $defreboundswith;
         
         #SIFT ASSISTS STATS
-        $assistsplits = siftstats($assists, $matchedintervals);
+        $assistsplits = siftstats($assists, $commonintervals);
         $assistswithout = sizeof($assistsplits["without"]);
         $assistswith = sizeof($assistsplits["with"]);
         
         #SIFT BLOCK STATS
-        $blocksplits = siftstats($blocks, $matchedintervals);
+        $blocksplits = siftstats($blocks, $commonintervals);
         $blockswithout = sizeof($blocksplits["without"]);
         $blockswith = sizeof($blocksplits["with"]);
         
         #SIFT STEAL STATS
-        $stealsplits = siftstats($steals, $matchedintervals);
+        $stealsplits = siftstats($steals, $commonintervals);
         $stealswithout = sizeof($stealsplits["without"]);
         $stealswith = sizeof($stealsplits["with"]);
         
         #SIFT TURNOVERS
-        $turnoversplits = siftstats($turnovers, $matchedintervals);
+        $turnoversplits = siftstats($turnovers, $commonintervals);
         $turnoverswithout = sizeof($turnoversplits["without"]);
         $turnoverswith = sizeof($turnoversplits["with"]);
 
         $totalminuteswith = 0;
-        foreach($matchedintervals as $gameID => $gamematchedintervals)
+        foreach($commonintervals as $gameID => $gamematchedintervals)
         {
             $totalminuteswith += array_reduce($gamematchedintervals, function($carry, $interval){
                 $length = ($interval->endtime - $interval->starttime);
@@ -119,7 +133,7 @@ else if($action == "getplayerdata")
         }
         
         $totalminutes = 0;
-        foreach($matchedintervals as $gameID => $gamematchedintervals)
+        foreach($commonintervals as $gameID => $gamematchedintervals)
         {
             $totalminutes += array_reduce($shifts[$gameID], function($carry, $interval){
                 $carry += ($interval->endtime - $interval->starttime);
@@ -130,107 +144,162 @@ else if($action == "getplayerdata")
         $minswithout = number_format($totalminuteswithout/60000, 1);
         $minswith = number_format($totalminuteswith/60000, 1);
         
-        $html = "<table>
+        $matchup = join(", ",array_map(function($item) { $player = DataManager::getPlayer($item); return $player->firstname[0].'. '.$player->lastname;}, $matchupplayerIDs));
+        
+        $html = "<table class='table stats'>
         <tr>
-        </th><th><th>MIN</th><th>FGM</th><th>FGA</th><th>FG%</th><th>3PM</th><th>3PA</th><th>3FG%</th><th>OREB</th><th>DREB</th><th>REB</th><th>AST</th><th>BLK</th><th>STL</th><th>TO</th>
+        </th><th><th>MIN</th><th>FGM</th><th>FGA</th><th>FG%</th><th>3PM</th><th>3PA</th><th>3FG%</th><th>FTM</th><th>FTA</th><th>FT%</th><th>OREB</th><th>DREB</th><th>REB</th><th>AST</th><th>BLK</th><th>STL</th><th>TO</th>
         </tr>";
         
-        $html .= "<tr><td>Without</td><td>$minswithout</td><td>$shotsmadewithout</td><td>$totalshotswithout</td><td>$FGwithout</td><td>$_3pointersmadewithout</td><td>$total3pointerswithout</td><td>$_3FGwithout</td><td>$offreboundswithout</td><td>$defreboundswithout</td><td>$totalreboundswithout</td><td>$assistswithout</td><td>$blockswithout</td><td>$stealswithout</td><td>$turnoverswithout</td></tr>";
-        $html .= "<tr><td>With</td><td>$minswith</td><td>$shotsmadewith</td><td>$totalshotswith</td><td>$FGwith</td><td>$_3pointersmadewithout</td><td>$total3pointerswith</td><td>$_3FGwith</td><td>$offreboundswith</td><td>$defreboundswith</td><td>$totalreboundswith</td><td>$assistswith</td><td>$blockswith</td><td>$stealswith</td><td>$turnoverswith</td></tr>";
-        
-        var_dump(json_encode($shotstatswithout['types']));
-        var_dump(json_encode($shotstatswith['types']));
+        $html .= "<tr><td>w/out $matchup</td><td>$minswithout</td><td>$shotsmadewithout</td><td>$totalshotswithout</td><td>$FGwithout</td><td>$_3pointersmadewithout</td><td>$total3pointerswithout</td><td>$_3FGwithout</td><td>$freethrowsmadewithout</td><td>$totalfreethrowswithout</td><td>$FTPwithout</td><td>$offreboundswithout</td><td>$defreboundswithout</td><td>$totalreboundswithout</td><td>$assistswithout</td><td>$blockswithout</td><td>$stealswithout</td><td>$turnoverswithout</td></tr>";
+        $html .= "<tr><td>w/ $matchup</td><td>$minswith</td><td>$shotsmadewith</td><td>$totalshotswith</td><td>$FGwith</td><td>$_3pointersmadewith</td><td>$total3pointerswith</td><td>$_3FGwith</td><td>$freethrowsmadewith</td><td>$totalfreethrowswith</td><td>$FTPwith</td><td>$offreboundswith</td><td>$defreboundswith</td><td>$totalreboundswith</td><td>$assistswith</td><td>$blockswith</td><td>$stealswith</td><td>$turnoverswith</td></tr>";
         
         $html .= "</table>";
-            
-        echo $html;
+        
+        $jsonpackage = json_encode(array($html, $shotstatswith["types"], $shotstatswithout["types"]));
+        
+        echo $jsonpackage;
         return;
     }
 
+    $overallstats = new Stats();
+    $pergamestats = [];
+    $pergamestats = array_map(function($item){return new Stats();}, $games);
+    
     $points = 0; $totalfreethrows = 0; $freethrowsmade = 0; $_3pointersmade = 0; $total3pointers = 0; $totalshots = 0; $shotsmade = 0;
     $totalblocks = 0;$totalsteals = 0; $totalturnovers = 0; $defrebounds = 0; $offrebounds = 0;
-    foreach($shots as $gameshots)
+    foreach($shots as $gameID => $gameshots)
     {
         foreach($gameshots as $shot)
         {
             if($shot->type == "Free Throw")
             {
+                $pergamestats[$gameID]->totalfreethrows++;
                 $totalfreethrows++;
                 if($shot->made)
                 {
+                    $pergamestats[$gameID]->freethrowsmade++;
                     $freethrowsmade++;
+                    $pergamestats[$gameID]->points++;
                     $points += 1;
                 }
             }
             else if($shot->type[0] == 3){
+                $pergamestats[$gameID]->total3pointers++;
                 $total3pointers++;
+                $pergamestats[$gameID]->totalshots++;
                 $totalshots++;
                 if($shot->made)
                 {
+                    $pergamestats[$gameID]->shotsmade++;
                     $shotsmade++;
+                    $pergamestats[$gameID]->_3pointersmade++;
                     $_3pointersmade++;
+                    $pergamestats[$gameID]->points += 3;
                     $points += 3;
                 }
             }
             else
             {
+                $pergamestats[$gameID]->totalshots++;
                 $totalshots++;
                 if($shot->made)
                 {
+                    $pergamestats[$gameID]->shotsmade++;
                     $shotsmade++;
+                    $pergamestats[$gameID]->points += 2;
                     $points += 2;
                 }
             }
         }
     }
 
-    foreach($rebounds as $gamerebounds)
+    foreach($rebounds as $gameID => $gamerebounds)
     {
         foreach($gamerebounds as $rebound)
         {
             if($rebound->offensive)
+            {
+                $pergamestats[$gameID]->offrebounds++;
                 $offrebounds++;
+            }
             else
+            {
+                $pergamestats[$gameID]->defrebounds++;
                 $defrebounds++;
+            }
         }
     }
     $totalrebounds = $defrebounds + $offrebounds;
     
-    foreach($blocks as $gameblocks)
+    foreach($blocks as $gameID => $gameblocks)
     {
+        $pergamestats[$gameID]->totalblocks = sizeof($gameblocks);
         $totalblocks += sizeof($gameblocks);
     }
 
-    foreach($steals as $gamesteals)
+    foreach($steals as $gameID => $gamesteals)
     {
+        $pergamestats[$gameID]->totalsteals = sizeof($gamesteals);
         $totalsteals += sizeof($gamesteals);
     }
 
-    foreach($turnovers as $gameturnovers)
+    foreach($turnovers as $gameID => $gameturnovers)
     {
+        $pergamestats[$gameID]->totalturnovers = sizeof($gameturnovers);
         $totalturnovers += sizeof($gameturnovers);
     }
-    
-    $html = "<table>
-    <tr>
-    <th>PTS</th><th>FG%</th><th>3FG%</th><th>FT%</th><th>AST</th><th>REB</th><th>BLK</th><th>STL</th><th>TO</th>
-    </tr>";
 
-    $PPG = $games == 0 ? 0 : number_format($points/$games, 1);
+    $totalgames = sizeof($games);
+    
+    $jsonpackage = [];
+    
+    $player = DataManager::getPlayer($playerID);
+    $playerinfo = array('firstname'=>$player->firstname,'lastname'=>$player->lastname);
+    $jsonpackage[] = $playerinfo;
+    
+    $PPG = $totalgames == 0 ? 0 : number_format($points/$totalgames, 1);
     $FG = $totalshots == 0 ? 0 : number_format($shotsmade/$totalshots, 3);
     $_3FG = $total3pointers == 0 ? 0: number_format($_3pointersmade/$total3pointers, 3);
     $FT = $totalfreethrows == 0 ? 0 : number_format($freethrowsmade/$totalfreethrows, 3);
-    $AST = $games == 0 ? 0 : number_format($totalassists/$games, 1);
-    $REB = $games == 0 ? 0 : number_format($totalrebounds/$games, 1);
-    $BLK = $games == 0 ? 0 : number_format($totalblocks/$games, 1);
-    $STL = $games == 0 ? 0 : number_format($totalsteals/$games, 1);
-    $TO = $games == 0 ? 0 : number_format($totalturnovers/$games, 1);
+    $AST = $totalgames == 0 ? 0 : number_format($totalassists/$totalgames, 1);
+    $REB = $totalgames == 0 ? 0 : number_format($totalrebounds/$totalgames, 1);
+    $BLK = $totalgames == 0 ? 0 : number_format($totalblocks/$totalgames, 1);
+    $STL = $totalgames == 0 ? 0 : number_format($totalsteals/$totalgames, 1);
+    $TO = $totalgames == 0 ? 0 : number_format($totalturnovers/$totalgames, 1);
     
-    $html .= "<tr><td>$PPG</td><td>$FG</td><td>$_3FG</td><td>$FT</td><td>$AST</td><td>$REB</td><td>$BLK</td><td>$STL</td><td>$TO</td></tr>";
+    $shifts = DataManager::getShiftsFromPlayer($playerID);
+    foreach($shifts as $gameID => $gameshifts)
+    {
+        if(!array_key_exists($gameID, $shifts))
+        {
+            echo "Error: Game ID could not be found as key in player's per game stats";
+            exit();
+        }
+        $pergamestats[$gameID]->totalms = array_reduce($gameshifts, function($carry, $item){ return $carry + ($item->endtime - $item->starttime);}, 0);
+    }
     
-    $html .= "</table>";
-
+    $stats = array("gamesplayed"=>$totalgames, "points"=>$PPG, "shotsmade"=>$shotsmade, "totalshots"=>$totalshots, "total3pointers" => $total3pointers, 
+        "3pointersmade"=>$_3pointersmade, "freethrowsmade"=>$freethrowsmade, "totalfreethrows"=>$totalfreethrows, "totalassists" => $totalassists,
+        "totalrebounds"=>$totalrebounds, "totalblocks"=>$totalblocks, "totalsteals"=>$totalsteals, "totalturnovers"=>$totalturnovers);
+    
     echo $html;
+}
+
+class Stats{
+    public $totalms = 0;
+    public $points = 0; 
+    public $totalfreethrows = 0; 
+    public $freethrowsmade = 0; 
+    public $_3pointersmade = 0; 
+    public $total3pointers = 0; 
+    public $totalshots = 0; 
+    public $shotsmade = 0;
+    public $totalblocks = 0;
+    public $totalsteals = 0; 
+    public $totalturnovers = 0; 
+    public $defrebounds = 0; 
+    public $offrebounds = 0;
 }
 
 function getShotStats($shots){
@@ -248,8 +317,8 @@ function getShotStats($shots){
         }
         else if($shot->type[0] == 3){
             if(!array_key_exists($shot->type, $stats['types']))
-                $stats['types'][$shot->type] = 0;
-            $stats['types'][$shot->type]++;
+                $stats['types'][$shot->type] = [];
+            $stats['types'][$shot->type][] = $shot;
 
             $stats['total3pointers']++;
             $stats['totalshots']++;
@@ -263,8 +332,8 @@ function getShotStats($shots){
         else
         {
             if(!array_key_exists($shot->type, $stats['types']))
-                $stats['types'][$shot->type] = 0;
-            $stats['types'][$shot->type]++;
+                $stats['types'][$shot->type] = [];
+            $stats['types'][$shot->type][] = $shot;
 
             $stats['totalshots']++;
             if($shot->made)
@@ -350,8 +419,57 @@ function overlappingshifts($playershifts, $othershifts)
     return $matchedintervals;
 }
 
+function commonintervals($shifts)
+{
+    #find games they played together
+    $playergames = array_map('array_keys', $shifts);
+    $commongames = call_user_func_array('array_intersect',$playergames);
+    
+    $commonintervals = [];
+    
+    foreach($commongames as $gameID)
+    {
+        $commonintervals[$gameID] = [];
+        $gameshifts = array_map(function($item) use ($gameID) {return $item[$gameID];}, $shifts);
+        $currentshifts = array_map('current', $gameshifts);
+        
+        while(!in_array(null, $currentshifts))
+        {
+            $lateststart = array_reduce($currentshifts, function($carry, $item){return max($carry, $item->starttime);}, 0);
+            $earliestend = array_reduce($currentshifts, function($carry, $item){return min($carry, $item->endtime);}, INF);
+            if($lateststart >= $earliestend)
+            {
+                foreach($currentshifts as $playerID => $shift)
+                {
+                    if($lateststart >= $shift->endtime)
+                    {
+                        $currentshifts[$playerID] = next($gameshifts[$playerID]);
+                    }
+                }
+                continue;
+            }
+            
+            $commoninterval = new stdClass();
+            $commoninterval->starttime = $lateststart;
+            $commoninterval->endtime = $earliestend;
+            $commonintervals[$gameID][] = $commoninterval;
+            
+            foreach($currentshifts as $playerID => $shift)
+            {
+                if($earliestend == $shift->endtime)
+                {
+                    $currentshifts[$playerID] = next($gameshifts[$playerID]);
+                }
+            }
+        }
+    }
+    return $commonintervals;
+}
+
 function siftstats($stats, $matchedintervals)
 {
+    //var_dump($stats);
+    
     $splitstats = ["with"=>[], "without"=>[]];
     foreach($stats as $gameID => $gamestats)
     {
@@ -359,7 +477,23 @@ function siftstats($stats, $matchedintervals)
         {
             continue;
         }
-        $intervals = $matchedintervals[$gameID]; $size = sizeof($intervals); $i = 0;
+        foreach($gamestats as $stat){
+            $with = false;
+            foreach($matchedintervals[$gameID] as $interval)
+            {
+                if($stat->time > $interval->starttime && $stat->time <= $interval->endtime)
+                {
+                    $splitstats["with"][] = $stat;
+                    $with = true;
+                    break;
+                }
+            }
+            if(!$with)
+            {
+                $splitstats["without"][] = $stat;
+            }
+        }
+        /*$intervals = $matchedintervals[$gameID]; $size = sizeof($intervals); $i = 0;
         foreach($gamestats as $stat){
             $with = false;
             while($i < $size)
@@ -381,7 +515,7 @@ function siftstats($stats, $matchedintervals)
             {
                 $splitstats["without"][] = $stat;
             }
-        }
+        }*/
     }
     return $splitstats;
 }

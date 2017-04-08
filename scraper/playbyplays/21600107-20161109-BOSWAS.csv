@@ -1,0 +1,463 @@
+203490,Otto,Porter Jr.,202693,Markieff,Morris,101162,Marcin,Gortat,203078,Bradley,Beal,202322,John,Wall,201977,Marcus,Thornton,201160,Jason,Smith,203107,Tomas,Satoransky,203504,Trey,Burke,203094,Andrew,Nicholson,1627815,Sheldon,McClellan,1626162,Kelly,Oubre Jr.,1627849,Daniel,Ochefu
+1627759,Jaylen,Brown,101161,Amir,Johnson,203092,Tyler,Zeller,202340,Avery,Bradley,202738,Isaiah,Thomas,203935,Marcus,Smart,201973,Jonas,Jerebko,203482,Kelly,Olynyk,1626175,Jordan,Mickey,1626179,Terry,Rozier,101123,Gerald,Green,1627743,Demetrius,Jackson,203923,James,Young
+Start of 1st Quarter
+12:00,0-0,WAS,101162,marcin,gortat,Jump Ball Gortat vs Johnson (Zeller gains possession)
+11:39,0-0,BOS,202738,isaiah,thomas,[BOS] Thomas 3pt Shot: Missed
+11:38,0-0,WAS,202693,markieff,morris,[WAS] Morris Rebound (Off:0 Def:1)
+11:18,0-0,WAS,203078,bradley,beal,[WAS] Beal Jump Shot: Missed
+11:17,0-0,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:1 Def:0)
+11:15,2-0,WAS,101162,marcin,gortat,[WAS 2-0] Gortat Tip Layup Shot: Made (2 PTS)
+11:07,2-2,BOS,203092,tyler,zeller,[BOS 2-2] Zeller Cutting Layup Shot: Made (2 PTS) Assist: Johnson (1 AST)
+10:53,5-2,WAS,203490,otto,porter_jr.,[WAS 5-2] Porter Jr. 3pt Shot: Made (3 PTS) Assist: Morris (1 AST)
+10:39,5-2,BOS,1627759,jaylen,brown,[BOS] Brown Turnover : Lost Ball (1 TO) Steal:Morris (1 ST)
+10:31,5-2,WAS,203078,bradley,beal,[WAS] Beal Layup Shot: Missed
+10:29,5-2,WAS,203078,bradley,beal,[WAS] Beal Rebound (Off:1 Def:0)
+10:25,8-2,WAS,203490,otto,porter_jr.,[WAS 8-2] Porter Jr. 3pt Shot: Made (6 PTS) Assist: Wall (1 AST)
+10:11,8-2,WAS,203078,bradley,beal,[WAS] Beal Foul: Personal (1 PF) (B Forte)
+10:01,8-2,BOS,1627759,jaylen,brown,[BOS] Brown Foul: Offensive (1 PF) (J VanDuyne)
+10:01,8-2,BOS,1627759,jaylen,brown,[BOS] Brown Turnover : Foul (2 TO)
+09:37,8-2,WAS,203078,bradley,beal,[WAS] Beal Jump Shot: Missed
+09:36,8-2,BOS,1627759,jaylen,brown,[BOS] Brown Rebound (Off:0 Def:1)
+09:25,8-2,BOS,202340,avery,bradley,[BOS] Bradley 3pt Shot: Missed
+09:24,8-2,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:0 Def:1)
+09:19,10-2,WAS,202322,john,wall,[WAS 10-2] Wall Pullup Jump shot: Made (2 PTS) Assist: Porter Jr. (1 AST)
+09:03,10-2,BOS,202738,isaiah,thomas,[BOS] Thomas 3pt Shot: Missed
+09:02,10-2,WAS,202693,markieff,morris,[WAS] Morris Rebound (Off:0 Def:2)
+08:45,10-2,WAS,203078,bradley,beal,[WAS] Beal Layup Shot: Missed Block: Zeller (1 BLK)
+08:42,10-2,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:1 Def:1)
+08:41,12-2,WAS,203490,otto,porter_jr.,[WAS 12-2] Porter Jr. Putback Layup Shot: Made (8 PTS)
+08:41,12-2,BOS,,,,[BOS] Team Timeout : Regular
+08:41,12-2,BOS,1627759,jaylen,brown,[BOS] Brown Substitution replaced by Smart
+08:22,12-2,BOS,202738,isaiah,thomas,[BOS] Thomas Layup Shot: Missed
+08:22,12-2,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:1 Def:1)
+08:14,12-2,BOS,203935,marcus,smart,[BOS] Smart Foul: Personal (1 PF) (J VanDuyne)
+08:14,12-2,WAS,203078,bradley,beal,[WAS] Beal Substitution replaced by Thornton
+08:05,12-2,WAS,202322,john,wall,[WAS] Wall Jump Shot: Missed
+08:05,12-2,BOS,,,,[BOS] Team Rebound
+07:51,12-2,WAS,101162,marcin,gortat,[WAS] Gortat Foul: Loose Ball (1 PF) (Z Zarba)
+07:47,12-2,BOS,203935,marcus,smart,[BOS] Smart 3pt Shot: Missed
+07:47,12-2,WAS,202693,markieff,morris,[WAS] Morris Rebound (Off:0 Def:3)
+07:41,12-2,WAS,202322,john,wall,[WAS] Wall Turnover : Out of Bounds - Bad Pass Turnover (1 TO)
+07:32,12-2,BOS,202340,avery,bradley,[BOS] Bradley 3pt Shot: Missed
+07:31,12-2,BOS,203092,tyler,zeller,[BOS] Zeller Rebound (Off:1 Def:0)
+07:27,12-2,BOS,202340,avery,bradley,[BOS] Bradley Layup Shot: Missed Block: Porter Jr. (1 BLK)
+07:25,12-2,BOS,202340,avery,bradley,[BOS] Bradley Rebound (Off:1 Def:0)
+07:20,12-2,BOS,203935,marcus,smart,[BOS] Smart Layup Shot: Missed Block: Gortat (1 BLK)
+07:19,12-2,WAS,202693,markieff,morris,[WAS] Morris Rebound (Off:0 Def:4)
+07:16,12-2,BOS,101161,amir,johnson,[BOS] Johnson Substitution replaced by Jerebko
+07:06,15-2,WAS,203490,otto,porter_jr.,[WAS 15-2] Porter Jr. 3pt Shot: Made (11 PTS) Assist: Wall (2 AST)
+06:49,15-2,WAS,202693,markieff,morris,[WAS] Morris Foul: Personal (1 PF) (B Forte)
+06:44,15-2,BOS,203092,tyler,zeller,[BOS] Zeller Jump Shot: Missed
+06:43,15-2,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:1 Def:2)
+06:32,15-2,WAS,101162,marcin,gortat,[WAS] Gortat Jump Shot: Missed
+06:31,15-2,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:2 Def:2)
+06:27,18-2,WAS,202693,markieff,morris,[WAS 18-2] Morris 3pt Shot: Made (3 PTS) Assist: Porter Jr. (2 AST)
+06:12,18-4,BOS,202340,avery,bradley,[BOS 4-18] Bradley Pullup Jump shot: Made (2 PTS) Assist: Thomas (1 AST)
+05:58,20-4,WAS,201977,marcus,thornton,[WAS 20-4] Thornton Fadeaway Jump Shot: Made (2 PTS) Assist: Wall (3 AST)
+05:43,20-4,WAS,202693,markieff,morris,[WAS] Morris Substitution replaced by Smith
+05:43,20-4,BOS,203092,tyler,zeller,[BOS] Zeller Substitution replaced by Olynyk
+05:40,20-4,BOS,202738,isaiah,thomas,[BOS] Thomas 3pt Shot: Missed
+05:39,20-4,WAS,,,,[WAS] Team Rebound
+05:24,20-4,WAS,101162,marcin,gortat,[WAS] Gortat Jump Shot: Missed
+05:23,20-4,BOS,203935,marcus,smart,[BOS] Smart Rebound (Off:0 Def:1)
+05:14,20-4,BOS,203482,kelly,olynyk,[BOS] Olynyk Layup Shot: Missed
+05:14,20-4,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:2 Def:3)
+05:07,20-4,WAS,202322,john,wall,[WAS] Wall 3pt Shot: Missed
+05:06,20-4,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:2 Def:1)
+05:02,23-4,WAS,202322,john,wall,[WAS 23-4] Wall 3pt Shot: Made (5 PTS) Assist: Thornton (1 AST)
+04:45,23-4,BOS,202738,isaiah,thomas,[BOS] Thomas Turnover : Bad Pass (1 TO) Steal:Smith (1 ST)
+04:41,25-4,WAS,203490,otto,porter_jr.,[WAS 25-4] Porter Jr. Cutting Dunk Shot: Made (13 PTS) Assist: Smith (1 AST)
+04:40,25-4,BOS,,,,[BOS] Team Timeout : Short
+04:40,25-4,BOS,202738,isaiah,thomas,[BOS] Thomas Substitution replaced by Mickey
+04:40,25-4,BOS,201973,jonas,jerebko,[BOS] Jerebko Substitution replaced by Rozier
+04:40,25-4,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Substitution replaced by Satoransky
+04:22,25-6,BOS,202340,avery,bradley,[BOS 6-25] Bradley Driving Layup Shot: Made (4 PTS)
+04:07,25-6,WAS,201977,marcus,thornton,[WAS] Thornton Jump Shot: Missed
+04:05,25-6,BOS,202340,avery,bradley,[BOS] Bradley Rebound (Off:1 Def:1)
+03:47,25-6,BOS,203482,kelly,olynyk,[BOS] Olynyk 3pt Shot: Missed
+03:46,25-6,WAS,202322,john,wall,[WAS] Wall Rebound (Off:0 Def:1)
+03:37,28-6,WAS,201977,marcus,thornton,[WAS 28-6] Thornton 3pt Shot: Made (5 PTS) Assist: Wall (4 AST)
+03:21,28-6,WAS,203107,tomas,satoransky,[WAS] Satoransky Foul: Defense 3 Second (0 PF) (J VanDuyne)
+03:21,28-6,BOS,202340,avery,bradley,[BOS] Bradley Free Throw Technical Missed
+03:21,28-6,BOS,,,,[BOS] Team Rebound
+03:21,28-6,WAS,202322,john,wall,[WAS] Wall Substitution replaced by Burke
+03:15,28-8,BOS,1626175,jordan,mickey,[BOS 8-28] Mickey Floating Jump shot: Made (2 PTS) Assist: Rozier (1 AST)
+02:55,28-8,WAS,201977,marcus,thornton,[WAS] Thornton Jump Shot: Missed
+02:54,28-8,BOS,203482,kelly,olynyk,[BOS] Olynyk Rebound (Off:0 Def:1)
+02:42,28-8,BOS,203935,marcus,smart,[BOS] Smart Turnover : Bad Pass (1 TO) Steal:Thornton (1 ST)
+02:36,30-8,WAS,203504,trey,burke,[WAS 30-8] Burke Pullup Jump shot: Made (2 PTS) Assist: Thornton (2 AST)
+02:22,30-8,BOS,1626179,terry,rozier,[BOS] Rozier Jump Shot: Missed
+02:21,30-8,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:2 Def:2)
+02:05,30-8,WAS,203107,tomas,satoransky,[WAS] Satoransky Layup Shot: Missed
+02:05,30-8,BOS,,,,[BOS] Team Rebound
+02:05,30-8,WAS,,,,[WAS] Team Timeout : Regular
+02:05,30-8,WAS,101162,marcin,gortat,[WAS] Gortat Substitution replaced by Nicholson
+01:48,30-8,BOS,1626179,terry,rozier,[BOS] Rozier 3pt Shot: Missed
+01:47,30-8,WAS,203094,andrew,nicholson,[WAS] Nicholson Rebound (Off:0 Def:1)
+01:24,30-8,WAS,203504,trey,burke,[WAS] Burke Jump Shot: Missed
+01:23,30-8,BOS,,,,[BOS] Team Rebound
+01:11,30-8,BOS,1626175,jordan,mickey,[BOS] Mickey Jump Shot: Missed
+01:10,30-8,WAS,203094,andrew,nicholson,[WAS] Nicholson Rebound (Off:0 Def:2)
+01:00,32-8,WAS,201160,jason,smith,[WAS 32-8] Smith Jump Shot: Made (2 PTS) Assist: Satoransky (1 AST)
+00:46.3,32-8,BOS,1626179,terry,rozier,[BOS] Rozier Layup Shot: Missed Block: Nicholson (1 BLK)
+00:41.6,32-8,BOS,1626175,jordan,mickey,[BOS] Mickey Rebound (Off:1 Def:0)
+00:38.8,32-8,WAS,203094,andrew,nicholson,Jump Ball Nicholson vs Mickey (Smart gains possession)
+00:33.3,32-8,BOS,203935,marcus,smart,[BOS] Smart Jump Shot: Missed
+00:32.8,32-8,WAS,201160,jason,smith,[WAS] Smith Rebound (Off:0 Def:1)
+00:20.8,34-8,WAS,203504,trey,burke,[WAS 34-8] Burke Floating Jump shot: Made (4 PTS) Assist: Nicholson (1 AST)
+00:05.2,34-8,WAS,201160,jason,smith,[WAS] Smith Foul: Personal (1 PF) (B Forte)
+00:05.2,34-8,WAS,203094,andrew,nicholson,[WAS] Nicholson Substitution replaced by Porter Jr.
+00:01.0,34-8,BOS,203482,kelly,olynyk,[BOS] Olynyk Jump Shot: Missed
+00:00.0,34-8,BOS,,,,[BOS] Team Rebound
+End of 1st Quarter
+Start of 2nd Quarter
+11:35,34-8,WAS,201160,jason,smith,[WAS] Smith Jump Shot: Missed
+11:33,34-8,BOS,203482,kelly,olynyk,[BOS] Olynyk Rebound (Off:0 Def:2)
+11:23,34-10,BOS,203935,marcus,smart,[BOS 10-34] Smart Driving Dunk Shot: Made (2 PTS)
+11:13,34-10,BOS,101161,amir,johnson,[BOS] Johnson Foul: Personal (1 PF) (J VanDuyne)
+11:13,34-10,WAS,201160,jason,smith,[WAS] Smith Substitution replaced by Morris
+11:01,34-10,WAS,201977,marcus,thornton,[WAS] Thornton 3pt Shot: Missed
+10:59,34-10,WAS,203504,trey,burke,[WAS] Burke Rebound (Off:1 Def:0)
+10:43,34-10,WAS,203504,trey,burke,[WAS] Burke 3pt Shot: Missed
+10:42,34-10,WAS,203107,tomas,satoransky,[WAS] Satoransky Rebound (Off:1 Def:0)
+10:41,36-10,WAS,203107,tomas,satoransky,[WAS 36-10] Satoransky Tip Layup Shot: Made (2 PTS)
+10:26,36-10,BOS,203935,marcus,smart,[BOS] Smart 3pt Shot: Missed
+10:25,36-10,WAS,202693,markieff,morris,[WAS] Morris Rebound (Off:0 Def:5)
+10:16,36-10,WAS,202693,markieff,morris,[WAS] Morris Foul: Offensive Charge (2 PF) (J VanDuyne)
+10:16,36-10,WAS,202693,markieff,morris,[WAS] Morris Turnover : Foul (1 TO)
+10:05,36-12,BOS,101161,amir,johnson,[BOS 12-36] Johnson Reverse Layup Shot: Made (2 PTS) Assist: Thomas (2 AST)
+09:50,36-12,WAS,202693,markieff,morris,[WAS] Morris Foul: Offensive (3 PF) (J VanDuyne)
+09:50,36-12,WAS,202693,markieff,morris,[WAS] Morris Turnover : Foul (2 TO)
+09:50,36-12,WAS,,,,[WAS] Team Violation : Delay Of Game (Z Zarba)
+09:50,36-12,WAS,202693,markieff,morris,[WAS] Morris Substitution replaced by Wall
+09:50,36-12,WAS,201977,marcus,thornton,[WAS] Thornton Substitution replaced by Beal
+09:50,36-12,WAS,203504,trey,burke,[WAS] Burke Substitution replaced by Porter Jr.
+09:35,36-12,BOS,203935,marcus,smart,[BOS] Smart Layup Shot: Missed Block: Porter Jr. (2 BLK)
+09:34,36-12,BOS,,,,[BOS] Team Rebound
+09:31,36-12,BOS,101123,gerald,green,[BOS] Green Jump Shot: Missed
+09:30,36-12,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:2 Def:4)
+09:17,36-12,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. 3pt Shot: Missed
+09:16,36-12,BOS,203482,kelly,olynyk,[BOS] Olynyk Rebound (Off:0 Def:3)
+09:11,36-12,WAS,203107,tomas,satoransky,[WAS] Satoransky Foul: Shooting (1 PF) (2 FTA) (J VanDuyne)
+09:11,36-13,BOS,202738,isaiah,thomas,[BOS 13-36] Thomas Free Throw 1 of 2 (1 PTS)
+09:11,36-13,BOS,203482,kelly,olynyk,[BOS] Olynyk Substitution replaced by Jerebko
+09:11,36-14,BOS,202738,isaiah,thomas,[BOS 14-36] Thomas Free Throw 2 of 2 (2 PTS)
+08:56,36-14,WAS,202322,john,wall,[WAS] Wall Layup Shot: Missed
+08:55,36-14,BOS,101161,amir,johnson,[BOS] Johnson Rebound (Off:0 Def:1)
+08:44,36-14,BOS,101123,gerald,green,[BOS] Green 3pt Shot: Missed
+08:43,36-14,BOS,202738,isaiah,thomas,[BOS] Thomas Rebound (Off:1 Def:0)
+08:40,36-17,BOS,202738,isaiah,thomas,[BOS 17-36] Thomas 3pt Shot: Made (5 PTS)
+08:40,36-17,WAS,,,,[WAS] Team Timeout : Regular
+08:40,36-17,WAS,203094,andrew,nicholson,[WAS] Nicholson Substitution replaced by Gortat
+08:26,36-17,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Jump Shot: Missed
+08:25,36-17,BOS,101123,gerald,green,[BOS] Green Rebound (Off:0 Def:1)
+08:10,36-19,BOS,101161,amir,johnson,[BOS 19-36] Johnson Reverse Layup Shot: Made (4 PTS) Assist: Thomas (3 AST)
+07:53,38-19,WAS,101162,marcin,gortat,[WAS 38-19] Gortat Fadeaway Jump Shot: Made (4 PTS) Assist: Satoransky (2 AST)
+07:53,38-19,BOS,101123,gerald,green,[BOS] Green Foul: Shooting (1 PF) (1 FTA) (J VanDuyne)
+07:53,39-19,WAS,101162,marcin,gortat,[WAS 39-19] Gortat Free Throw 1 of 1 (5 PTS)
+07:36,39-21,BOS,202738,isaiah,thomas,[BOS 21-39] Thomas Floating Jump shot: Made (7 PTS)
+07:29,39-21,WAS,101162,marcin,gortat,[WAS] Gortat Foul: Offensive (2 PF) (B Forte)
+07:29,39-21,WAS,101162,marcin,gortat,[WAS] Gortat Turnover : Foul (1 TO)
+07:29,39-21,BOS,203935,marcus,smart,[BOS] Smart Substitution replaced by Bradley
+07:19,39-23,BOS,101161,amir,johnson,[BOS 23-39] Johnson Driving Dunk Shot: Made (6 PTS) Assist: Green (1 AST)
+07:01,39-23,BOS,202738,isaiah,thomas,[BOS] Thomas Foul: Shooting (1 PF) (2 FTA) (Z Zarba)
+07:01,40-23,WAS,202322,john,wall,[WAS 40-23] Wall Free Throw 1 of 2 (6 PTS)
+07:01,41-23,WAS,202322,john,wall,[WAS 41-23] Wall Free Throw 2 of 2 (7 PTS)
+06:45,41-23,BOS,202738,isaiah,thomas,[BOS] Thomas Layup Shot: Missed Block: Wall (1 BLK)
+06:44,41-23,WAS,203107,tomas,satoransky,[WAS] Satoransky Rebound (Off:1 Def:1)
+06:39,43-23,WAS,203490,otto,porter_jr.,[WAS 43-23] Porter Jr. Driving Floating Bank Jump Shot: Made (15 PTS) Assist: Beal (1 AST)
+06:39,43-23,BOS,101123,gerald,green,[BOS] Green Foul: Shooting (2 PF) (1 FTA) (B Forte)
+06:39,43-23,WAS,203078,bradley,beal,[WAS] Beal Substitution replaced by Thornton
+06:39,44-23,WAS,203490,otto,porter_jr.,[WAS 44-23] Porter Jr. Free Throw 1 of 1 (16 PTS)
+06:29,44-23,BOS,101161,amir,johnson,[BOS] Johnson Turnover : Bad Pass (1 TO) Steal:Thornton (2 ST)
+06:19,46-23,WAS,202322,john,wall,[WAS 46-23] Wall Fadeaway Jump Shot: Made (9 PTS)
+06:16,46-23,BOS,,,,[BOS] Team Timeout : Regular
+06:16,46-23,BOS,101123,gerald,green,[BOS] Green Substitution replaced by Smart
+06:05,46-25,BOS,202340,avery,bradley,[BOS 25-46] Bradley Layup Shot: Made (6 PTS) Assist: Smart (1 AST)
+05:46,46-25,WAS,101162,marcin,gortat,[WAS] Gortat Layup Shot: Missed Block: Jerebko (1 BLK)
+05:45,46-25,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:3 Def:4)
+05:40,46-25,WAS,201977,marcus,thornton,[WAS] Thornton 3pt Shot: Missed
+05:40,46-25,BOS,201973,jonas,jerebko,[BOS] Jerebko Rebound (Off:0 Def:1)
+05:18,46-25,BOS,201973,jonas,jerebko,[BOS] Jerebko 3pt Shot: Missed
+05:18,46-25,WAS,202322,john,wall,[WAS] Wall Rebound (Off:0 Def:2)
+05:10,46-25,WAS,202322,john,wall,[WAS] Wall Jump Shot: Missed
+05:09,46-25,WAS,201977,marcus,thornton,[WAS] Thornton Rebound (Off:1 Def:0)
+05:07,46-25,WAS,201977,marcus,thornton,[WAS] Thornton Jump Shot: Missed
+05:07,46-25,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:3 Def:2)
+05:07,48-25,WAS,101162,marcin,gortat,[WAS 48-25] Gortat Layup Shot: Made (7 PTS)
+05:07,48-25,BOS,202340,avery,bradley,[BOS] Bradley Foul: Shooting (1 PF) (1 FTA) (B Forte)
+05:07,48-25,WAS,101162,marcin,gortat,[WAS] Gortat Free Throw 1 of 1 Missed
+05:06,48-25,BOS,201973,jonas,jerebko,[BOS] Jerebko Rebound (Off:0 Def:2)
+04:53,48-25,BOS,202340,avery,bradley,[BOS] Bradley 3pt Shot: Missed
+04:53,48-25,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:3 Def:5)
+04:44,48-25,WAS,202322,john,wall,[WAS] Wall Jump Shot: Missed
+04:43,48-25,WAS,203107,tomas,satoransky,[WAS] Satoransky Rebound (Off:2 Def:1)
+04:39,50-25,WAS,203490,otto,porter_jr.,[WAS 50-25] Porter Jr. Fadeaway Jump Shot: Made (18 PTS) Assist: Satoransky (3 AST)
+04:26,50-28,BOS,101161,amir,johnson,[BOS 28-50] Johnson 3pt Shot: Made (9 PTS) Assist: Thomas (4 AST)
+04:15,50-28,BOS,101161,amir,johnson,[BOS] Johnson Foul: Shooting (2 PF) (2 FTA) (Z Zarba)
+04:15,51-28,WAS,202322,john,wall,[WAS 51-28] Wall Free Throw 1 of 2 (10 PTS)
+04:15,51-28,BOS,201973,jonas,jerebko,[BOS] Jerebko Substitution replaced by Zeller
+04:15,51-28,BOS,101161,amir,johnson,[BOS] Johnson Substitution replaced by Olynyk
+04:15,52-28,WAS,202322,john,wall,[WAS 52-28] Wall Free Throw 2 of 2 (11 PTS)
+03:53,52-30,BOS,203482,kelly,olynyk,[BOS 30-52] Olynyk Reverse Layup Shot: Made (2 PTS) Assist: Zeller (1 AST)
+03:42,52-30,WAS,202322,john,wall,[WAS] Wall 3pt Shot: Missed
+03:41,52-30,BOS,203092,tyler,zeller,[BOS] Zeller Rebound (Off:1 Def:1)
+03:24,52-30,WAS,201977,marcus,thornton,[WAS] Thornton Foul: Personal (1 PF) (Z Zarba)
+03:15,52-30,WAS,101162,marcin,gortat,[WAS] Gortat Foul: Defense 3 Second (2 PF) (B Forte)
+03:15,52-31,BOS,202738,isaiah,thomas,[BOS 31-52] Thomas Free Throw Technical (8 PTS)
+03:08,52-31,BOS,202738,isaiah,thomas,[BOS] Thomas Turnover : Bad Pass (2 TO) Steal:Thornton (3 ST)
+03:02,52-31,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Layup Shot: Missed Block: Bradley (1 BLK)
+02:59,52-31,BOS,203935,marcus,smart,[BOS] Smart Rebound (Off:0 Def:2)
+02:47,52-34,BOS,202340,avery,bradley,[BOS 34-52] Bradley 3pt Shot: Made (9 PTS)
+02:27,52-34,WAS,202322,john,wall,[WAS] Wall Jump Shot: Missed
+02:26,52-34,WAS,201977,marcus,thornton,[WAS] Thornton Rebound (Off:2 Def:0)
+02:20,54-34,WAS,201977,marcus,thornton,[WAS 54-34] Thornton Reverse Layup Shot: Made (7 PTS) Assist: Gortat (1 AST)
+02:06,54-36,BOS,202738,isaiah,thomas,[BOS 36-54] Thomas Floating Jump shot: Made (10 PTS)
+02:06,54-36,WAS,202322,john,wall,[WAS] Wall Foul: Shooting (1 PF) (1 FTA) (B Forte)
+Official Timeout
+02:06,54-37,BOS,202738,isaiah,thomas,[BOS 37-54] Thomas Free Throw 1 of 1 (11 PTS)
+01:43,56-37,WAS,203490,otto,porter_jr.,[WAS 56-37] Porter Jr. Pullup Jump shot: Made (20 PTS)
+01:23,56-39,BOS,203092,tyler,zeller,[BOS 39-56] Zeller Reverse Layup Shot: Made (4 PTS) Assist: Thomas (5 AST)
+00:59.8,58-39,WAS,201977,marcus,thornton,[WAS 58-39] Thornton Floating Jump shot: Made (9 PTS) Assist: Wall (5 AST)
+00:48.9,58-39,BOS,202340,avery,bradley,[BOS] Bradley Turnover : Bad Pass (1 TO) Steal:Porter Jr. (1 ST)
+00:45.9,58-39,WAS,201977,marcus,thornton,[WAS] Thornton Turnover : Bad Pass (1 TO) Steal:Bradley (1 ST)
+00:43.3,58-41,BOS,202340,avery,bradley,[BOS 41-58] Bradley Layup Shot: Made (11 PTS)
+00:38.7,58-41,WAS,202322,john,wall,[WAS] Wall Foul: Offensive Charge (2 PF) (J VanDuyne)
+00:38.7,58-41,WAS,202322,john,wall,[WAS] Wall Turnover : Foul (2 TO)
+00:30.9,58-43,BOS,202738,isaiah,thomas,[BOS 43-58] Thomas Layup Shot: Made (13 PTS)
+00:05.9,58-43,WAS,203107,tomas,satoransky,[WAS] Satoransky 3pt Shot: Missed
+00:03.5,58-43,BOS,203482,kelly,olynyk,[BOS] Olynyk Rebound (Off:0 Def:4)
+00:00.9,58-43,BOS,203935,marcus,smart,[BOS] Smart Jump Shot: Missed
+00:00.0,58-43,BOS,,,,[BOS] Team Rebound
+End of 2nd Quarter
+Start of 3rd Quarter
+11:37,58-43,WAS,203078,bradley,beal,[WAS] Beal 3pt Shot: Missed
+11:36,58-43,BOS,203482,kelly,olynyk,[BOS] Olynyk Rebound (Off:0 Def:5)
+11:20,58-43,BOS,203482,kelly,olynyk,[BOS] Olynyk 3pt Shot: Missed
+11:19,58-43,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:3 Def:3)
+11:07,58-43,WAS,203078,bradley,beal,[WAS] Beal Jump Shot: Missed
+11:06,58-43,WAS,203078,bradley,beal,[WAS] Beal Rebound (Off:2 Def:0)
+11:02,60-43,WAS,203078,bradley,beal,[WAS 60-43] Beal Putback Layup Shot: Made (2 PTS)
+10:52,60-43,BOS,203935,marcus,smart,[BOS] Smart Jump Shot: Missed
+10:51,60-43,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:3 Def:6)
+10:45,62-43,WAS,202693,markieff,morris,[WAS 62-43] Morris Layup Shot: Made (5 PTS) Assist: Porter Jr. (3 AST)
+10:32,62-43,BOS,202738,isaiah,thomas,[BOS] Thomas Jump Shot: Missed
+10:31,62-43,WAS,203078,bradley,beal,[WAS] Beal Rebound (Off:2 Def:1)
+10:07,62-43,WAS,203078,bradley,beal,[WAS] Beal Jump Shot: Missed
+10:06,62-43,BOS,202738,isaiah,thomas,[BOS] Thomas Rebound (Off:1 Def:1)
+09:56,62-45,BOS,202340,avery,bradley,[BOS 45-62] Bradley Pullup Jump shot: Made (13 PTS) Assist: Olynyk (1 AST)
+09:36,62-45,BOS,203482,kelly,olynyk,[BOS] Olynyk Foul: Shooting (1 PF) (2 FTA) (J VanDuyne)
+09:36,63-45,WAS,203078,bradley,beal,[WAS 63-45] Beal Free Throw 1 of 2 (3 PTS)
+09:36,63-45,WAS,203078,bradley,beal,[WAS] Beal Free Throw 2 of 2 Missed
+09:34,63-45,WAS,,,,[WAS] Team Rebound
+09:27,63-45,WAS,202693,markieff,morris,[WAS] Morris Jump Shot: Missed
+09:26,63-45,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:4 Def:3)
+09:22,65-45,WAS,101162,marcin,gortat,[WAS 65-45] Gortat Tip Layup Shot: Made (9 PTS)
+09:11,65-45,BOS,203935,marcus,smart,[BOS] Smart Layup Shot: Missed Block: Gortat (2 BLK)
+09:08,65-45,BOS,101161,amir,johnson,[BOS] Johnson Rebound (Off:1 Def:1)
+09:04,65-47,BOS,101161,amir,johnson,[BOS 47-65] Johnson Layup Shot: Made (11 PTS)
+08:57,65-47,WAS,202693,markieff,morris,[WAS] Morris Jump Shot: Missed
+08:55,65-47,BOS,202738,isaiah,thomas,[BOS] Thomas Rebound (Off:1 Def:2)
+08:49,65-47,BOS,203482,kelly,olynyk,[BOS] Olynyk 3pt Shot: Missed
+08:47,65-47,WAS,203078,bradley,beal,[WAS] Beal Rebound (Off:2 Def:2)
+08:32,65-47,WAS,202322,john,wall,[WAS] Wall Jump Shot: Missed Block: Johnson (1 BLK)
+08:29,65-47,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:4 Def:6)
+08:26,67-47,WAS,203490,otto,porter_jr.,[WAS 67-47] Porter Jr. Layup Shot: Made (22 PTS)
+08:16,67-47,BOS,203935,marcus,smart,[BOS] Smart Turnover : Out of Bounds - Bad Pass Turnover (2 TO) Steal:Wall (1 ST)
+08:06,67-47,WAS,202322,john,wall,[WAS] Wall Turnover : No Turnover (3 TO) Steal:Smart (1 ST)
+08:06,67-47,BOS,202738,isaiah,thomas,[BOS] Thomas Turnover : Bad Pass (3 TO) Steal:Beal (1 ST)
+08:06,67-47,BOS,203935,marcus,smart,[BOS] Smart Foul: Personal (2 PF) (J VanDuyne)
+08:06,67-47,WAS,,,,[WAS] Team Timeout : Regular
+08:06,67-47,WAS,203078,bradley,beal,[WAS] Beal Substitution replaced by Thornton
+07:54,69-47,WAS,101162,marcin,gortat,[WAS 69-47] Gortat Cutting Finger Roll Layup Shot: Made (11 PTS) Assist: Wall (6 AST)
+07:37,69-50,BOS,203935,marcus,smart,[BOS 50-69] Smart 3pt Shot: Made (5 PTS) Assist: Thomas (6 AST)
+07:20,69-50,WAS,202693,markieff,morris,[WAS] Morris Jump Shot: Missed
+07:19,69-50,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:5 Def:6)
+07:19,69-50,BOS,202738,isaiah,thomas,[BOS] Thomas Foul: Shooting (2 PF) (2 FTA) (Z Zarba)
+07:19,70-50,WAS,203490,otto,porter_jr.,[WAS 70-50] Porter Jr. Free Throw 1 of 2 (23 PTS)
+07:19,71-50,WAS,203490,otto,porter_jr.,[WAS 71-50] Porter Jr. Free Throw 2 of 2 (24 PTS)
+07:06,71-50,BOS,202738,isaiah,thomas,[BOS] Thomas 3pt Shot: Missed
+07:05,71-50,WAS,202322,john,wall,[WAS] Wall Rebound (Off:0 Def:3)
+06:42,71-50,WAS,202322,john,wall,[WAS] Wall Turnover : Lost Ball (4 TO) Steal:Johnson (1 ST)
+06:36,71-52,BOS,202340,avery,bradley,[BOS 52-71] Bradley Layup Shot: Made (15 PTS) Assist: Thomas (7 AST)
+06:21,71-52,WAS,202693,markieff,morris,[WAS] Morris Jump Shot: Missed
+06:20,71-52,BOS,101161,amir,johnson,[BOS] Johnson Rebound (Off:1 Def:2)
+06:09,71-52,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Foul: Personal (1 PF) (J VanDuyne)
+06:04,71-52,WAS,202693,markieff,morris,Jump Ball Morris vs Olynyk (Smart gains possession)
+05:59,71-54,BOS,203935,marcus,smart,[BOS 54-71] Smart Driving Layup Shot: Made (7 PTS)
+05:59,71-54,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Foul: Shooting (2 PF) (1 FTA) (J VanDuyne)
+05:59,71-55,BOS,203935,marcus,smart,[BOS 55-71] Smart Free Throw 1 of 1 (8 PTS)
+05:43,71-55,WAS,201977,marcus,thornton,[WAS] Thornton Jump Shot: Missed
+05:43,71-55,WAS,,,,[WAS] Team Rebound
+05:34,71-55,WAS,201977,marcus,thornton,[WAS] Thornton Jump Shot: Missed
+05:33,71-55,BOS,203482,kelly,olynyk,[BOS] Olynyk Rebound (Off:0 Def:6)
+05:31,71-55,WAS,101162,marcin,gortat,Foul : Double Personal - Gortat (3 PF)& Johnson (3 PF) (J VanDuyne)
+05:31,71-55,BOS,202340,avery,bradley,[BOS] Bradley Substitution replaced by Rozier
+05:15,71-55,BOS,203935,marcus,smart,[BOS] Smart 3pt Shot: Missed
+05:15,71-55,WAS,202693,markieff,morris,[WAS] Morris Rebound (Off:0 Def:6)
+05:02,71-55,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Jump Shot: Missed
+05:02,71-55,BOS,202738,isaiah,thomas,[BOS] Thomas Rebound (Off:1 Def:3)
+04:57,71-55,BOS,202738,isaiah,thomas,[BOS] Thomas Jump Shot: Missed
+04:56,71-55,WAS,201977,marcus,thornton,[WAS] Thornton Rebound (Off:2 Def:1)
+04:52,73-55,WAS,202322,john,wall,[WAS 73-55] Wall Driving Layup Shot: Made (13 PTS)
+04:42,73-55,BOS,202738,isaiah,thomas,[BOS] Thomas Jump Shot: Missed
+04:42,73-55,WAS,,,,[WAS] Team Rebound
+04:30,75-55,WAS,202322,john,wall,[WAS 75-55] Wall Driving Layup Shot: Made (15 PTS)
+04:30,75-55,BOS,101161,amir,johnson,[BOS] Johnson Foul: Shooting (4 PF) (1 FTA) (J VanDuyne)
+04:30,75-55,BOS,101161,amir,johnson,[BOS] Johnson Substitution replaced by Zeller
+04:30,75-55,BOS,203482,kelly,olynyk,[BOS] Olynyk Substitution replaced by Brown
+04:30,76-55,WAS,202322,john,wall,[WAS 76-55] Wall Free Throw 1 of 1 (16 PTS)
+04:12,76-55,BOS,1626179,terry,rozier,[BOS] Rozier Turnover : Lost Ball (1 TO) Steal:Porter Jr. (2 ST)
+04:10,76-55,BOS,202738,isaiah,thomas,[BOS] Thomas Foul: Shooting (3 PF) (2 FTA) (B Forte)
+04:10,77-55,WAS,201977,marcus,thornton,[WAS 77-55] Thornton Free Throw 1 of 2 (10 PTS)
+04:10,77-55,BOS,202738,isaiah,thomas,[BOS] Thomas Substitution replaced by Bradley
+04:10,78-55,WAS,201977,marcus,thornton,[WAS 78-55] Thornton Free Throw 2 of 2 (11 PTS)
+03:56,78-57,BOS,203092,tyler,zeller,[BOS 57-78] Zeller Layup Shot: Made (6 PTS) Assist: Rozier (2 AST)
+03:34,80-57,WAS,202322,john,wall,[WAS 80-57] Wall Pullup Jump shot: Made (18 PTS)
+03:13,80-60,BOS,203935,marcus,smart,[BOS 60-80] Smart 3pt Shot: Made (11 PTS) Assist: Bradley (1 AST)
+02:54,80-60,WAS,202693,markieff,morris,[WAS] Morris Turnover : Lost Ball (3 TO) Steal:Brown (1 ST)
+02:53,80-60,WAS,201977,marcus,thornton,[WAS] Thornton Foul: Clear Path (2 PF) (2 FTA) (B Forte)
+02:53,80-60,BOS,,,,[BOS] Team Timeout : Regular
+02:53,80-60,WAS,202693,markieff,morris,[WAS] Morris Substitution replaced by Satoransky
+02:53,80-60,BOS,1626179,terry,rozier,[BOS] Rozier Free Throw Clear Path 1 of 2 Missed
+02:53,80-60,BOS,,,,[BOS] Team Rebound
+02:53,80-60,BOS,1626179,terry,rozier,[BOS] Rozier Free Throw Clear Path 2 of 2 Missed
+02:53,80-60,BOS,,,,[BOS] Team Rebound
+02:38,80-63,BOS,203935,marcus,smart,[BOS 63-80] Smart 3pt Shot: Made (14 PTS) Assist: Bradley (2 AST)
+02:19,80-63,BOS,202340,avery,bradley,[BOS] Bradley Foul: Personal (2 PF) (2 FTA) (B Forte)
+02:19,80-63,WAS,202322,john,wall,[WAS] Wall Free Throw 1 of 2 Missed
+02:19,80-63,WAS,,,,[WAS] Team Rebound
+02:19,81-63,WAS,202322,john,wall,[WAS 81-63] Wall Free Throw 2 of 2 (19 PTS)
+02:10,81-63,WAS,101162,marcin,gortat,[WAS] Gortat Foul: Personal (4 PF) (B Forte)
+02:10,81-63,WAS,202322,john,wall,[WAS] Wall Substitution replaced by Burke
+02:10,81-63,WAS,101162,marcin,gortat,[WAS] Gortat Substitution replaced by Smith
+02:02,81-65,BOS,203935,marcus,smart,[BOS 65-81] Smart Fadeaway Jump Shot: Made (16 PTS)
+01:44,83-65,WAS,203107,tomas,satoransky,[WAS 83-65] Satoransky Floating Jump shot: Made (4 PTS) Assist: Porter Jr. (4 AST)
+01:21,83-68,BOS,203935,marcus,smart,[BOS 68-83] Smart 3pt Shot: Made (19 PTS) Assist: Rozier (3 AST)
+01:07,83-68,BOS,203092,tyler,zeller,[BOS] Zeller Foul: Defense 3 Second (0 PF) (B Forte)
+01:07,84-68,WAS,201977,marcus,thornton,[WAS 84-68] Thornton Free Throw Technical (12 PTS)
+01:00,86-68,WAS,203490,otto,porter_jr.,[WAS 86-68] Porter Jr. Fadeaway Jump Shot: Made (26 PTS) Assist: Burke (1 AST)
+00:44.5,86-68,WAS,201977,marcus,thornton,[WAS] Thornton Foul: Shooting (3 PF) (2 FTA) (J VanDuyne)
+00:44.5,86-68,BOS,203935,marcus,smart,[BOS] Smart Free Throw 1 of 2 Missed
+00:44.5,86-68,BOS,,,,[BOS] Team Rebound
+00:44.5,86-68,BOS,203092,tyler,zeller,[BOS] Zeller Substitution replaced by Johnson
+00:44.5,86-69,BOS,203935,marcus,smart,[BOS 69-86] Smart Free Throw 2 of 2 (20 PTS)
+00:33.1,86-69,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. 3pt Shot: Missed
+00:32.2,86-69,BOS,1626179,terry,rozier,[BOS] Rozier Rebound (Off:0 Def:1)
+00:24.9,86-69,BOS,1627759,jaylen,brown,[BOS] Brown Layup Shot: Missed Block: Porter Jr. (3 BLK)
+00:23.2,86-69,WAS,201977,marcus,thornton,[WAS] Thornton Rebound (Off:2 Def:2)
+00:01.4,89-69,WAS,203504,trey,burke,[WAS 89-69] Burke 3pt Shot: Made (7 PTS) Assist: Thornton (3 AST)
+00:00.9,89-69,BOS,203935,marcus,smart,[BOS] Smart 3pt Shot: Missed
+00:00.0,89-69,BOS,,,,[BOS] Team Rebound
+End of 3rd Quarter
+Start of 4th Quarter
+11:43,89-69,BOS,1626179,terry,rozier,[BOS] Rozier Jump Shot: Missed
+11:42,89-69,WAS,201160,jason,smith,[WAS] Smith Rebound (Off:0 Def:2)
+11:21,92-69,WAS,203504,trey,burke,[WAS 92-69] Burke 3pt Shot: Made (10 PTS)
+11:07,92-69,WAS,203504,trey,burke,[WAS] Burke Foul: Shooting (1 PF) (2 FTA) (Z Zarba)
+11:07,92-70,BOS,202738,isaiah,thomas,[BOS 70-92] Thomas Free Throw 1 of 2 (14 PTS)
+11:07,92-70,BOS,1626179,terry,rozier,[BOS] Rozier Substitution replaced by Green
+11:07,92-71,BOS,202738,isaiah,thomas,[BOS 71-92] Thomas Free Throw 2 of 2 (15 PTS)
+10:50,94-71,WAS,203490,otto,porter_jr.,[WAS 94-71] Porter Jr. Fadeaway Jump Shot: Made (28 PTS) Assist: Thornton (4 AST)
+10:41,94-71,WAS,201160,jason,smith,[WAS] Smith Foul: Personal (2 PF) (B Forte)
+10:30,94-71,BOS,202738,isaiah,thomas,[BOS] Thomas 3pt Shot: Missed
+10:29,94-71,BOS,202738,isaiah,thomas,[BOS] Thomas Rebound (Off:2 Def:3)
+10:21,94-74,BOS,202340,avery,bradley,[BOS 74-94] Bradley 3pt Shot: Made (18 PTS) Assist: Thomas (8 AST)
+09:57,96-74,WAS,203490,otto,porter_jr.,[WAS 96-74] Porter Jr. Fadeaway Jump Shot: Made (30 PTS) Assist: Smith (2 AST)
+09:40,96-74,BOS,101123,gerald,green,[BOS] Green 3pt Shot: Missed
+09:39,96-74,WAS,201160,jason,smith,[WAS] Smith Rebound (Off:0 Def:3)
+09:19,99-74,WAS,201977,marcus,thornton,[WAS 99-74] Thornton 3pt Shot: Made (15 PTS)
+09:08,99-77,BOS,201973,jonas,jerebko,[BOS 77-99] Jerebko 3pt Shot: Made (3 PTS) Assist: Thomas (9 AST)
+08:50,99-77,BOS,202738,isaiah,thomas,[BOS] Thomas Foul: Shooting (4 PF) (2 FTA) (J VanDuyne)
+Official Timeout
+08:50,99-77,BOS,101161,amir,johnson,[BOS] Johnson Substitution replaced by Olynyk
+08:50,99-77,WAS,203504,trey,burke,[WAS] Burke Free Throw 1 of 2 Missed
+08:50,99-77,WAS,,,,[WAS] Team Rebound
+08:50,100-77,WAS,203504,trey,burke,[WAS 100-77] Burke Free Throw 2 of 2 (11 PTS)
+08:39,100-80,BOS,202340,avery,bradley,[BOS 80-100] Bradley 3pt Shot: Made (21 PTS) Assist: Thomas (10 AST)
+08:19,102-80,WAS,203504,trey,burke,[WAS 102-80] Burke Step Back Jump shot: Made (13 PTS)
+08:08,102-80,WAS,203504,trey,burke,[WAS] Burke Foul: Personal (2 PF) (B Forte)
+08:00,102-80,WAS,203504,trey,burke,[WAS] Burke Foul: Shooting (3 PF) (2 FTA) (J VanDuyne)
+08:00,102-81,BOS,202738,isaiah,thomas,[BOS 81-102] Thomas Free Throw 1 of 2 (16 PTS)
+08:00,102-81,WAS,203504,trey,burke,[WAS] Burke Substitution replaced by Wall
+08:00,102-81,BOS,201973,jonas,jerebko,[BOS] Jerebko Substitution replaced by Smart
+08:00,102-82,BOS,202738,isaiah,thomas,[BOS 82-102] Thomas Free Throw 2 of 2 (17 PTS)
+07:37,102-82,WAS,201160,jason,smith,[WAS] Smith Jump Shot: Missed
+07:36,102-82,BOS,202340,avery,bradley,[BOS] Bradley Rebound (Off:1 Def:2)
+07:20,102-82,WAS,203107,tomas,satoransky,[WAS] Satoransky Foul: Shooting Block (2 PF) (2 FTA) (B Forte)
+07:20,102-83,BOS,202738,isaiah,thomas,[BOS 83-102] Thomas Free Throw 1 of 2 (18 PTS)
+07:20,102-84,BOS,202738,isaiah,thomas,[BOS 84-102] Thomas Free Throw 2 of 2 (19 PTS)
+06:57,102-84,WAS,202322,john,wall,[WAS] Wall Jump Shot: Missed
+06:56,102-84,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:6 Def:6)
+06:54,104-84,WAS,203490,otto,porter_jr.,[WAS 104-84] Porter Jr. Putback Layup Shot: Made (32 PTS)
+06:47,104-86,BOS,202738,isaiah,thomas,[BOS 86-104] Thomas Running Layup Shot: Made (21 PTS)
+06:47,104-86,WAS,,,,[WAS] Team Timeout : Regular
+06:47,104-86,WAS,201160,jason,smith,[WAS] Smith Substitution replaced by Gortat
+06:34,106-86,WAS,101162,marcin,gortat,[WAS 106-86] Gortat Driving Hook Shot: Made (13 PTS) Assist: Wall (7 AST)
+06:20,106-86,BOS,202340,avery,bradley,[BOS] Bradley 3pt Shot: Missed
+06:19,106-86,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:6 Def:7)
+05:58,106-86,WAS,202322,john,wall,[WAS] Wall Jump Shot: Missed
+05:57,106-86,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:5 Def:3)
+05:44,106-86,WAS,202322,john,wall,[WAS] Wall Turnover : Lost Ball (5 TO) Steal:Bradley (2 ST)
+05:40,106-86,BOS,101123,gerald,green,[BOS] Green Turnover : Lost Ball (1 TO) Steal:Porter Jr. (3 ST)
+05:28,106-86,WAS,203107,tomas,satoransky,[WAS] Satoransky Layup Shot: Missed
+05:27,106-86,BOS,203935,marcus,smart,[BOS] Smart Rebound (Off:0 Def:3)
+05:24,106-86,WAS,202322,john,wall,[WAS] Wall Foul: Flagrant Type 2 (3 PF) (2 FTA) (J VanDuyne)
+05:24,106-86,BOS,203935,marcus,smart,[BOS] Smart Technical (Z Zarba)
+05:24,106-86,WAS,202322,john,wall,[WAS] Wall Ejection:First Flagrant Type 2
+05:24,106-86,WAS,202322,john,wall,[WAS] Wall Substitution replaced by Burke
+05:24,107-86,WAS,201977,marcus,thornton,[WAS 107-86] Thornton Free Throw Technical (16 PTS)
+05:24,107-86,BOS,101123,gerald,green,[BOS] Green Substitution replaced by Brown
+05:24,107-86,BOS,203935,marcus,smart,[BOS] Smart Free Throw Flagrant 1 of 2 Missed
+05:24,107-86,BOS,,,,[BOS] Team Rebound
+05:24,107-86,BOS,203935,marcus,smart,[BOS] Smart Free Throw Flagrant 2 of 2 Missed
+05:24,107-86,BOS,,,,[BOS] Team Rebound
+05:11,107-86,BOS,202738,isaiah,thomas,[BOS] Thomas Jump Shot: Missed
+05:10,107-86,WAS,101162,marcin,gortat,[WAS] Gortat Rebound (Off:5 Def:4)
+05:02,107-86,WAS,,,,[WAS] Team Turnover : 8 Second Violation
+04:51,107-86,BOS,202738,isaiah,thomas,[BOS] Thomas Layup Shot: Missed
+04:50,107-86,BOS,202738,isaiah,thomas,[BOS] Thomas Rebound (Off:3 Def:3)
+04:48,107-88,BOS,202738,isaiah,thomas,[BOS 88-107] Thomas Putback Layup Shot: Made (23 PTS)
+04:25,109-88,WAS,203504,trey,burke,[WAS 109-88] Burke Floating Jump shot: Made (15 PTS)
+04:09,109-88,BOS,203935,marcus,smart,[BOS] Smart 3pt Shot: Missed
+04:08,109-88,WAS,203107,tomas,satoransky,[WAS] Satoransky Rebound (Off:2 Def:2)
+03:55,109-88,WAS,201977,marcus,thornton,[WAS] Thornton 3pt Shot: Missed
+03:54,109-88,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Rebound (Off:7 Def:7)
+03:45,109-88,BOS,202340,avery,bradley,[BOS] Bradley Foul: Personal (3 PF) (B Forte)
+03:45,109-88,BOS,202738,isaiah,thomas,[BOS] Thomas Substitution replaced by Jackson
+03:45,109-88,BOS,202340,avery,bradley,[BOS] Bradley Substitution replaced by Young
+03:35,111-88,WAS,203490,otto,porter_jr.,[WAS 111-88] Porter Jr. Jump Shot: Made (34 PTS) Assist: Gortat (2 AST)
+03:17,111-90,BOS,1627759,jaylen,brown,[BOS 90-111] Brown Driving Finger Roll Layup Shot: Made (2 PTS) Assist: Young (1 AST)
+02:59,111-90,BOS,203935,marcus,smart,[BOS] Smart Foul: Personal (3 PF) (Z Zarba)
+02:59,111-90,BOS,,,,[BOS] Team Timeout : Regular
+02:59,111-90,BOS,203935,marcus,smart,[BOS] Smart Substitution replaced by Mickey
+02:59,111-90,BOS,203482,kelly,olynyk,[BOS] Olynyk Substitution replaced by Rozier
+02:59,111-90,WAS,203490,otto,porter_jr.,[WAS] Porter Jr. Substitution replaced by McClellan
+02:59,111-90,WAS,201977,marcus,thornton,[WAS] Thornton Substitution replaced by Oubre Jr.
+02:59,111-90,WAS,101162,marcin,gortat,[WAS] Gortat Substitution replaced by Ochefu
+02:44,114-90,WAS,203504,trey,burke,[WAS 114-90] Burke 3pt Shot: Made (18 PTS) Assist: McClellan (1 AST)
+02:29,114-90,BOS,203923,james,young,[BOS] Young Jump Shot: Missed
+02:28,114-90,WAS,1627849,daniel,ochefu,[WAS] Ochefu Rebound (Off:0 Def:1)
+02:28,114-90,BOS,203923,james,young,[BOS] Young Foul: Personal (1 PF) (J VanDuyne)
+02:19,114-90,WAS,203107,tomas,satoransky,[WAS] Satoransky Jump Shot: Missed
+02:18,114-90,BOS,1627759,jaylen,brown,[BOS] Brown Rebound (Off:0 Def:2)
+02:12,114-90,WAS,1627849,daniel,ochefu,[WAS] Ochefu Foul: Shooting (1 PF) (2 FTA) (Z Zarba)
+02:12,114-91,BOS,1627759,jaylen,brown,[BOS 91-114] Brown Free Throw 1 of 2 (3 PTS)
+02:12,114-91,BOS,1627759,jaylen,brown,[BOS] Brown Free Throw 2 of 2 Missed
+02:11,114-91,WAS,1626162,kelly,oubre_jr.,[WAS] Oubre Jr. Rebound (Off:0 Def:1)
+01:52,116-91,WAS,1627849,daniel,ochefu,[WAS 116-91] Ochefu Finger Roll Layup Shot: Made (2 PTS) Assist: Satoransky (4 AST)
+01:31,116-91,BOS,203923,james,young,[BOS] Young Jump Shot: Missed
+01:30,116-91,WAS,1627849,daniel,ochefu,[WAS] Ochefu Rebound (Off:0 Def:2)
+01:24,116-91,WAS,1627849,daniel,ochefu,[WAS] Ochefu Foul: Offensive (2 PF) (B Forte)
+01:24,116-91,WAS,1627849,daniel,ochefu,[WAS] Ochefu Turnover : Foul (1 TO)
+01:14,116-91,WAS,1626162,kelly,oubre_jr.,[WAS] Oubre Jr. Foul: Personal (1 PF) (2 FTA) (Z Zarba)
+01:14,116-91,BOS,1627743,demetrius,jackson,[BOS] Jackson Free Throw 1 of 2 Missed
+01:14,116-91,BOS,,,,[BOS] Team Rebound
+01:14,116-91,BOS,1627743,demetrius,jackson,[BOS] Jackson Free Throw 2 of 2 Missed
+01:13,116-91,WAS,1626162,kelly,oubre_jr.,[WAS] Oubre Jr. Rebound (Off:0 Def:2)
+00:56.3,118-91,WAS,1627815,sheldon,mcclellan,[WAS 118-91] McClellan Jump Shot: Made (2 PTS) Assist: Burke (2 AST)
+00:44.6,118-93,BOS,1627743,demetrius,jackson,[BOS 93-118] Jackson Pullup Jump shot: Made (2 PTS)
+00:23.9,118-93,WAS,1627815,sheldon,mcclellan,[WAS] McClellan 3pt Shot: Missed
+00:23.3,118-93,BOS,1626175,jordan,mickey,[BOS] Mickey Rebound (Off:1 Def:1)
+End of 4th Quarter
+***End of scrape***

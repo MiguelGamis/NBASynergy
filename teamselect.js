@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 
+ function processAjaxData(response, urlPath){
+     document.getElementById("content").innerHTML = response.html;
+     document.title = response.pageTitle;
+     window.history.pushState({"html":response.html,"pageTitle":response.pageTitle},"", urlPath);
+ }
+
 function onTeamChange() {
     var teamselection = document.getElementById("teamselect");
     var teamabbrev = teamselection.value;
@@ -109,31 +115,19 @@ function onOtherTeamChange() {
     }
 }
 
-function synergize(){
-    var test = $('.checkboxotherplayers:checkbox:checked');
-    
-    var playerselection = document.getElementById("playerselect");
-    var playerID = playerselection.value;
-    
-    if (test.length === 0 || playerID === '') {
-        
-    } else {
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("customdata").innerHTML = this.responseText;
+function script(playerID = null)
+{
+    if($('#teamselect').val())
+    {
+        $.ajax({url: "getdata.php?action=getplayers&team="+$('#teamselect').val(), success: function(result){
+            var players = JSON.parse(result);
+            for (i=0; i<players.length; i++) {
+                var option = document.createElement("option");
+                option.text = players[i].firstname + ' ' + players[i].lastname;
+                option.value = players[i].playerID;
+                $("#playerselect").append(option);
             }
-        };
-        var url = "getdata.php?action=getplayerdata&playerID="+playerID;
-        url += "&otherplayerID1=" + test[0].value;
-        alert(url);
-        xmlhttp.open("GET",url,true);
-        xmlhttp.send();
+            $("#playerselect").val(playerID);
+        }});
     }
 }

@@ -1,4 +1,73 @@
-.team-logo {
-	height: 30px;
-	width: 30px;
+.team-pick {
+    height: 50px;
+    width: 50px;
+}
+
+#matchup-picker-grid li{
+    display: block;
+    float: left;
+}
+#synergyboard > div{
+    float: left;
+    width: 100%;
+}
+.stats{
+    max-width: 75%;
+}
+img{
+    width: 100%;
+}
+
+.teams li{
+    list-style: none;
+}
+
+#gantt-display {
+    text-align: center;
+}
+#gantt-players {
+    padding:1px;
+}
+#inner {
+    overflow: hidden;
+    width: 1800px;
+}
+.child {
+    background:#ccc;
+    height:20px;
+    margin:1px;
+}
+
+
+
+
+#wrapper {
+    margin: 0 auto 0 auto;
+    padding: 5px 0 0 0;
+    width: 80%;
+}
+#page {
+    margin: 20px 0 20px 0;
+    padding: 0;
+    width: 80%;
+}
+#menu ul {
+    padding: 0 25px 0 25px;
+    list-style: none;
+}
+
+#menu ul li {
+    padding: 10px 15px 10px 15px;
+    display: inline;
+}
+
+#menu ul li.current_page_item {
+    background: #56AFD8 url(images/img04.jpg) top left no-repeat;
+    border-top: solid 1px #82D9ED;
+    border-bottom: solid 1px #24627C;
+    border-radius: 5px;
+}
+
+#menu ul li.last {
+	padding-right: 0;
 }

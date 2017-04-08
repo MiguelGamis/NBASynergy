@@ -1,0 +1,1 @@
+SELECT COUNT(*) FROM `shot` WHERE type <> 'Free Throw' AND shotID NOT IN (SELECT shotID FROM shotdetails WHERE X IS NOT NULL AND Y IS NOT NULL)

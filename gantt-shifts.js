@@ -4,6 +4,20 @@
  * and open the template in the editor.
  */
 
+function gameChange(){
+    var gameID = $('#gameSelect').val();
+    if(gameID)
+    {
+        $.ajax({url:'displaydata.php?gameID='+gameID, success: function(result){
+            var shifts = JSON.parse(result);
+            jsonawayshifts = shifts["away"];
+            jsonhomeshifts = shifts['home'];
+            renderGanttShifts(jsonawayshifts, 'away-gantt');
+            renderGanttShifts(jsonhomeshifts, 'home-gantt');
+        }});
+    }
+}
+
 function renderGanttShifts(shifts, divID)
 {   
     var playersdiv = document.createElement('div');
@@ -13,7 +27,7 @@ function renderGanttShifts(shifts, divID)
     shiftsdiv.setAttribute("width", length);
     height = shifts.length * 21;
     shiftsdiv.setAttribute("height", height);
-    shiftsdiv.setAttribute("style", "border:1px solid #000000; float: left");
+    shiftsdiv.setAttribute("style", "border:1px solid #000000;");
     qlength = length/4;
     var ctx = shiftsdiv.getContext('2d');
     ctx.beginPath();
@@ -32,7 +46,7 @@ function renderGanttShifts(shifts, divID)
             var newDiv = document.createElement("div"); 
             var t = document.createTextNode(playershift.player.firstname + ' ' + playershift.player.lastname);
             newDiv.appendChild(t);
-            newDiv.setAttribute("class", "child");
+            //newDiv.setAttribute("class", "child");
             playersdiv.appendChild(newDiv);
             
             playershift.shifts.forEach(
@@ -47,6 +61,9 @@ function renderGanttShifts(shifts, divID)
     )
     
     var basediv = document.getElementById(divID);
+    while (basediv.hasChildNodes()) {
+        basediv.removeChild(basediv.lastChild);
+    }
     basediv.appendChild(playersdiv);
     basediv.appendChild(shiftsdiv);
 }

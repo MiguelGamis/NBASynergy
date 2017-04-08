@@ -5,31 +5,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-    require_once("queries.php");
+require_once("inc/common.php");
+require_once("queries.php");
 
-    $awayshifts = DataManager::getShiftsFromGameById(21600007, false);
-    $jsonawayshifts = json_encode($awayshifts);
-    
-    $homeshifts = DataManager::getShiftsFromGameById(21600007, true);
-    $jsonhomeshifts = json_encode($homeshifts);
-    
-    $awayPlayers = DataManager::getPlayersFromTeam('NYK');
+if(isset($_GET['gameID']))
+{
+    $gameID = $_GET['gameID'];
+    $awayshifts = DataManager::getShiftsFromGameById($gameID, false);
 
-    $homePlayers = DataManager::getPlayersFromTeam('CLE');
+    $homeshifts = DataManager::getShiftsFromGameById($gameID, true);
     
-    $jsonawayPlayers = json_encode($awayPlayers);
-    
-    $jsonhomePlayers = json_encode($homePlayers);
-    
-    $graph = "<script>";
+    $jsonpackage = array('home'=>$homeshifts, 'away'=>$awayshifts);
+    echo json_encode($jsonpackage);
+    return;
+}
 
-    $graph .= "
-        window.onload = addOptions($jsonawayPlayers);
-        window.onload = addOtherOptions($jsonhomePlayers);
-        window.onload = renderGanttShifts($jsonawayshifts, 'away-gantt');
-        window.onload = renderGanttShifts($jsonhomeshifts, 'home-gantt');
-    ";
-        
-    $graph .= "</script>";
+$content .= "<select id='gameSelect' onChange='gameChange()'>";
+$games = DataManager::getGamesInDateOrder();
+foreach($games as $dategames)
+{
+    foreach($dategames as $game)
+    {
+        $content .= "<option value=$game->gameID>$game->away @ $game->home</option>";
+    }
+}
+$content .= "</select>";
 
-    echo $graph;
+$content .= "<div id='away-gantt'></div>
+        <div id='home-gantt'></div>";
+
+$content .= "<script src='gantt-shifts.js'></script>";
+
+render_page();

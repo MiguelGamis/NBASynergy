@@ -4,8 +4,17 @@
     <meta name="keywords" content="" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="style/style.css">
-    <script src="jquery-3.1.1.min.js"></script>
-    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />-->
+    <script src="coreui/jquery.min.js"></script>
+    <script src="coreui/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/jquery-ui.css" />
+    <script src="coreui/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style/bootstrap.min.css">
     <title><?php /*get_page_title();*/ ?> </title>
 </head>
 <body>
@@ -20,7 +29,6 @@
     </div>
     <div id="page">
         <div id="content">
-        <!--<table width='100%'><tr><td align='center'>Contact <a href='mailto:cwthornt@cs.ubc.ca'>Chris</a> if you are having any Mechanical TA issues, not the course instructor</td></tr></table>-->
             <div class="box">
                 <?php get_page_content(); ?>
             </div>

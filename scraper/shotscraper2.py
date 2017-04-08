@@ -168,4 +168,4 @@ def scrapeShots(gameIDs):
 
         driver2.quit()
                     
-scrapeShots(range(21600080, 21600100))
+scrapeShots(range(21600150, 21600164))

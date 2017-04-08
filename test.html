@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+      <style>
+          canvas
+      </style>
+  </head>
+  <body>
+      <div>
+        <div></div>
+        <canvas id="testcanvas" width="200" height="200"></canvas>
+      </div>
+    <script>
+        var jsonshots = {
+            "Turnaround Jump Shot":[{"time":"254000","type":"Turnaround Jump Shot","made":0}],
+            "Jump Shot":[{"time":"985000","type":"Jump Shot","made":1},{"time":"1567000","type":"Jump Shot","made":0},{"time":"2547000","type":"Jump Shot","made":1}],
+            "Driving Dunk Shot":[{"time":"1023000","type":"Driving Dunk Shot","made":1}],
+            "Tip Layup Shot":[{"time":"1053000","type":"Tip Layup Shot","made":0},{"time":"1770000","type":"Tip Layup Shot","made":0},{"time":"2623000","type":"Tip Layup Shot","made":0},{"time":"2703000","type":"Tip Layup Shot","made":1}],
+            "Turnaround Fadeaway shot":[{"time":"1088000","type":"Turnaround Fadeaway shot","made":1}],
+            "Driving Finger Roll Layup Shot":[{"time":"1114000","type":"Driving Finger Roll Layup Shot","made":1}],
+            "Driving Layup Shot":[{"time":"1536000","type":"Driving Layup Shot","made":1},{"time":"2765000","type":"Driving Layup Shot","made":1}],
+            "Dunk Shot":[{"time":"2664000","type":"Dunk Shot","made":1}]
+        };
+        var jsonshots2 = {"3pt Shot":[{"time":"88000","type":"3pt Shot","made":1},{"time":"288000","type":"3pt Shot","made":0},{"time":"561000","type":"3pt Shot","made":1},{"time":"579000","type":"3pt Shot","made":0},{"time":"176000","type":"3pt Shot","made":0},{"time":"202000","type":"3pt Shot","made":1},{"time":"235000","type":"3pt Shot","made":0},{"time":"1897000","type":"3pt Shot","made":1},{"time":"2541000","type":"3pt Shot","made":0},{"time":"2580000","type":"3pt Shot","made":1},{"time":"2648000","type":"3pt Shot","made":0}],"Pullup Jump shot":[{"time":"231000","type":"Pullup Jump shot","made":1},{"time":"407000","type":"Pullup Jump shot","made":0}],"Layup Shot":[{"time":"282000","type":"Layup Shot","made":0}],"Driving Layup Shot":[{"time":"348000","type":"Driving Layup Shot","made":0},{"time":"1983000","type":"Driving Layup Shot","made":0},{"time":"2606000","type":"Driving Layup Shot","made":1},{"time":"2656000","type":"Driving Layup Shot","made":1}],"Driving Floating Jump Shot":[{"time":"449000","type":"Driving Floating Jump Shot","made":1}],"Running Layup Shot":[{"time":"582000","type":"Running Layup Shot","made":1},{"time":"1429800","type":"Running Layup Shot","made":1}],"Cutting Layup Shot":[{"time":"1366000","type":"Cutting Layup Shot","made":1}],"Running Pull-Up Jump Shot":[{"time":"1793000","type":"Running Pull-Up Jump Shot","made":1}]};
+
+        var makecolors = ["#ff5050","#ffb366","#ffff66","#66ff66","#85e0e0","#000000"];
+        var misscolors = ["#ff9999","#ffe5cc","#ffffcc","#ccffcc","#d6f5f5","#ffffff"];
+
+        function plotData(data, canvasid) {
+            var canvas;
+            var ctx;
+            var lastend = 0;
+            var myTotal = 0;
+            
+            var types = ['dunk', 'layup', 'jump shot', 'fadeaway', '3pt', 'other'];
+            var typemakes = Array.apply(null, Array(6)).map(Number.prototype.valueOf,0);
+            var typecounts = Array.apply(null, Array(6)).map(Number.prototype.valueOf,0);
+            
+            //run through shots
+            for (var key in data) {
+                if (data.hasOwnProperty(key)) {
+                    var shottypeshots = data[key];
+                    for(var i = 0; i < shottypeshots.length; i++)
+                    {
+                        var shot = shottypeshots[i];
+                        for(var t = 0; t < types.length - 1; t++)
+                        {
+                            if(shot.type.toLowerCase().indexOf(types[t]) >= 0)
+                            {
+                                typecounts[t]++;
+                                if(shot.made)
+                                {
+                                    typemakes[t]++;
+                                }
+                                myTotal++;
+                            }
+                        }
+                    }
+                }
+            }
+
+            canvas = document.getElementById(canvasid);
+            var x = (canvas.width)/2;
+            var y = (canvas.height)/2;
+            var radius = Math.min(x,y) * 0.9;
+            ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, x, y);
+            
+            for (var i = 0; i < typecounts.length; i++) {
+                ctx.beginPath();
+                ctx.moveTo(x,y);
+                ctx.fillStyle = misscolors[i];
+                ctx.arc(x,y,radius,lastend,lastend+
+                  (Math.PI*2*(typecounts[i]/myTotal)),false);
+                ctx.lineTo(x,y);
+                ctx.fill();
+                
+                ctx.beginPath();
+                ctx.moveTo(x,y);
+                ctx.fillStyle = makecolors[i];
+                ctx.arc(x,y,(typemakes[i]/typecounts[i])*radius,lastend,lastend+
+                  (Math.PI*2*(typecounts[i]/myTotal)),false);
+                ctx.lineTo(x,y);
+                ctx.fill();
+                lastend += Math.PI*2*(typecounts[i]/myTotal);
+            }
+        }
+
+        plotData(jsonshots2, "testcanvas");
+    </script>
+  </body>
+</html>      

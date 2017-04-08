@@ -18,9 +18,9 @@ function get_page_menu()
     $menu = "<nav>
                 <a href='#' id='menu-icon'></a>
                 <ul>
-                    <li><a href='index.html' class='current'>Home</a></li>
-                    <li><a href='#'>Player Statistics</a></li>
-                    <li><a href='#'>Trends</a></li>
+                    <li><a href='.' class='current'>Home</a></li>
+                    <li><a href='synergystats.php'>Synergy Statistics</a></li>
+                    <li><a href='trends.php'>Trends</a></li>
                     <li><a href='#'>Contact</a></li>
                 </ul>
             </nav>";

@@ -28,11 +28,17 @@ CREATE TABLE IF NOT EXISTS `shot` (
   `lineID` int(11) NOT NULL,
   `time` int(11) NOT NULL,
   `home` tinyint(1) NOT NULL,
-  `distance` int(11),
-  `shotclock` int(11),
   PRIMARY KEY (`shotID`),
   UNIQUE KEY `gameline` (`gameID`, `lineID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `shotdetails` (
+  `shotID` int(11) NOT NULL,
+  `X` int(11),
+  `Y` int(11),
+  `shotclock` int(11),
+  PRIMARY KEY (`shotID`)
+)
 
 CREATE TABLE IF NOT EXISTS `freethrow` (
   `shotID` int(11) NOT NULL,
@@ -159,6 +165,12 @@ ALTER TABLE `freethrow`
 	ADD CONSTRAINT `freethrow_ibfk_1` FOREIGN KEY (`shotID`) REFERENCES `shot` (`shotID`) ON DELETE CASCADE;
 /*ALTER TABLE `freethrow` 
 	ADD CONSTRAINT `freethrow_ibfk_2` FOREIGN KEY (`foulID`) REFERENCES `foul` (`foulID`) ON DELETE CASCADE;*/
+	
+--
+-- Constraints for table `shotdetails`
+--
+ALTER TABLE `shotdetails` 
+	ADD CONSTRAINT `shotdetails_ibfk_1` FOREIGN KEY (`shotID`) REFERENCES `shot` (`shotID`) ON DELETE CASCADE;
 	
 --
 -- Constraints for table `assist`
